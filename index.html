@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Five mobile design directions for the Atulyash homepage redesign.">
+  <link rel="icon" href="data:,">
+  <title>Atulyash Website Redesign | Design Review</title>
+  <style>
+    :root {
+      color-scheme: light;
+      color: #203d25;
+      background: #faf7ec;
+      font: 16px/1.5 system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    main { max-width: 1120px; margin: auto; padding: 24px clamp(16px, 5vw, 64px) 52px; }
+    header { padding-bottom: 27px; border-bottom: 1px solid #d5d9c1; }
+    .brand { display: block; width: 139px; height: auto; margin-bottom: 27px; }
+    h1, h2 { margin: 0; font-family: Georgia, serif; letter-spacing: -.035em; line-height: 1.05; }
+    h1 { font-size: clamp(2.65rem, 6.5vw, 5.25rem); text-wrap: balance; }
+    header p { margin: 13px 0 0; max-width: 43ch; color: #465844; }
+    ul { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); list-style: none; margin: 25px 0 0; padding: 0; }
+    .design {
+      display: grid;
+      height: 100%;
+      grid-template-rows: auto 1fr auto;
+      border: 1px solid #d5d9c1;
+      border-radius: 19px;
+      overflow: hidden;
+      background: #fffdf6;
+      color: inherit;
+      text-decoration: none;
+    }
+    .design:focus-visible { outline: 3px solid #32691d; outline-offset: 4px; }
+    .design:hover .action { text-decoration: underline; text-underline-offset: 4px; }
+    .summary { padding: 18px 17px 15px; }
+    h2 { font-size: 1.68rem; }
+    .summary p { margin: 8px 0 0; color: #465844; font-size: .95rem; }
+    .preview { display: grid; place-items: end center; background: var(--mat); padding: 16px 14px 0; }
+    .preview img { display: block; width: min(100%, 225px); height: auto; aspect-ratio: 1/2; object-fit: cover; border-radius: 11px 11px 0 0; }
+    .action { display: flex; align-items: center; justify-content: space-between; min-height: 51px; padding: 9px 17px; font-weight: 700; border-top: 1px solid #d5d9c1; }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <img class="brand" src="opening/shared/wordmark.png" alt="Atulyash">
+      <h1>Homepage design review</h1>
+      <p>Five directions for the Atulyash redesign. Open any design to see the full page.</p>
+    </header>
+    <ul>
+      <li style="--mat:#e8edda">
+        <a class="design" href="opening/16-pure-and-simple/">
+          <div class="summary"><h2>Field to Home</h2><p>A white canvas with harvest green and a clear path from wheat to delivery.</p></div>
+          <div class="preview"><img src="previews/16-pure-and-simple-390.webp" srcset="previews/16-pure-and-simple-390.webp 390w, previews/16-pure-and-simple-780.webp 780w" sizes="225px" alt="" width="390" height="780"></div>
+          <span class="action">Open design <span aria-hidden="true">↗</span></span>
+        </a>
+      </li>
+      <li style="--mat:#ffe798">
+        <a class="design" href="opening/14-golden-kitchen/">
+          <div class="summary"><h2>Golden Kitchen</h2><p>Bright yellow, deep green and close-up photography from the kitchen.</p></div>
+          <div class="preview"><img src="previews/14-golden-kitchen-390.webp" srcset="previews/14-golden-kitchen-390.webp 390w, previews/14-golden-kitchen-780.webp 780w" sizes="225px" alt="" width="390" height="780"></div>
+          <span class="action">Open design <span aria-hidden="true">↗</span></span>
+        </a>
+      </li>
+      <li style="--mat:#b9ceb4">
+        <a class="design" href="opening/9-glass-field/">
+          <div class="summary"><h2>Glass Field</h2><p>Young green wheat and translucent panels frame the milling story.</p></div>
+          <div class="preview"><img src="previews/9-glass-field-390.webp" srcset="previews/9-glass-field-390.webp 390w, previews/9-glass-field-780.webp 780w" sizes="225px" alt="" width="390" height="780" loading="lazy"></div>
+          <span class="action">Open design <span aria-hidden="true">↗</span></span>
+        </a>
+      </li>
+      <li style="--mat:#e5c9a2">
+        <a class="design" href="opening/10-golden-glass/">
+          <div class="summary"><h2>Golden Glass</h2><p>Amber panels set against a field of ripe wheat.</p></div>
+          <div class="preview"><img src="previews/10-golden-glass-390.webp" srcset="previews/10-golden-glass-390.webp 390w, previews/10-golden-glass-780.webp 780w" sizes="225px" alt="" width="390" height="780" loading="lazy"></div>
+          <span class="action">Open design <span aria-hidden="true">↗</span></span>
+        </a>
+      </li>
+      <li style="--mat:#daedaf">
+        <a class="design" href="opening/11-fresh-bento/">
+          <div class="summary"><h2>Fresh Bento</h2><p>Lime and forest green tiles give the pack, the milling timeline and Veer their own space.</p></div>
+          <div class="preview"><img src="previews/11-fresh-bento-390.webp" srcset="previews/11-fresh-bento-390.webp 390w, previews/11-fresh-bento-780.webp 780w" sizes="225px" alt="" width="390" height="780" loading="lazy"></div>
+          <span class="action">Open design <span aria-hidden="true">↗</span></span>
+        </a>
+      </li>
+    </ul>
+  </main>
+</body>
+</html>

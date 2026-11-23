@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atulyash · Fresh Bento</title>
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--forest:#0F4A22;--forest-2:#0A3818;--lime:#8CD43A;--lime-hi:#B4EA67;--lime-pale:#E6F6CF;--bg:#F5F8EC;--card:#FFFFFF;--ink:#0F2C17;--soft:#3D5642;--line:#DCE8CF}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:clip}
+body{background:var(--bg);color:var(--ink);font-family:"Figtree",system-ui,sans-serif;font-size:16.7px;line-height:1.55}
+img{display:block;max-width:100%}
+a{color:inherit}
+.serif{font-family:"Fraunces",Georgia,serif;font-weight:800;font-variation-settings:"opsz" 72;letter-spacing:.002em;word-spacing:.04em;line-height:1.06}
+.wrap{max-width:1200px;margin:0 auto;padding:0 14px}
+.grid{display:grid;gap:12px}
+.card{position:relative;border-radius:26px;overflow:hidden}
+.label{position:absolute;z-index:6;font:600 13px/1 "Figtree",sans-serif;background:rgba(10,40,20,.72);color:#fff;border-radius:99px;padding:7px 11px}
+.label.lt{background:rgba(255,255,255,.9);color:var(--ink)}
+.u{display:block;width:72px;height:6px;border-radius:6px;background:var(--lime);margin-top:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 24px;border-radius:99px;font-weight:700;font-size:16.3px;text-decoration:none;white-space:nowrap}
+.btn.lime{background:var(--lime);color:var(--forest-2)}
+.btn.forest{background:var(--forest);color:#fff}
+.btn.glass{background:rgba(255,255,255,.16);color:#fff;border:1.5px solid rgba(255,255,255,.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.kick{display:inline-block;font-weight:700;font-size:15.4px;letter-spacing:.12em;text-transform:uppercase}
+
+/* header */
+.top{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+.top img{height:38px;width:auto}
+.top .btn{min-height:48px;font-size:15.9px;padding:0 22px}
+
+/* hero */
+.hero{min-height:560px;display:flex;flex-direction:column;justify-content:flex-end;color:#fff;padding:26px 22px 24px}
+.hero .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,30,12,.18) 0%,rgba(8,30,12,.05) 30%,rgba(8,30,12,.55) 62%,rgba(8,30,12,.85) 100%)}
+.hero>*:not(.bg){position:relative;z-index:2}
+.hero .label{position:absolute;right:14px;top:14px}
+.hero .mark{width:54px;margin-bottom:auto}
+.hero h1{font-size:clamp(46px,13vw,92px)}
+.hero h1 em{font-style:normal;color:var(--lime-hi)}
+.hero p{font-size:17.1px;margin-top:12px;max-width:26ch;color:#F2F8EA}
+.hero .ctas{display:grid;gap:10px;margin-top:22px}
+
+/* pack */
+.pack{background:linear-gradient(150deg,var(--lime-hi),var(--lime) 70%);padding:24px 22px 0;color:var(--forest-2);display:grid}
+.pack .kick{color:var(--forest)}
+.pack h2{font-size:clamp(46px,13vw,76px);margin-top:6px}
+.pack h2 small{display:block;font-size:.42em;font-family:"Figtree",sans-serif;font-weight:700;letter-spacing:0;margin-top:6px}
+.pack p{font-size:16.7px;margin-top:10px;max-width:24ch;color:#173A1E}
+.pack .shot{position:relative;margin:18px -6px 0;height:300px}
+.pack .shot .p{position:absolute;left:50%;bottom:-18px;height:330px;width:auto;transform:translateX(-58%) rotate(-4deg);filter:drop-shadow(0 22px 24px rgba(10,50,15,.35))}
+.pack .shot .b{position:absolute;right:0;bottom:0;width:150px;filter:drop-shadow(0 14px 16px rgba(10,50,15,.3))}
+.pack .shot .label{right:8px;bottom:8px}
+
+/* steps */
+.steps{list-style:none;display:grid;gap:8px}
+.step{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;align-items:center;border-radius:22px;padding:18px 20px;position:relative}
+.step .when{grid-row:span 2;width:68px;height:68px;border-radius:50%;display:grid;place-items:center;text-align:center;font-weight:700;font-size:15.4px;line-height:1.1;text-transform:uppercase;letter-spacing:.04em}
+.step h3{font-size:27.5px}
+.step p{font-size:15.9px;line-height:1.35}
+.s1{background:var(--forest);color:#fff}.s1 .when{background:var(--lime);color:var(--forest-2)}.s1 p{color:#DCEFD0}
+.s2{background:var(--lime);color:var(--forest-2)}.s2 .when{background:var(--forest);color:#fff}
+.s3{background:var(--lime-pale);color:var(--forest-2)}.s3 .when{background:var(--forest);color:#fff}
+.step:not(:last-child)::after{content:"";position:absolute;left:50px;bottom:-14px;width:20px;height:20px;border-radius:50%;background:var(--bg);z-index:2;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 4v11M5 10l5 5 5-5' fill='none' stroke='%230F4A22' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-size:16px;background-position:center;background-repeat:no-repeat}
+
+/* rider + sharbati */
+.duo{grid-template-columns:1fr}
+.rider{background:linear-gradient(180deg,#EEF8E2,#D6EFBB);min-height:470px}
+.rider img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 18%}
+.rider .t{position:absolute;left:0;right:0;bottom:0;padding:90px 22px 22px;background:linear-gradient(180deg,rgba(10,56,24,0),rgba(10,56,24,.78) 45%,rgba(10,56,24,.94));color:#fff}
+.rider h2{font-size:clamp(32px,8.6vw,44px)}
+.rider .label{left:14px;top:14px}
+.sharb{min-height:220px;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;padding:22px}
+.sharb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.sharb::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,56,24,.88),rgba(10,56,24,.35))}
+.sharb>*:not(img){position:relative;z-index:2}
+.sharb h2{font-size:clamp(34px,9vw,46px)}
+.sharb p{font-size:16.3px;margin-top:6px;max-width:22ch;color:#EAF6DE}
+.week{min-height:200px;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;padding:22px}
+.week img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 70%}
+.week::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,56,24,.3),rgba(10,56,24,.9) 75%)}
+.week>*:not(img){position:relative;z-index:2}
+.week h2{font-size:clamp(34px,9vw,46px)}
+.week p{font-size:16.3px;color:#EAF6DE;margin-top:4px}
+
+/* manifesto */
+.mani{background:radial-gradient(120% 90% at 0% 0%,#155C2B,var(--forest-2));color:#fff;padding:28px 22px 30px}
+.mani h2{font-size:clamp(40px,11vw,62px)}
+.mani h2 em{font-style:normal;color:var(--lime-hi);display:block}
+.mani p{font-size:16.7px;line-height:1.6;color:#DDEFD3;margin-top:16px;max-width:36ch}
+.veer{background:linear-gradient(160deg,var(--lime-hi),var(--lime));min-height:400px}
+.veer .bub{position:absolute;left:18px;top:20px;right:18px;background:#fff;color:var(--forest-2);border-radius:22px;padding:16px 20px;font-size:clamp(28px,7.6vw,38px);text-align:center;box-shadow:0 12px 24px -12px rgba(10,50,15,.4);z-index:3}
+.veer .bub::after{content:"";position:absolute;right:30%;bottom:-16px;border:10px solid transparent;border-top:16px solid #fff;border-bottom:0}
+.veer .bub small{display:block;font:600 15.4px/1.3 "Figtree",sans-serif;color:var(--soft);margin-top:6px;letter-spacing:0}
+.veer img{position:absolute;bottom:0;left:50%;transform:translateX(-50%);height:66%;width:auto}
+.veer .label{left:14px;bottom:14px}
+
+/* way */
+.wayhead{display:flex;justify-content:center;margin:30px 0 4px}
+.wayhead h2{background:var(--lime-pale);color:var(--forest-2);border-radius:99px;padding:12px 28px;font-size:clamp(32px,8.6vw,48px);text-align:center}
+.waysub{text-align:center;color:var(--soft);font-size:16.3px;margin-bottom:16px}
+.ways{list-style:none;grid-template-columns:1fr}
+.way{display:grid;grid-template-columns:120px 1fr;background:var(--card);border-radius:22px;overflow:hidden;border:1px solid var(--line);min-height:132px}
+.way .pic{position:relative;background:var(--lime-pale)}
+.way .pic img{width:100%;height:100%;object-fit:cover}
+.way .pic.il img{object-fit:contain;padding:8px}
+.way .pic .label{left:6px;bottom:6px;font-size:12px;padding:5px 8px}
+.way .txt{padding:16px 16px 16px 18px;align-self:center}
+.way h3{font-size:19.2px}
+.way p{font-size:15.9px;line-height:1.4;color:var(--soft);margin-top:4px}
+
+.end{padding:26px 0 40px;display:grid;gap:10px}
+
+@media (min-width:960px){
+  body{font-size:17.1px}
+  .wrap{padding:0 32px}
+  .grid{gap:16px}
+  .top{padding:22px 0}
+  .top img{height:46px}
+  .first{grid-template-columns:1.25fr 1fr}
+  .hero{min-height:640px;padding:36px 40px 40px}
+  .hero h1{font-size:92px}
+  .hero .ctas{grid-auto-flow:column;justify-content:start}
+  .pack{padding:36px 36px 0}
+  .pack .shot{height:340px}
+  .pack .shot .p{height:380px}
+  .steps{grid-template-columns:repeat(3,1fr)}
+  .step:not(:last-child)::after{left:auto;right:-14px;bottom:auto;top:50%;margin-top:-10px;transform:rotate(-90deg)}
+  .duo{grid-template-columns:1fr 1fr}
+  .stack{display:grid;gap:16px;grid-template-rows:1fr 1fr}
+  .sharb,.week{min-height:0}
+  .rider{min-height:560px}
+  .pair{grid-template-columns:1.25fr 1fr}
+  .mani{padding:44px 44px 46px;display:flex;flex-direction:column;justify-content:center}
+  .veer{min-height:520px}
+  .ways{grid-template-columns:repeat(3,1fr)}
+  .way{grid-template-columns:130px 1fr}
+  .end{grid-auto-flow:column;justify-content:center}
+}
+</style>
+<link rel="stylesheet" href="../shared/phone.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <img src="../shared/wordmark.png" alt="Atulyash, Incomparable Purity. No Compromise.">
+    <a class="btn forest" href="tel:+919818588996">Call us</a>
+  </header>
+
+  <main class="grid">
+    <div class="grid first">
+      <section class="card hero" aria-labelledby="h1">
+        <img class="bg" src="img/hero.webp" alt="A young green wheat field in soft morning light">
+        <img class="mark" src="../shared/mark-white.png" alt="">
+        <h1 id="h1" class="serif">Atta in its <em>purest</em> form</h1>
+        <p>Ours is milled slowly on natural stone. Fresh, every week.</p>
+        <div class="ctas">
+          <a class="btn lime" href="#packs">See packs and prices</a>
+          <a class="btn glass" href="#area">Check delivery to my area</a>
+        </div>
+      </section>
+
+      <section class="card pack" id="packs" aria-label="Packs and price">
+        <span class="kick">Fresh, every week</span>
+        <h2 class="serif">₹120 a kg<small>about ₹3.60 a roti</small></h2>
+        <p>Start with one fresh 2 kg pack. <a class="pack-order" href="https://wa.me/919818588996?text=I%20would%20like%20a%202%20kg%20pack.">Order 2 kg for ₹240</a></p>
+        <div class="shot">
+          <img class="p" src="img/pack.webp" alt="The Atulyash atta pack">
+          <img class="b" src="img/bowl.webp" alt="">
+        </div>
+      </section>
+    </div>
+
+    <ol class="steps" aria-label="From the mill to your door">
+      <li class="step s1"><span class="when">Day 1</span><h3 class="serif">Milled</h3><p>In small batches, on natural stone.</p></li>
+      <li class="step s2"><span class="when">Night</span><h3 class="serif">Packed</h3><p>Packed with minimal handling.</p></li>
+      <li class="step s3"><span class="when">Day 2</span><h3 class="serif">Delivered</h3><p>At your door the next morning.</p></li>
+    </ol>
+
+    <div class="grid duo">
+      <section class="card rider" aria-label="Our riders">
+        <img src="img/rider.webp" alt="A smiling rider in a green apron holding a crate of atta and wheat">
+        <div class="t"><h2 class="serif">We deliver with our own riders.</h2><span class="u"></span></div>
+      </section>
+      <div class="stack grid">
+        <section class="card sharb" aria-label="The wheat">
+          <img src="img/sharbati.webp" alt="">
+          <h2 class="serif">MP Sharbati</h2>
+          <p>Single-origin. Never blended with other varieties.</p>
+        </section>
+        <section class="card week" aria-label="Weekly">
+          <img src="img/week.webp" alt="">
+          <h2 class="serif">Fresh, every week.</h2>
+          <p>Every week, or just once. No subscription.</p>
+        </section>
+      </div>
+    </div>
+
+    <div class="grid pair">
+      <section class="card mani" aria-labelledby="mani">
+        <h2 id="mani" class="serif">We question everything. <em>Why not atta?</em></h2>
+        <p>We keep changing everything around us. Our skincare, our cooking oil, even our utensils, because we research what is best for our family. So why don't we stop and think about our atta? Its quality, where it comes from, how it is made. We just take their word for it.</p>
+      </section>
+      <section class="card veer" aria-label="Veer asks">
+        <p class="bub serif" lang="hi-Latn">Isse kisi ne poocha?<small lang="en">Did anyone ask about this one?</small></p>
+        <img src="img/veer.webp" alt="Veer, a village boy in a yellow kurta and green headband, giving a thumbs up">
+      </section>
+    </div>
+
+    <section aria-labelledby="way">
+      <div class="wayhead"><h2 id="way" class="serif">The Atulyash way</h2></div>
+      <p class="waysub">Six choices, from the field to your door.</p>
+      <ul class="grid ways">
+        <li class="way"><div class="pic"><img src="img/wheat.webp" alt=""></div><div class="txt"><h3 class="serif">The wheat</h3><p>Single-origin MP Sharbati. Never blended with other varieties.</p></div></li>
+        <li class="way"><div class="pic"><img src="img/cleaning.webp" alt=""></div><div class="txt"><h3 class="serif">The cleaning</h3><p>In several stages.</p></div></li>
+        <li class="way"><div class="pic il"><img src="img/stone.webp" alt=""></div><div class="txt"><h3 class="serif">The stone</h3><p>Natural stone chakkis. No emery stone, no steel rollers.</p></div></li>
+        <li class="way"><div class="pic"><img src="img/chokar.webp" alt=""></div><div class="txt"><h3 class="serif">The chokar</h3><p>Chokar kept in. Nothing removed, nothing added.</p></div></li>
+        <li class="way"><div class="pic"><img src="img/milled.webp" alt=""></div><div class="txt"><h3 class="serif">The milling day</h3><p>Milled in small batches the day before, delivered the next morning.</p></div></li>
+        <li class="way"><div class="pic il"><img src="img/packing.webp" alt=""></div><div class="txt"><h3 class="serif">The packing</h3><p>Packed with minimal handling.</p></div></li>
+      </ul>
+    </section>
+
+    <div class="end" id="area">
+      <a class="btn forest" href="#packs">See packs and prices</a>
+      <a class="btn lime" href="tel:+919818588996">Check delivery to my area</a>
+    </div>
+  </main>
+</div>
+</body>
+</html>

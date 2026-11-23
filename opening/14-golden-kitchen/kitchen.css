@@ -1,0 +1,147 @@
+.gold {
+  --kitchen-rule: #6f532341;
+  --kitchen-forest: #243f20;
+  --kitchen-gap: clamp(49px, 7vw, 84px);
+}
+.gold .hero h1 { max-width: 12ch; font-size: clamp(3.05rem, 6.3vw, 5.7rem); }
+.gold .hero h1 em { color: inherit; display: block; font-weight: 400; }
+.gold .hero-actions { gap: 5px 14px; }
+.gold .hero .text-link { text-underline-offset: 4px; }
+.gold .hero::after { height: 12px; }
+
+.gold .facts-panel {
+  margin-top: 26px;
+  padding-block: 19px 21px;
+  border-bottom: 1px solid var(--kitchen-rule);
+  text-align: left;
+}
+.gold .facts-panel h2 { margin-bottom: 13px; font-size: clamp(1.45rem, 2.15vw, 2rem); }
+.gold .facts-panel ul { gap: 0; }
+.gold .facts-panel li {
+  grid-template-columns: 30px minmax(0, 1fr);
+  align-items: center;
+  justify-items: start;
+  gap: 3px 12px;
+  padding: 10px 14px;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  text-align: left;
+}
+.gold .facts-panel li:first-child { padding-inline-start: 0; }
+.gold .facts-panel li + li { border-inline-start: 1px solid var(--kitchen-rule); }
+.gold .facts-panel li svg { grid-row: span 2; width: 27px; height: 27px; }
+.gold .facts-panel li p { grid-column: 2; }
+
+.gold .journal, .gold .meals, .gold .packs, .gold .closing { margin-top: var(--kitchen-gap); }
+.gold .journal, .gold .meals, .gold .packs { text-align: left; }
+.gold .journal h2, .gold .meals h2 { margin-bottom: 17px; }
+.gold .journal ul { grid-template-columns: 1.65fr 1fr; grid-template-rows: repeat(2, auto); gap: 0 24px; }
+.gold .journal li {
+  display: grid;
+  grid-template-columns: 28% minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+  background: transparent;
+  border-radius: 0;
+  border-top: 1px solid var(--kitchen-rule);
+  padding-block: 12px;
+}
+.gold .journal li:first-child {
+  grid-row: span 2;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto 1fr;
+  gap: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 24px 24px 11px 11px;
+  background: var(--gold-surface);
+}
+.gold .journal li img { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; border-radius: 8px; }
+.gold .journal li:first-child img { aspect-ratio: 1.52; object-position: center 57%; border-radius: 0; }
+.gold .journal li > div { padding: 0 2px; }
+.gold .journal li:first-child > div { padding: 18px 21px 12px; }
+.gold .journal h3 { font: 700 clamp(1.16rem, 1.85vw, 1.5rem)/1.15 var(--display); }
+.gold .journal li:first-child h3 { font-size: clamp(1.55rem, 2.9vw, 2.25rem); letter-spacing: -.027em; }
+.gold .journal li .button { margin-top: 0; padding-right: 8px; text-decoration-thickness: 1px; }
+
+.gold .meals {
+  display: grid;
+  grid-template-columns: .74fr 1.26fr;
+  grid-template-rows: 1fr 1fr;
+  align-items: center;
+  gap: 14px 30px;
+  color: var(--gold-reference);
+  background: var(--kitchen-forest);
+  padding: 0 0 0 clamp(24px, 4vw, 50px);
+  border-radius: 24px;
+  overflow: hidden;
+}
+.gold .meals h2 { grid-column: 1; align-self: end; max-width: 10ch; margin: 0; font-size: clamp(2.3rem, 5vw, 4.25rem); }
+.gold .meal-gallery {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, .43fr);
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 3px;
+  aspect-ratio: 1.5;
+  min-width: 0;
+}
+.gold .meal-gallery img { width: 100%; height: 100%; object-fit: cover; min-height: 0; }
+.gold .meal-gallery .meal-main { grid-row: span 2; object-position: center 57%; }
+.gold .meals > p { grid-column: 1; align-self: start; color: #fff6dc; margin: 0; padding-bottom: 20px; max-width: 31ch; }
+
+.gold .packs {
+  background: var(--gold-surface);
+  border: 0;
+  border-radius: 22px;
+  padding: clamp(18px, 3vw, 34px);
+}
+.gold .packs ul { gap: 0; border-top: 1px solid var(--kitchen-rule); }
+.gold .pack-card { background: transparent; border: 0; border-radius: 0; }
+.gold .pack-card + .pack-card { border-inline-start: 1px solid var(--kitchen-rule); }
+.gold .closing { color: #213f14; --ink: #213f14; --body: #34341f; background: var(--gold-surface); }
+.gold .closing .button { color: #fff; background: var(--button); border-color: var(--button); }
+
+@media (max-width: 739px) {
+  .gold { --side: clamp(17px, 5vw, 28px); }
+  .gold .hero-copy { padding-top: 26px; }
+  .gold .hero h1 { max-width: none; font-size: clamp(2.65rem, 11.4vw, 4.5rem); }
+  .gold .hero-lede { margin-top: 12px; }
+  .gold .hero-art { min-height: clamp(202px, 56vw, 275px); }
+  .gold .facts-panel { margin-top: 12px; }
+  .gold .facts-panel li { padding: 9px 0; }
+  .gold .facts-panel li + li { border-inline-start: 0; border-top: 1px solid var(--kitchen-rule); }
+  .gold .journal ul { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto; }
+  .gold .journal li:first-child {
+    grid-row: auto;
+    grid-template-columns: 39% minmax(0, 1fr);
+    grid-template-rows: auto;
+    align-items: stretch;
+    min-height: 156px;
+    margin-bottom: 12px;
+    border-radius: 17px;
+  }
+  .gold .journal li:first-child img {
+    height: 100%;
+    aspect-ratio: auto;
+    object-position: 47% center;
+  }
+  .gold .journal li:first-child > div { align-self: center; padding: 13px 12px 9px 14px; }
+  .gold .journal li:first-child h3 { font-size: clamp(1.25rem, 5.1vw, 1.65rem); }
+  .gold .journal li:first-child .button { padding-inline-end: 0; gap: 4px; }
+  .gold .journal li:first-child .button svg { width: 14px; }
+  .gold .journal li:not(:first-child) { grid-template-columns: 90px minmax(0, 1fr); }
+  .gold .meals { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto; gap: 0; padding: 0; }
+  .gold .meals h2 { max-width: 12ch; padding: 23px 20px 17px; }
+  .gold .meal-gallery, .gold .meals > p { grid-column: 1; grid-row: auto; }
+  .gold .meal-gallery { grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; aspect-ratio: auto; gap: 3px; }
+  .gold .meal-gallery .meal-main { grid-row: auto; grid-column: span 2; aspect-ratio: 1.44; }
+  .gold .meal-gallery img:not(.meal-main) { aspect-ratio: 2.05; }
+  .gold .meals > p { padding: 17px 20px 20px; max-width: none; }
+  .gold .pack-card + .pack-card { border-inline-start: 0; border-top: 1px solid var(--kitchen-rule); }
+  .gold .pack-detail { padding-inline-end: 0; }
+  .gold .pack-photo { min-height: 87px; }
+}
