@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="data:,">
+<title>Atulyash: 3 Ledger</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500..800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../glass.css">
+<style>
+/* 3 Ledger. A field notebook ruled over the wheat wall. Photos are mounted in thick glass slides with
+   frosted specimen tags, facts sit in glass ledgers, and one solid yellow cell carries the order. */
+:root{--sun:#FFCF39;--ink:#0E2E19;--mint:#E8F5E1;--rule:rgba(255,255,255,.26);--g:20px}
+*{box-sizing:border-box}
+body{margin:0;color:#fff;font:400 15.5px/1.55 "Inter Tight",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:clip}
+body::after{background:linear-gradient(180deg,rgba(5,25,10,.40),rgba(5,25,10,.20) 40%,rgba(5,25,10,.50)),linear-gradient(90deg,rgba(214,235,205,.13) 1px,transparent 1px);background-size:100% 100%,25% 100%;background-position:0 0,var(--g) 0}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace}
+.lab{font:500 11px/1.4 "IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--mint)}
+h1,h2,h3{margin:0;font-weight:700;letter-spacing:-.035em;text-wrap:balance}
+h2{font-size:clamp(32px,9vw,46px);line-height:1}
+.slide{box-shadow:0 0 0 9px rgba(255,255,255,.15),0 0 0 10px rgba(255,255,255,.5),0 28px 50px rgba(0,22,8,.4)}
+
+.top{position:sticky;top:0;z-index:30;display:flex;justify-content:space-between;align-items:center;padding:8px var(--g);border-width:0 0 1px}
+.brand{display:flex;gap:8px;align-items:center;min-height:48px;font-weight:700;font-size:17px;text-decoration:none}
+.brand img{width:24px}
+.menu>summary{display:flex;align-items:center;gap:8px;min-height:48px;padding:0 4px;font:500 12px/1 "IBM Plex Mono";letter-spacing:.1em;text-transform:uppercase}
+.menu>summary svg{width:18px}
+
+.hero{display:grid;grid-template-columns:repeat(4,1fr);padding:0 var(--g)}
+.hero .cap{grid-column:1/-1;display:flex;justify-content:space-between;padding:16px 0 0}
+.hero h1{grid-column:1/-1;margin:22px 0 26px;font-size:clamp(42px,12vw,64px);line-height:.98;letter-spacing:-.045em}
+.hero h1 span{color:var(--mint);font-weight:500}
+.fig{grid-column:1/4;position:relative;z-index:2;margin-left:calc(var(--g) * -1 + 10px);height:340px;background:url(../img/thali-hands.webp) center 40%/cover}
+.tag{position:absolute;display:flex;gap:9px;align-items:baseline;padding:8px 11px 8px 22px;font:500 11.5px/1.2 "IBM Plex Mono";letter-spacing:.05em;text-transform:uppercase;white-space:nowrap}
+.tag::before{content:"";position:absolute;left:8px;top:50%;width:6px;height:6px;margin-top:-3px;border-radius:50%;background:var(--sun)}
+.tag b{font:600 13px/1.2 "Inter Tight";letter-spacing:0;text-transform:none}
+.t1{left:14px;top:16px}.t2{right:-44px;top:150px}.t3{left:14px;bottom:16px}
+.side{grid-column:4/5;margin-left:14px;padding:12px 10px;display:flex;flex-direction:column;justify-content:space-between;align-self:stretch}
+.side b{display:block;font:700 26px/1 "Inter Tight";color:#fff;letter-spacing:-.03em;text-transform:none}
+.lede{grid-column:1/3;align-self:start;margin:22px 12px 0 0;padding:14px;font:400 12.5px/1.55 "IBM Plex Mono";color:#fff}
+.lede a{display:inline-flex;align-items:center;gap:6px;margin-top:4px;font-weight:600;text-underline-offset:3px;min-height:44px}
+.cell{grid-column:3/5;margin-top:22px;aspect-ratio:1;background:var(--sun);color:var(--ink);padding:14px;display:flex;flex-direction:column;justify-content:space-between;text-decoration:none}
+.cell .lab{color:var(--ink)}
+.cell b{font-size:46px;line-height:.9;letter-spacing:-.045em;font-weight:800}
+.cell span.go{display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:15px;border-top:1.5px solid var(--ink);padding-top:9px}
+
+section+section{margin-top:64px}
+.sec{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:16px var(--g) 18px;border-top:1px solid var(--rule)}
+
+.mani .entry{margin:0 var(--g);padding:22px 18px 22px}
+.mani blockquote{margin:0;font-size:clamp(28px,8vw,38px);line-height:1.05;font-weight:700;letter-spacing:-.035em}
+.mani p{max-width:62ch;margin:16px 0 0;font-size:16px;line-height:1.6;color:rgba(255,255,255,.92)}
+.mani .foot-note{display:flex;justify-content:space-between;margin-top:18px;padding-top:12px;border-top:1px solid var(--rule)}
+
+.strip{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;padding:12px calc(var(--g) + 10px) 20px;scrollbar-width:none}
+.strip::-webkit-scrollbar{display:none}
+.frame{flex:0 0 66%;scroll-snap-align:center;position:relative;aspect-ratio:3/4;background:center/cover}
+.frame .capt{position:absolute;left:8px;right:8px;bottom:8px;padding:10px 12px}
+.frame .capt b{display:block;margin-top:3px;font-size:17px;line-height:1.2;letter-spacing:-.01em}
+.frame .capt p{margin:3px 0 0;font-size:13px;line-height:1.4;color:rgba(255,255,255,.88)}
+.hint{display:flex;justify-content:space-between;padding:0 var(--g)}
+.rows{margin:26px var(--g) 0;padding:4px 16px}
+.row{display:grid;grid-template-columns:1fr 1.5fr;gap:12px;padding:14px 0;border-bottom:1px solid var(--rule)}
+.row:last-child{border-bottom:0}
+.row .lab{padding-top:3px}
+.row b{font-weight:600;font-size:16px}
+.row small{display:block;color:rgba(255,255,255,.72);font-size:13px}
+
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 var(--g)}
+.p{position:relative;aspect-ratio:1;padding:12px;overflow:hidden;color:#fff;text-align:left;border:1px solid transparent}
+.p b{display:block;font-size:36px;font-weight:800;letter-spacing:-.045em;line-height:1;margin-top:6px}
+.p .pr{font-size:14px}
+.p img{position:absolute;right:-8px;bottom:-14px;width:46%}
+.p[aria-pressed="true"]{background:var(--sun)!important;color:var(--ink);box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}
+.p[aria-pressed="true"] .lab{color:var(--ink)}
+.p.photo{background:url(../img/wheat-macro.webp) center/cover}
+.p.photo .lab{position:absolute;left:12px;bottom:12px;color:#fff}
+.order{display:flex;justify-content:space-between;align-items:center;margin:10px var(--g) 0;min-height:56px;padding:0 16px;background:#fff;color:var(--ink);font-weight:700;text-decoration:none}
+.rate{margin:12px var(--g) 0}
+
+.close .box{margin:0 var(--g);padding:20px 18px}
+.close h2{font-size:clamp(30px,8.4vw,40px)}
+form{margin-top:20px}
+form label{display:block}
+.pinrow{display:grid;grid-template-columns:1fr auto;margin-top:8px;border:1px solid rgba(255,255,255,.6)}
+.pinrow input{height:52px;padding:0 14px;border:0;background:rgba(255,255,255,.94);color:var(--ink);font-family:"IBM Plex Mono"}
+.pinrow button{height:52px;padding:0 20px;border:0;background:var(--sun);color:var(--ink);font-weight:700}
+.links{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px}
+.links a{display:flex;align-items:center;justify-content:space-between;min-height:50px;padding:0 14px;border:1px solid var(--rule);text-decoration:none;font-weight:600}
+.foot{display:flex;justify-content:space-between;padding:30px var(--g) 40px;margin-top:40px;border-top:1px solid var(--rule)}
+
+@media (min-width:900px){
+  :root{--g:max(40px,calc((100vw - 1180px)/2))}
+  .hero{grid-template-columns:repeat(8,1fr);column-gap:20px}
+  .hero h1{grid-column:1/6;font-size:88px}
+  .fig{grid-column:1/5;height:520px;margin-left:0}
+  .side{grid-column:5/6;margin-left:0}
+  .lede{grid-column:6/9;grid-row:3;margin:0;font-size:14px}
+  .cell{grid-column:6/8;grid-row:3;align-self:end;margin:0}
+  .frame{flex-basis:30%}
+  .rows,.mani .entry,.close .box{max-width:760px}
+  .grid{grid-template-columns:repeat(4,1fr)}
+  .p b{font-size:52px}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top gl dense">
+  <a class="brand" href="#top"><img src="../img/mark-white.png" alt="" width="228" height="202">Atulyash</a>
+  <details class="menu" data-menu>
+    <summary>Menu<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg></summary>
+    <nav class="gl" aria-label="Main"><a href="#packs">Packs and prices</a><a href="#mani-h">Why we question atta</a><a href="#way-h">The Atulyash way</a><a href="#pin">Check delivery</a></nav>
+  </details>
+</header>
+<main id="main">
+<section class="hero" id="top" aria-labelledby="hero-h">
+  <h1 id="hero-h">Milled yesterday. <span>At your door today.</span></h1>
+  <div class="fig slide" role="img" aria-label="Hands placing a fresh roti on a steel thali">
+    <div class="tag gl dense t1">Wheat <b>MP Sharbati</b></div>
+    <div class="tag gl dense t2">Mill <b>Natural stone</b></div>
+    <div class="tag gl dense t3">Milled <b>The day before</b></div>
+  </div>
+  <div class="side gl dense lab"><span>Fig. 1<br>Lunch, a steel thali</span><span><b>1</b>day from stone to door</span></div>
+  <p class="lede gl">Atta in its purest form. Ours is milled slowly on natural stone. Fresh, every week.<br><a href="#pin">Check delivery to my area <span class="arr" aria-hidden="true"></span></a></p>
+  <a class="cell" href="#packs"><span class="lab">2 kg pack</span><b>₹240</b><span class="go">See packs and prices <span class="arr" aria-hidden="true"></span></span></a>
+</section>
+
+<section class="mani" aria-labelledby="mani-h">
+  <div class="sec"><h2 id="mani-h">Entry 02</h2><span class="lab">A question</span></div>
+  <div class="entry gl">
+    <blockquote>We question everything. Why not atta?</blockquote>
+    <p>We keep changing everything around us. Our skincare, our cooking oil, even our utensils, because we research what is best for our family. So why don't we stop and think about our atta? Its quality, where it comes from, how it is made. We just take their word for it.</p>
+    <div class="foot-note lab"><span>Your everyday atta</span><span>deserves a closer look</span></div>
+  </div>
+</section>
+
+<section class="way" aria-labelledby="way-h">
+  <div class="sec"><h2 id="way-h">The Atulyash way</h2><span class="lab">06 frames, swipe</span></div>
+  <div class="strip" tabindex="0" aria-label="Six steps, scroll sideways">
+    <div class="frame slide" style="background-image:url(../img/field-day.webp)"><div class="capt gl dense"><span class="lab">01 / 06 · The wheat</span><b>Single-origin MP Sharbati</b><p>Never blended with other varieties.</p></div></div>
+    <div class="frame slide" style="background-image:url(../img/cleaning.webp)"><div class="capt gl dense"><span class="lab">02 / 06 · The cleaning</span><b>In several stages</b></div></div>
+    <div class="frame slide" style="background-image:url(../img/chakki-flour.webp)"><div class="capt gl dense"><span class="lab">03 / 06 · The stone</span><b>Natural stone chakkis</b><p>No emery stone, no steel rollers.</p></div></div>
+    <div class="frame slide" style="background-image:url(../img/packing.webp)"><div class="capt gl dense"><span class="lab">04 / 06 · The packing</span><b>Minimal handling</b></div></div>
+    <div class="frame slide" style="background-image:url(../img/dough.webp)"><div class="capt gl dense"><span class="lab">05 / 06 · The milling day</span><b>Milled the day before</b><p>In small batches.</p></div></div>
+    <div class="frame slide" style="background-image:url(../img/rider.webp)"><div class="capt gl dense"><span class="lab">06 / 06 · The riders</span><b>Our own riders</b><p>At your door the next morning.</p></div></div>
+  </div>
+  <div class="rows gl">
+    <div class="row"><span class="lab">Wheat</span><div><b>MP Sharbati</b><small>Single origin, never blended</small></div></div>
+    <div class="row"><span class="lab">Mill</span><div><b>Natural stone chakki</b><small>No emery stone, no steel rollers</small></div></div>
+    <div class="row"><span class="lab">Milled</span><div><b>The day before</b><small>Small batches, delivered next morning</small></div></div>
+    <div class="row"><span class="lab">Delivery</span><div><b>Our own riders</b><small>Delhi NCR, every week</small></div></div>
+  </div>
+</section>
+
+<section class="packs" id="packs" aria-labelledby="packs-h">
+  <div class="sec"><h2 id="packs-h">Packs</h2><span class="lab">₹120 / kg</span></div>
+  <div class="grid" data-packs role="group" aria-label="Pack size">
+    <button class="p gl" data-kg="2" aria-pressed="true"><span class="lab">A</span><b>2 kg</b><span class="pr">₹240</span><img loading="lazy" src="../img/pack.webp" alt="" width="900" height="1334"></button>
+    <button class="p gl" data-kg="4" aria-pressed="false"><span class="lab">B</span><b>4 kg</b><span class="pr">₹480</span><img loading="lazy" src="../img/pack.webp" alt="" width="900" height="1334"></button>
+    <button class="p gl" data-kg="6" aria-pressed="false"><span class="lab">C</span><b>6 kg</b><span class="pr">₹720</span><img loading="lazy" src="../img/pack.webp" alt="" width="900" height="1334"></button>
+    <div class="p photo slide" role="img" aria-label="Green wheat ear with dew"><span class="lab">Fig. 2 · Sharbati ear</span></div>
+  </div>
+  <a class="order" data-order href="https://wa.me/919818588996">Order fresh atta · <span data-total>₹240</span> <span class="arr" aria-hidden="true"></span></a>
+  <p class="rate lab">₹120 a kg, about ₹3.60 a roti</p>
+</section>
+
+<section class="close" id="pin" aria-labelledby="close-h">
+  <div class="sec"><span class="lab">Entry 03</span><span class="lab">Delivery</span></div>
+  <div class="box gl">
+    <h2 id="close-h">Bring home atta in its purest form.</h2>
+    <form data-pin novalidate>
+      <label class="lab" for="pin-in">Do we deliver to you?</label>
+      <div class="pinrow"><input id="pin-in" inputmode="numeric" autocomplete="postal-code" placeholder="6-digit PIN code" aria-describedby="pin-out"><button type="submit">Check</button></div>
+      <output id="pin-out" aria-live="polite"></output>
+    </form>
+    <div class="links"><a href="tel:+919818588996">Call us <span class="arr" aria-hidden="true"></span></a><a href="https://wa.me/919818588996">WhatsApp us <span class="arr" aria-hidden="true"></span></a></div>
+  </div>
+</section>
+</main>
+<footer class="foot lab"><span>Freshly milled</span><span>Delivered weekly</span></footer>
+<script src="../core.js"></script>
+</body>
+</html>

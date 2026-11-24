@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<link rel="icon" href="data:,">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Atulyash | Kitchen Window</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap">
+<style>
+/* Glass field: a dark, lush wall of young wheat behind everything; each section is one big frosted green glass card with white Montserrat type, and a fresh wheat sprig, Veer or the pack breaking out of its edge */
+:root{--deep:#0B2B16;--leaf:#1F5A2C;--ink:#0D3318;--r:30px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;background:var(--deep)}
+body{margin:0;color:#fff;font:500 16.3px/1.6 Montserrat,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:clip}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+a:focus-visible,summary:focus-visible{outline:3px solid #fff;outline-offset:3px;border-radius:10px}
+.bg{position:absolute;top:0;left:0;right:0;height:200vh;height:200lvh;z-index:-2;background:var(--deep);will-change:transform;pointer-events:none;-webkit-mask-image:linear-gradient(#000 92%,transparent);mask-image:linear-gradient(#000 92%,transparent)}
+.bg img{width:100%;height:100%;object-fit:cover}
+.bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,25,10,.25),rgba(5,25,10,.1) 40%,rgba(5,25,10,.35))}
+.wrap{max-width:1180px;margin:0 auto;padding:0 18px}
+section{overflow-x:clip}
+
+/* top */
+.top{position:relative;z-index:10;display:flex;align-items:center;justify-content:space-between;padding:22px 0 10px}
+.brand{display:flex;align-items:center;gap:10px;min-height:48px;text-decoration:none}
+.brand img{width:34px;filter:brightness(0) invert(1)}
+.brand b{font:700 19.2px/1 Montserrat,sans-serif;letter-spacing:.02em}
+.menu{position:relative}
+.menu summary{list-style:none;display:grid;place-items:center;width:48px;height:48px;border-radius:14px;cursor:pointer}
+.menu summary::-webkit-details-marker{display:none}
+.menu summary svg{width:30px;height:30px}
+.menu nav{position:absolute;right:0;top:56px;display:flex;flex-direction:column;min-width:220px;padding:8px;border-radius:20px}
+.menu nav a{display:flex;align-items:center;min-height:48px;padding:0 14px;border-radius:12px;text-decoration:none;font-weight:600}
+.menu nav a:hover{background:rgba(255,255,255,.12)}
+
+/* glass */
+.glass{background:rgba(64,128,66,.36);-webkit-backdrop-filter:blur(26px) saturate(1.35);backdrop-filter:blur(26px) saturate(1.35);border:1px solid rgba(255,255,255,.16);box-shadow:0 30px 60px rgba(0,20,6,.35),inset 0 1px 0 rgba(255,255,255,.18)}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.glass{background:rgba(36,86,42,.9)}}
+@media (max-width:899px){.glass{-webkit-backdrop-filter:blur(12px) saturate(1.2);backdrop-filter:blur(12px) saturate(1.2)}}
+.bg{backface-visibility:hidden;contain:layout paint}.plx-css .bg{animation:plx linear both;animation-timeline:scroll(root block)}@keyframes plx{from{transform:translate3d(0,0,0)}to{transform:translate3d(0,var(--plx,0px),0)}}
+
+/* cards */
+.card{position:relative;border-radius:var(--r);padding:44px 26px 40px}
+h1,h2{font-weight:700;letter-spacing:-.01em;margin:0}
+h1{font-size:clamp(38px,10.4vw,64px);line-height:1.12}
+h2{font-size:clamp(34px,9vw,54px);line-height:1.12}
+.card p{margin:22px 0 0;color:rgba(255,255,255,.92);max-width:34ch}
+.btns{display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px;margin-top:30px}
+.pill{display:inline-flex;align-items:center;min-height:50px;padding:0 30px;border-radius:99px;background:#F6F8F1;color:var(--ink);font-weight:700;font-size:16.3px;text-decoration:none;box-shadow:0 10px 24px rgba(0,20,6,.25)}
+.link{display:inline-flex;align-items:center;min-height:48px;font-weight:600;text-underline-offset:6px}
+
+/* hero */
+.hero{padding:34px 0 60px}
+.hero .card{padding-bottom:210px}
+.sprig{position:absolute;right:-30px;bottom:-26px;width:min(330px,88%);pointer-events:none;filter:drop-shadow(0 18px 22px rgba(0,20,6,.4))}
+.fresh{display:flex;gap:10px;margin-top:16px}
+.fresh div{flex:1;padding:16px 16px 14px;border-radius:22px}
+.fresh small{display:block;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.8)}
+.fresh b{display:block;font-size:17.1px;line-height:1.2;margin-top:4px}
+
+/* manifesto */
+.mani{padding:20px 0 60px}
+.mani .card{padding-bottom:250px}
+.mani .veer{position:absolute;right:-6px;bottom:0;width:min(200px,52%)}
+.mani .say{position:absolute;left:22px;bottom:96px;max-width:52%;padding:14px 18px;border-radius:20px 20px 4px 20px;font-weight:700;font-size:17.6px;line-height:1.25}
+
+/* the way */
+.way{padding:60px 0 80px}
+@media (min-width:900px){.way{padding-top:150px}}
+.way .card{padding-top:48px}
+.way .pk{position:absolute;right:-8px;top:-70px;width:min(130px,34%);filter:drop-shadow(0 18px 24px rgba(0,20,6,.45));transform:rotate(6deg)}
+.way h2{max-width:8ch}
+.steps{list-style:none;margin:28px 0 0;padding:0}
+.steps li{display:grid;grid-template-columns:52px 1fr;gap:16px;align-items:start;padding:20px 0;border-top:1px solid rgba(255,255,255,.16)}
+.steps li:last-child{padding-bottom:0}
+.steps .ic{display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.2)}
+.steps svg{width:26px;height:26px}
+.steps b{display:block;font-size:17.6px;line-height:1.25;font-weight:700}
+.steps span{display:block;margin-top:4px;font-size:15.9px;line-height:1.5;color:rgba(255,255,255,.88)}
+.area{margin-top:26px;padding-top:20px;border-top:1px solid rgba(255,255,255,.16);font-weight:600}
+
+@media (min-width:900px){
+  .wrap{padding:0 40px}
+  .top{padding:30px 0 10px}
+  .hero{min-height:calc(100svh - 110px);display:flex;align-items:center;padding:30px 0 70px}
+  .hero .wrap{width:100%}
+  .hero .card{max-width:640px;padding:60px 56px 250px}
+  .sprig{width:360px;right:-110px}
+  .fresh{max-width:640px}
+  .mani .card{max-width:760px;margin-left:auto;padding:60px 300px 60px 56px}
+  .mani .veer{width:250px;right:20px}
+  .mani .say{left:auto;right:40px;top:40px;bottom:auto;max-width:20ch}
+  .way .card{padding:60px 56px}
+  .way h2{max-width:none}
+  .way .pk{width:150px;right:50px;top:-150px}
+  .steps{display:grid;grid-template-columns:1fr 1fr;column-gap:48px}
+  .steps li:nth-child(-n+2){border-top:1px solid rgba(255,255,255,.16)}
+  .steps li:last-child{padding-bottom:20px}
+}
+</style>
+<link rel="stylesheet" href="../../opening/shared/phone.css">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="window" id="home">
+<div class="bg" aria-hidden="true"><img src="../../opening/9-glass-field/img/bg.webp" alt="" width="941" height="1672"></div>
+
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#home"><img src="../../opening/9-glass-field/img/mark.png" alt="" width="240" height="210"><b>Atulyash</b></a>
+    <details class="menu">
+      <summary class="glass" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary>
+      <nav class="glass" aria-label="Main">
+        <a href="https://wa.me/919818588996?text=I%20would%20like%20to%20order%20fresh%20atta.">Order fresh atta</a>
+        <a href="#packs">Packs and prices</a>
+        <a href="#mani-h">Why we question atta</a>
+        <a href="#way-h">The Atulyash way</a>
+      <a href="../index.html">All five designs</a>
+      </nav>
+    </details>
+  </header>
+</div>
+
+<section class="concept-hero" aria-label="Fresh chakki atta"><div class="window-title"><h1>Milled yesterday.<br>At your door today.</h1></div><figure class="window-frame"><img src="../../opening/14-golden-kitchen/img/kneading.webp" alt="Hands kneading whole wheat dough"></figure><div class="window-sill glass"><p>MP Sharbati wheat, slowly ground on natural stone.</p><a class="concept-order" href="https://wa.me/919818588996?text=I%20would%20like%20to%20order%20fresh%20atta.">Order fresh atta</a></div></section>
+
+<section class="mani" aria-labelledby="mani-h">
+  <div class="wrap">
+    <div class="card glass">
+      <h2 id="mani-h">We question everything. Why not atta?</h2>
+      <p>We keep changing everything around us. Our skincare, our cooking oil, even our utensils, because we research what is best for our family. So why don't we stop and think about our atta? Its quality, where it comes from, how it is made. We just take their word for it.</p>
+      <p class="say glass">Your everyday atta deserves a closer look.</p>
+      <img class="veer" src="../../opening/9-glass-field/img/veer-thumbs.webp" alt="Veer, giving a thumbs up" width="475" height="520">
+    </div>
+  </div>
+</section>
+
+<section class="way" aria-labelledby="way-h">
+  <div class="wrap">
+    <div class="card glass">
+      <img class="pk" src="../../opening/9-glass-field/img/pack-600.webp" alt="Atulyash 2 kg atta pack" width="600" height="985">
+      <h2 id="way-h">The Atulyash way</h2>
+      <ol class="steps">
+        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M12 22V9"/><path d="M12 10c-2-1.4-2.6-4-2-6 2 .6 2.8 3.4 2 6zM12 10c2-1.4 2.6-4 2-6-2 .6-2.8 3.4-2 6zM12 16c-2.6-1.3-3.4-4-2.6-6 2.6.7 3.4 3.6 2.6 6zM12 16c2.6-1.3 3.4-4 2.6-6-2.6.7-3.4 3.6-2.6 6z"/></svg></span><div><b>MP Sharbati</b><span>Single-origin. Never blended with other varieties.</span></div></li>
+        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><ellipse cx="12" cy="15" rx="9" ry="3"/><path d="M3 15v2c0 1.7 4 3 9 3s9-1.3 9-3v-2"/><ellipse cx="12" cy="11" rx="9" ry="3"/></svg></span><div><b>Natural stone chakkis</b><span>No emery stone, no steel rollers.</span></div></li>
+        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18c1.5-6 14.5-6 16 0z"/><path d="M8 15.5h.01M12 14h.01M16 15.5h.01" stroke-width="3"/><path d="M3 21h18"/></svg></span><div><b>Chokar kept in</b><span>Nothing removed, nothing added.</span></div></li>
+        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4M9 15l2 2 4-4"/></svg></span><div><b>Milled the day before</b><span>In small batches, delivered the next morning.</span></div></li>
+      </ol>
+      <figure class="kitchen-photo"><img src="../../opening/14-golden-kitchen/img/tawa.webp" loading="lazy" alt="A roti being turned on a hot tawa"><figcaption>At the tawa</figcaption></figure>
+      <p class="area">Freshly milled, delivered weekly, in Delhi NCR.</p>
+    </div>
+  </div>
+</section>
+<section class="pack-stop" id="packs"><div><h2>Fresh chakki atta</h2><p>2 kg pack · ₹120 per kg</p></div><a href="https://wa.me/919818588996?text=I%20would%20like%20the%202%20kg%20pack.">Order ₹240</a></section>
+<script>
+(function(){var bg=document.querySelector('.bg');if(!bg)return;var root=document.documentElement,still=matchMedia('(prefers-reduced-motion: reduce)').matches,k=1,css=!still&&window.CSS&&CSS.supports('animation-timeline','scroll()'),vh=0,w=0,t=false;
+function size(){if(innerWidth!==w){w=innerWidth;vh=0}vh=Math.max(vh,innerHeight);var travel=Math.max(0,root.scrollHeight-innerHeight),s=still?1:Math.min(.45,travel?1.1*vh/travel:.45);k=1-s;bg.style.height=Math.floor(Math.min(vh+s*travel,2.1*vh)-2)+'px';root.style.setProperty('--plx',(k*travel).toFixed(1)+'px')}
+function f(){bg.style.transform='translate3d(0,'+(scrollY*k).toFixed(1)+'px,0)';t=false}
+if(css){root.classList.add('plx-css')}else if(!still){addEventListener('scroll',function(){if(!t){t=true;requestAnimationFrame(f)}},{passive:true})}
+addEventListener('resize',function(){size();if(!css&&!still)f()});addEventListener('load',size);size();if(!css&&!still)f()})();
+</script>
+<script src="../../opening/reference-media/menu.js"></script>
+</body>
+</html>

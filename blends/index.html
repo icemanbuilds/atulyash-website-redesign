@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="data:,">
+<title>Atulyash blends: compare</title>
+<style>
+:root{--bg:#0B2414;--fg:#EAF2E4;--mute:#9DB59A;--sun:#FFCF39}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,sans-serif}
+header{padding:28px 24px 8px;max-width:1900px;margin:0 auto}
+h1{margin:0;font-size:24px;font-weight:650}
+header p{margin:6px 0 0;color:var(--mute);max-width:80ch}
+.tabs{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.tabs button{font:inherit;color:var(--fg);background:transparent;border:1px solid #2F5537;border-radius:99px;padding:8px 16px;cursor:pointer}
+.tabs button[aria-pressed=true]{background:var(--sun);color:#0B2414;border-color:var(--sun);font-weight:650}
+.row{display:flex;gap:22px;overflow-x:auto;padding:22px 24px 40px;max-width:1900px;margin:0 auto}
+figure{margin:0;flex:0 0 auto}
+figcaption{margin-bottom:10px}
+figcaption b{display:block;font-size:16px}
+figcaption span{color:var(--mute);font-size:13px}
+.phone{width:342px;height:740px;border-radius:30px;overflow:hidden;border:6px solid #000;background:#000;position:relative}
+.phone iframe{width:390px;height:844px;border:0;transform:scale(.8615);transform-origin:0 0}
+.phone img{width:100%;height:100%;object-fit:cover;object-position:top}
+figure a{display:inline-block;margin-top:8px;color:var(--mute);font-size:13px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Glass Field + Golden Kitchen: five directions</h1>
+  <p>Live pages at phone width. Scroll inside each phone, or switch to the still frames of each section. The 3x captures for inspecting on a phone are in the previews folder.</p>
+  <div class="tabs" role="group" aria-label="View">
+    <button data-v="live" aria-pressed="true">Live</button>
+    <button data-v="a-hero" aria-pressed="false">First screen</button>
+    <button data-v="b-next" aria-pressed="false">Next section</button>
+    <button data-v="c-third" aria-pressed="false">Third section</button>
+    <button data-v="desktop" aria-pressed="false">Desktop</button>
+  </div>
+</header>
+<div class="row" id="row"></div>
+<script>
+var C=[["1-sill","1 Sill","Window sash, yellow sill"],["2-arch","2 Arch","Arched window, golden tawa"],["3-ledger","3 Ledger","Field notebook, yellow cell"],["4-lens","4 Lens","Clear lens, yellow highlighter"],["5-reeded","5 Reeded","Fluted glass, yellow pillar"]];
+var row=document.getElementById('row');
+function draw(v){if(v==='desktop'){row.innerHTML=C.map(function(c){return '<figure><figcaption><b>'+c[1]+'</b><span>'+c[2]+'</span></figcaption><img style="width:660px;border-radius:12px;display:block" src="previews/desktop-'+c[0]+'.png" alt="'+c[1]+' at desktop width"><a href="'+c[0]+'/index.html">Open full page</a></figure>'}).join('');return}row.innerHTML=C.map(function(c){var inner=v==='live'?'<iframe src="'+c[0]+'/index.html" title="'+c[1]+'" loading="lazy"></iframe>':'<img src="previews/'+c[0]+'-'+v+'.png" alt="'+c[1]+'">';return '<figure><figcaption><b>'+c[1]+'</b><span>'+c[2]+'</span></figcaption><div class="phone">'+inner+'</div><a href="'+c[0]+'/index.html">Open full page</a></figure>'}).join('')}
+document.querySelectorAll('.tabs button').forEach(function(b){b.onclick=function(){document.querySelectorAll('.tabs button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});draw(b.dataset.v)}});
+draw('live');
+</script>
+</body>
+</html>

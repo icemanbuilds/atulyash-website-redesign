@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="data:,">
+<title>Atulyash: 4 Lens</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400..700&family=Manrope:wght@400..700&display=swap">
+<link rel="stylesheet" href="../glass.css">
+<style>
+/* 4 Lens. The glass works in reverse: everything sits behind frost, and one round lens shows it sharp
+   and enlarged. Text rides on glass plates. Yellow is a heavy highlighter on the words that matter. */
+:root{--sun:#FFCF39;--ink:#0A2A14;--lens:min(74vw,380px);--g:16px}
+*{box-sizing:border-box}
+body{margin:0;color:#fff;font:400 16px/1.55 Manrope,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:clip}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px;border-radius:12px}
+h1,h2{margin:0;font-family:Unbounded,sans-serif;font-weight:600;letter-spacing:-.02em;line-height:1.16;text-wrap:balance}
+.k{display:block;font:500 12px/1 Unbounded;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.94)}
+.mark{background:linear-gradient(var(--sun),var(--sun));color:var(--ink);padding:0 .14em;margin:0 -.04em;-webkit-box-decoration-break:clone;box-decoration-break:clone;border-radius:3px 7px 4px 8px}
+.plate{border-radius:26px}
+.pill{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 24px;border-radius:99px;background:#fff;color:var(--ink);font-weight:700;text-decoration:none;border:0}
+
+/* a lens scene */
+.scene{position:absolute;inset:0;overflow:hidden}
+.scene .sharp,.scene .frost{position:absolute;inset:0;background:var(--img) var(--pos,center)/cover}
+.scene .sharp{transform:scale(1.32);transform-origin:var(--lx,50%) var(--ly,52%);filter:brightness(1.1) contrast(1.05)}
+.scene .frost{filter:blur(24px) saturate(1.3) brightness(.46);transform:scale(1.12);
+  -webkit-mask:radial-gradient(circle calc(var(--lens)/2) at var(--lx,50%) var(--ly,52%),transparent 98%,#000 100%);mask:radial-gradient(circle calc(var(--lens)/2) at var(--lx,50%) var(--ly,52%),transparent 98%,#000 100%)}
+.scene .tint{position:absolute;inset:0;background:radial-gradient(circle calc(var(--lens)/2 + 2px) at var(--lx,50%) var(--ly,52%),transparent 98%,rgba(6,40,16,.45) 100%)}
+.rim{position:absolute;left:var(--lx,50%);top:var(--ly,52%);width:var(--lens);height:var(--lens);transform:translate(-50%,-50%);border-radius:50%;pointer-events:none;
+  box-shadow:0 0 0 1.5px rgba(255,255,255,.6),0 0 0 10px rgba(255,255,255,.08),0 0 0 11px rgba(255,255,255,.25),inset 0 0 44px rgba(255,255,255,.16),0 30px 60px rgba(0,0,0,.35)}
+.rim::after{content:"";position:absolute;inset:7%;border-radius:50%;border-top:2px solid rgba(255,255,255,.5);border-left:2px solid rgba(255,255,255,.12);transform:rotate(-20deg)}
+
+.top{position:absolute;z-index:20;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px var(--g)}
+.brand{display:flex;gap:9px;align-items:center;min-height:48px;text-decoration:none;font:600 16px/1 Unbounded;letter-spacing:.02em}
+.brand img{width:26px}
+.menu>summary{display:flex;align-items:center;min-height:48px;padding:0 18px;border-radius:99px;font:500 12px/1 Unbounded;letter-spacing:.14em;background:rgba(255,255,255,.14);box-shadow:inset 0 0 0 1px rgba(255,255,255,.35);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.menu>nav{border-radius:22px}
+
+.hero{position:relative;height:100svh;min-height:720px;max-height:920px;--img:url(../img/glass-bg.webp);--ly:54%}
+.hero h1{position:absolute;z-index:3;left:var(--g);right:var(--g);top:80px;padding:18px 18px 20px;font-size:clamp(28px,8.2vw,42px)}
+.hero .under{position:absolute;z-index:3;left:var(--g);right:var(--g);bottom:16px;padding:16px}
+.hero .under p{margin:0;font-size:15px;line-height:1.45;color:rgba(255,255,255,.93)}
+.hero .row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:12px}
+.hero .row a.area{font-size:14px;font-weight:600;text-underline-offset:4px;min-height:44px;display:inline-flex;align-items:center}
+
+.mani{position:relative;padding:80px var(--g) 40px}
+.mani .plate{position:relative;padding:26px 20px 24px}
+.mani h2{font-size:clamp(24px,7vw,34px)}
+.mani p{margin:16px 0 0;max-width:62ch;font-size:16px;line-height:1.6;color:rgba(255,255,255,.94)}
+.mani .loupe{position:absolute;right:-6px;top:-64px;width:120px;height:120px;border-radius:50%;background:url(../img/wheat-macro.webp) 40% 40%/220%;box-shadow:0 0 0 1.5px rgba(255,255,255,.65),0 0 0 8px rgba(255,255,255,.1),0 20px 40px rgba(0,0,0,.4)}
+
+.story{position:relative;margin-top:20px}
+.stage{position:sticky;top:0;height:100svh;max-height:920px;overflow:hidden;--ly:34%}
+.stage .scene{opacity:0;visibility:hidden;transition:opacity .7s ease,visibility 0s linear .7s}
+.stage[data-s="0"] .s0,.stage[data-s="1"] .s1,.stage[data-s="2"] .s2,.stage[data-s="3"] .s3,.stage[data-s="4"] .s4,.stage[data-s="5"] .s5{opacity:1;visibility:visible;transition:opacity .7s ease}
+.st{font-size:17px;letter-spacing:-.01em}
+.count{position:absolute;z-index:3;top:22px;left:var(--g);right:var(--g);display:flex;justify-content:space-between;align-items:center}
+.dots{display:flex;gap:5px}.dots i{width:18px;height:3px;border-radius:2px;background:rgba(255,255,255,.3)}
+.stage[data-s="0"] .dots i:nth-child(-n+1),.stage[data-s="1"] .dots i:nth-child(-n+2),.stage[data-s="2"] .dots i:nth-child(-n+3),.stage[data-s="3"] .dots i:nth-child(-n+4),.stage[data-s="4"] .dots i:nth-child(-n+5),.stage[data-s="5"] .dots i{background:#fff}
+.steps{position:relative;z-index:2;margin-top:-100svh}
+.step{height:100svh;max-height:920px;display:flex;align-items:flex-end;padding:0 var(--g) 22px}
+.step .plate{width:100%;padding:20px 18px}
+.step h3{margin:0;font-family:Unbounded,sans-serif;font-weight:600;letter-spacing:-.02em;line-height:1.16;font-size:clamp(24px,7vw,34px)}
+.step p{margin:10px 0 0;max-width:32ch;color:rgba(255,255,255,.9)}
+.story-title{position:absolute;z-index:3;top:46px;left:var(--g);font:600 15px/1.2 Unbounded}
+
+.buy{position:relative;height:100svh;min-height:720px;max-height:920px;--img:url(../img/glass-bg.webp);--ly:46%}
+.buy img.pk{position:absolute;z-index:2;left:50%;top:46%;width:calc(var(--lens)*.5);transform:translate(-50%,-50%) rotate(-4deg);filter:drop-shadow(0 18px 20px rgba(0,0,0,.4))}
+.buy .t{position:absolute;z-index:3;left:var(--g);right:var(--g);top:28px;padding:18px}
+.buy h2{font-size:clamp(26px,7.6vw,36px)}
+.buy .b{position:absolute;z-index:3;left:var(--g);right:var(--g);bottom:16px;padding:14px;border-radius:30px}
+.sizes{display:flex;gap:8px;margin-bottom:10px}
+.sizes button{flex:1;min-height:48px;border-radius:99px;border:1px solid rgba(255,255,255,.45);background:rgba(6,32,15,.25);color:#fff;font-weight:600}
+.sizes button[aria-pressed="true"]{background:#fff;color:var(--ink);border-color:#fff}
+.buy .pill{width:100%}
+.rate{margin:10px 0 0;text-align:center;font-size:13.5px;color:rgba(255,255,255,.82)}
+
+.close{padding:60px var(--g) 30px}
+.close .plate{padding:24px 18px}
+.close h2{font-size:clamp(26px,7.6vw,36px)}
+form{margin-top:20px}
+form label{display:block;font-size:14px;color:rgba(255,255,255,.85)}
+.pinrow{display:grid;grid-template-columns:1fr auto;gap:6px;margin-top:8px;padding:6px;border-radius:99px;background:rgba(255,255,255,.95)}
+.pinrow input{height:46px;padding:0 14px;border:0;border-radius:99px;background:transparent;color:var(--ink)}
+.pinrow input:focus-visible{outline:2px solid var(--ink);outline-offset:0}
+.pinrow button{height:46px;padding:0 22px;border:0;border-radius:99px;background:var(--sun);color:var(--ink);font-weight:700}
+.links{display:flex;gap:8px;margin-top:16px}
+.links a{flex:1;display:inline-flex;align-items:center;justify-content:center;min-height:50px;border-radius:99px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.5);text-decoration:none;font-weight:600}
+.foot{padding:30px var(--g) 40px;display:flex;justify-content:space-between;font:500 12px/1.6 Unbounded;letter-spacing:.08em;color:rgba(255,255,255,.75)}
+
+@media (min-width:900px){
+  :root{--lens:min(56vh,520px);--g:max(40px,calc((100vw - 1180px)/2))}
+  .hero h1{right:auto;width:520px;top:120px;font-size:48px}
+  .hero .under{left:auto;width:420px;bottom:40px}
+  .hero{--ly:52%;--lx:60%}
+  .stage{--lx:66%;--ly:50%}
+  .buy{--lx:62%}
+  .buy img.pk{left:62%}
+  .mani{max-width:860px;margin:0 auto;padding-top:120px}
+  .step{justify-content:flex-start}
+  .step .plate{width:460px}
+  .buy .t{right:auto;width:520px}
+  .buy .b{left:auto;width:460px;bottom:40px}
+  .close{max-width:760px;margin:0 auto}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <a class="brand" href="#top"><img src="../img/mark-white.png" alt="" width="228" height="202">Atulyash</a>
+  <details class="menu" data-menu>
+    <summary>MENU</summary>
+    <nav class="gl" aria-label="Main"><a href="#packs">Packs and prices</a><a href="#mani-h">Why we question atta</a><a href="#way-h">The Atulyash way</a><a href="#pin">Check delivery</a></nav>
+  </details>
+</header>
+<main id="main">
+<section class="hero" id="top" aria-labelledby="hero-h">
+  <div class="scene" role="img" aria-label="Young wheat seen sharp and enlarged through a round lens"><div class="sharp"></div><div class="frost"></div><div class="tint"></div></div>
+  <div class="rim"></div>
+  <h1 id="hero-h" class="gl dense plate">Milled <span class="mark">yesterday.</span><br>At your door <span class="mark">today.</span></h1>
+  <div class="under gl dense plate">
+    <p>Atta in its purest form. Ours is milled slowly on natural stone. Fresh, every week.</p>
+    <div class="row"><a class="area" href="#pin">Check delivery</a><a class="pill" href="#packs">See packs and prices</a></div>
+  </div>
+</section>
+
+<section class="mani" aria-labelledby="mani-h">
+  <div class="plate gl">
+    <div class="loupe" aria-hidden="true"></div>
+    <h2 id="mani-h">We question everything. Why not <span class="mark">atta?</span></h2>
+    <p>We keep changing everything around us. Our skincare, our cooking oil, even our utensils, because we research what is best for our family. So why don't we stop and think about our atta? Its quality, where it comes from, how it is made. We just take their word for it.</p>
+  </div>
+</section>
+
+<section class="story" aria-labelledby="way-h">
+  <div class="stage" data-s="0">
+    <div class="scene s0" style="--img:url(../img/field-day.webp)"><div class="sharp"></div><div class="frost"></div><div class="tint"></div></div>
+    <div class="scene s1" style="--img:url(../img/cleaning.webp)"><div class="sharp"></div><div class="frost"></div><div class="tint"></div></div>
+    <div class="scene s2" style="--img:url(../img/chakki-flour.webp)"><div class="sharp"></div><div class="frost"></div><div class="tint"></div></div>
+    <div class="scene s3" style="--img:url(../img/packing.webp)"><div class="sharp"></div><div class="frost"></div><div class="tint"></div></div>
+    <div class="scene s4" style="--img:url(../img/roti-cloth.webp)"><div class="sharp"></div><div class="frost"></div><div class="tint"></div></div>
+    <div class="scene s5" style="--img:url(../img/rider.webp)"><div class="sharp"></div><div class="frost"></div><div class="tint"></div></div>
+    <div class="rim"></div>
+    <div class="count"><h2 class="st" id="way-h">The Atulyash way</h2><span class="dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+  </div>
+  <div class="steps">
+    <div class="step" data-i="0"><div class="plate gl dense"><h3>One <span class="mark">single-origin</span> wheat.</h3><p>MP Sharbati. Never blended with other varieties.</p></div></div>
+    <div class="step" data-i="1"><div class="plate gl dense"><h3>Cleaned in <span class="mark">several stages.</span></h3></div></div>
+    <div class="step" data-i="2"><div class="plate gl dense"><h3>Ground on <span class="mark">natural stone.</span></h3><p>No emery stone, no steel rollers.</p></div></div>
+    <div class="step" data-i="3"><div class="plate gl dense"><h3>Packed with <span class="mark">minimal</span> handling.</h3></div></div>
+    <div class="step" data-i="4"><div class="plate gl dense"><h3>Milled <span class="mark">the day before.</span></h3><p>In small batches, delivered the next morning.</p></div></div>
+    <div class="step" data-i="5"><div class="plate gl dense"><h3>Brought by <span class="mark">our own</span> riders.</h3></div></div>
+  </div>
+</section>
+
+<section class="buy" id="packs" aria-labelledby="packs-h">
+  <div class="scene" aria-hidden="true"><div class="sharp"></div><div class="frost"></div><div class="tint"></div></div>
+  <div class="rim"></div>
+  <img class="pk" loading="lazy" src="../img/pack.webp" alt="Atulyash 2 kg pack" width="900" height="1334">
+  <div class="t gl plate"><h2 id="packs-h">Choose your pack. <span class="mark">₹120</span> a kg.</h2></div>
+  <div class="b gl">
+    <div class="sizes" data-packs role="group" aria-label="Pack size"><button data-kg="2" aria-pressed="true">2 kg</button><button data-kg="4" aria-pressed="false">4 kg</button><button data-kg="6" aria-pressed="false">6 kg</button></div>
+    <a class="pill" data-order href="https://wa.me/919818588996">Order fresh atta · <span data-total>₹240</span></a>
+    <p class="rate">About ₹3.60 a roti.</p>
+  </div>
+</section>
+
+<section class="close" id="pin" aria-labelledby="close-h">
+  <div class="plate gl">
+    <h2 id="close-h">Bring home atta in its <span class="mark">purest form.</span></h2>
+    <form data-pin novalidate>
+      <label for="pin-in">Do we deliver to you?</label>
+      <div class="pinrow"><input id="pin-in" inputmode="numeric" autocomplete="postal-code" placeholder="6-digit PIN code" aria-describedby="pin-out"><button type="submit">Check</button></div>
+      <output id="pin-out" aria-live="polite"></output>
+    </form>
+    <div class="links"><a href="tel:+919818588996">Call us</a><a href="https://wa.me/919818588996">WhatsApp us</a></div>
+  </div>
+</section>
+</main>
+<footer class="foot"><span>FRESHLY MILLED.<br>DELIVERED WEEKLY.</span><span style="text-align:right">DELHI<br>NCR</span></footer>
+<script src="../core.js"></script>
+<script>
+(function(){var st=document.querySelector('.stage');if(!st||!('IntersectionObserver' in window))return;var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)st.dataset.s=e.target.dataset.i})},{rootMargin:'-45% 0px -45% 0px'});document.querySelectorAll('.step').forEach(function(s){io.observe(s)})})();
+</script>
+</body>
+</html>

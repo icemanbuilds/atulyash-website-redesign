@@ -1,0 +1,147 @@
+.first-light {
+  --field-copy: #fffdf3;
+  position: relative;
+  isolation: isolate;
+  color: var(--field-copy);
+}
+.first-light::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(#1223158c,#0b2112b8), url(images/field.webp) 59% center / cover no-repeat;
+}
+.field-hero {
+  background: linear-gradient(90deg,#0c1a10a3,transparent 80%), url(images/field.webp) center / cover no-repeat;
+}
+.field-hero .site-header {
+  position: relative;
+  z-index: 1;
+}
+.field-hero .brand { font-size: clamp(1.45rem,4.4vw,2.3rem) }
+.field-hero nav { font: 500 clamp(.74rem,1.6vw,1rem)/1.2 system-ui,sans-serif }
+.field-hero nav a { display: inline-flex; min-height: 40px }
+.field-hero nav a:first-child { border-bottom: 2px solid var(--yellow) }
+.field-hero nav a:last-child { border: 0 }
+.field-intro {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: clamp(580px,79svh,880px);
+  padding: clamp(36px,8vh,96px) 0 21px;
+  isolation: isolate;
+}
+.field-intro::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -69px 0 0 44%;
+  background: linear-gradient(90deg,#0d2117b3,transparent 28%),
+    linear-gradient(0deg,#0b1d10,transparent 13%), url(images/field-hero.webp) center 61% / cover no-repeat;
+  mask-image: linear-gradient(90deg,transparent,black 14%);
+}
+.field-intro h1 {
+  max-width: 13ch;
+  font: 550 clamp(2rem,6vw,6.7rem)/.99 system-ui,sans-serif;
+  letter-spacing: -.065em;
+  text-wrap: initial;
+  text-shadow: 0 2px 16px #102214d8;
+}
+.hero-rule,.story-copy h2::after,.story-copy h3::after {
+  display: block;
+  width: clamp(28px,5vw,70px);
+  height: 2px;
+  background: #b7d649;
+}
+.hero-rule { margin-top: clamp(14px,3vw,28px) }
+.field-buy {
+  position: relative;
+  margin-top: auto;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: clamp(8px,2vw,23px);
+  width: min(100%,695px);
+  min-height: 56px;
+  padding: 8px clamp(8px,2vw,19px);
+  border: 1px solid #eef3ca42;
+  border-radius: 13px;
+  background: #33462b83;
+  box-shadow: inset 0 1px 8px #e9f5c51c;
+  backdrop-filter: blur(14px);
+}
+.product-name { font-size: clamp(.70rem,2.7vw,1.1rem); line-height: 1.25 }
+.product-price {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  padding-left: clamp(6px,1.6vw,13px);
+  border-left: 1px solid #eef3ca63;
+  font-size: clamp(.69rem,2.8vw,1rem);
+  white-space: nowrap;
+}
+.product-price strong { font-size: 1.24em }
+.field-buy .button {
+  min-height: 42px;
+  border-radius: 9px;
+  padding-inline: clamp(8px,1.6vw,20px);
+  background: linear-gradient(110deg,#ffce35,#ffdb60);
+  white-space: nowrap;
+  font: 700 clamp(.69rem,2.75vw,1.05rem)/1.1 system-ui,sans-serif;
+}
+.field-story {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  max-width: 1080px;
+  margin: auto;
+  border-top: 1px solid #e2eacd5e;
+  background: #122a176b;
+}
+.grain-panel,.stone-panel { display: flex; flex-direction: column; min-width: 0 }
+.stone-panel { border-left: 1px solid #e2eacd4f }
+.field-story img { width: 100%; height: clamp(180px,43vw,440px); object-fit: cover }
+.grain-panel img {
+  flex: 1 0 auto;
+  mask-image: linear-gradient(transparent,#000 18%);
+}
+.stone-panel img { height: clamp(200px,57vw,510px) }
+.story-copy { padding: clamp(14px,4vw,46px); text-shadow: 0 1px 11px #0b2016 }
+.story-copy h2,.story-copy h3 {
+  margin: 0;
+  font: 540 clamp(1.37rem,4.4vw,4rem)/1.02 system-ui,sans-serif;
+  letter-spacing: -.05em;
+}
+.story-copy h3 { font-size: clamp(1rem,3.65vw,2.55rem) }
+.story-copy h2::after,.story-copy h3::after { content: ""; margin-top: 10px }
+.story-copy p { margin-top: 10px; max-width: 31ch; font-size: clamp(.80rem,2.7vw,1.12rem); line-height: 1.36 }
+.kitchen-chapter,.table-section,.buy-section { background: transparent; color: inherit }
+.kitchen-chapter { padding-top: clamp(37px,6vw,72px) }
+.kitchen-heading { margin-bottom: 20px; text-align: center; text-shadow: 0 1px 16px #091d0e }
+.kitchen-heading h2 { font-size: clamp(2.35rem,6vw,4.5rem) }
+.kitchen-chapter .window-scene { width: min(100% - 40px,1080px); margin-inline: auto; border-radius: 4px }
+.kitchen-chapter .window-photo { height: clamp(280px,82vw,600px); object-position: center 55% }
+.sill { grid-area: 1/1; min-height: 45px; display: grid; place-items: center; padding: 8px; background: linear-gradient(100deg,#f2b916,var(--yellow)); color: #173322; font: 700 clamp(.92rem,2vw,1.2rem)/1.2 var(--serif); text-align: center }
+.table-copy { background: #173925c9 }
+.buy-layout {
+  border-radius: 13px;
+  border: 1px solid #eff2d44d;
+  background: #142f20cc;
+  backdrop-filter: blur(10px);
+  padding: clamp(18px,4vw,40px);
+}
+.first-light footer { border-top: 1px solid #e2eacd4f }
+@media (max-width: 700px) {
+  .field-intro { width: calc(100% - 24px); min-height: clamp(500px,63svh,660px); padding-top: clamp(32px,5.2vh,52px) }
+  .field-intro::before { inset: -69px -12px 0; mask-image: none; background-image: linear-gradient(180deg,#0a180d58,transparent 49%,#0b1d102e 86%,#0b1d10a8),url(images/field-hero.webp); background-position: center,center 59%; background-size: auto,cover }
+  .field-intro h1,.hero-rule { margin-left: 12px }
+  .field-hero .site-header { padding-block: 7px }
+  .field-hero nav { gap: clamp(8px,3vw,17px) }
+}
+@media (max-width: 345px) {
+  .field-hero .brand { gap: 4px; font-size: 1.27rem }
+  .field-hero .brand img { width: 17px }
+  .field-buy .button span { display: none }
+}
+

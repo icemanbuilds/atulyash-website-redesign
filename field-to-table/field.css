@@ -1,0 +1,43 @@
+:root{color-scheme:dark;--ink:#fffaf0;--sun:#ffd139;--edge:clamp(22px,6vw,96px);font:16px/1.5 "Segoe UI",Arial,sans-serif;background:#172b1d;color:var(--ink)}
+*{box-sizing:border-box}
+body,h1,h2,p{margin:0}
+a{color:inherit;text-underline-offset:5px}
+a:focus-visible{outline:3px solid var(--sun);outline-offset:4px}
+.skip{position:fixed;z-index:10;top:-6rem;background:#183823;padding:10px}
+.skip:focus{top:10px}
+.journey{position:relative;isolation:isolate}
+.stage{position:sticky;top:0;height:100vh;height:100lvh;margin-bottom:-100vh;margin-bottom:-100lvh;overflow:hidden;z-index:-1;background:#203a26;pointer-events:none}
+.landscape,.vignette,.shade{position:absolute;inset:0}
+.landscape{background:url(images/field.webp) center 49% / cover;transform-origin:67% 39%}
+.vignette{inset:8% -2% 0;background-size:cover;background-position:center 64%;opacity:0;mask-image:linear-gradient(180deg,transparent 0%,#0002 17%,#000 51%);transform-origin:67% 38%}
+.mill{background-image:url(images/mill.webp);opacity:var(--mill,0)}
+.dough{background-image:url(images/dough.webp);opacity:var(--dough,0)}
+.meal{background-image:url(images/table.webp);opacity:var(--meal,0)}
+.shade{background:linear-gradient(90deg,#07180d99,transparent 80%),linear-gradient(0deg,#0a1f13a8,transparent 24%,transparent 68%,#0a190d66)}
+.pouch{position:absolute;right:12%;bottom:13%;height:clamp(156px,33vh,340px);width:auto;transform-origin:50% 100%;filter:drop-shadow(4px 8px 9px #08150c99)}
+.crop-row{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.crop-row img{position:absolute;top:0;left:0;width:160px;height:auto;transform-origin:bottom center;will-change:transform}
+.landscape,.vignette,.pouch{will-change:transform}
+
+header{position:absolute;inset:0 0 auto;z-index:2;display:flex;align-items:center;justify-content:space-between;padding:10px var(--edge)}
+header a,.continue{display:inline-flex;min-height:44px;align-items:center;font-weight:650}
+.brand{gap:8px;text-decoration:none;font:600 28px Georgia,serif}
+.brand img{width:27px;filter:brightness(0) invert(1)}
+section{position:relative;min-height:100vh;min-height:100svh;padding:clamp(80px,12svh,150px) var(--edge) 90px;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start}
+.copy{max-width:min(630px,100%);text-shadow:0 2px 14px #0b190ccc}
+.place{font-size:.85rem;font-weight:650;display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.place::before{content:"";width:26px;height:3px;background:var(--sun)}
+h1,h2{font:500 clamp(2.8rem,7.3vw,7rem)/.99 Georgia,serif;letter-spacing:-.055em;text-wrap:balance}
+h1{font-family:"Segoe UI",Arial,sans-serif;font-weight:550;font-size:clamp(2.65rem,7.3vw,7rem)}
+.copy>p:last-child{max-width:34ch;margin-top:18px;font-size:clamp(1rem,1.7vw,1.3rem)}
+.continue,.purchase{position:absolute;bottom:max(24px,env(safe-area-inset-bottom));left:var(--edge)}
+.continue{gap:14px;text-decoration:none}
+.continue span{color:var(--sun);font-size:1.4rem}
+.purchase{right:var(--edge);max-width:560px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px;border-radius:18px;border:1px solid #ffffff38;background:#183b27e8;backdrop-filter:blur(14px)}
+.purchase div>*{display:block}
+.purchase span{font-size:.92rem;color:#e1e8d8}
+.purchase a{flex:none;display:grid;align-items:center;min-height:46px;border-radius:30px;background:var(--sun);color:#16351f;padding:9px 16px;text-decoration:none;font-weight:750}
+@media(min-aspect-ratio:1/1){.landscape{background-position:center 43%}.vignette{inset:0 0 0 24%;background-position:center 60%;mask-image:linear-gradient(90deg,transparent,#000 49%)}.pouch{right:20%;height:46vh}.shade{background:linear-gradient(90deg,#102215cf,transparent 75%)}}
+@media(max-width:360px){.purchase{left:12px;right:12px;padding:10px}.purchase strong{font-size:.88rem}.purchase a{padding-inline:11px}}
+@media(prefers-reduced-motion:reduce),(scripting:none){.stage{display:none}section{background:linear-gradient(0deg,#10231765,#1023178a),var(--photo) center / cover}#field{--photo:url(images/field.webp)}#mill{--photo:url(images/mill.webp)}#board{--photo:url(images/dough.webp)}#table{--photo:url(images/table.webp)}#field::after{content:"";position:absolute;right:11%;bottom:14%;height:29%;width:30%;background:url(../opening/9-glass-field/img/pack-600.webp) center / contain no-repeat;pointer-events:none}}
+

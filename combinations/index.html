@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Atulyash | Five design directions</title>
+  <style>
+    * { box-sizing:border-box }
+    body { margin:0; background:#faf9ed; color:#173d29; font:16px/1.5 "Segoe UI",Arial,sans-serif }
+    main { max-width:1160px; margin:auto; padding:24px clamp(18px,5vw,60px) 60px }
+    nav { display:flex; align-items:center; justify-content:space-between; gap:16px }
+    nav img { width:112px }
+    a { color:inherit; text-underline-offset:4px }
+    nav a { display:inline-flex; min-height:44px; align-items:center }
+    h1,h2 { font-family:Georgia,serif; font-weight:500; letter-spacing:-.055em; line-height:1.05 }
+    h1 { font-size:clamp(3rem,7vw,6rem); max-width:14ch; margin:40px 0 12px }
+    p { margin:0; max-width:52ch }
+    ol { list-style:none; padding:0; margin:32px 0; display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,255px),1fr)); gap:26px }
+    li a { display:block; height:100%; text-decoration:none }
+    figure { margin:0; display:grid; place-items:end center; padding:20px 16px 0; background:var(--mat); border-radius:18px; overflow:hidden }
+    figure img { width:min(100%,225px); height:auto; display:block; border-radius:12px 12px 0 0; box-shadow:0 4px 20px #102d241a }
+    h2 { margin:14px 0 6px; font-size:1.9rem }
+    a:hover h2 { text-decoration:underline }
+    a:focus-visible { outline:3px solid #8a4c00; outline-offset:4px }
+  </style>
+</head>
+<body>
+  <main>
+    <nav aria-label="Gallery"><img src="../opening/shared/wordmark.png" alt="Atulyash"><a href="../index.html">Original designs</a></nav>
+    <h1>Glass Field, five ways.</h1><p>Five variations on Glass Field, with a touch of Golden Kitchen. Tap a preview to explore the full page.</p>
+    <ol>
+      <li style="--mat:#cadbc9"><a href="sunroom/index.html">
+        <figure><img src="sunroom/preview.webp" width="780" height="1560" alt=""></figure>
+        <h2>1. First Light</h2><p>A pack portrait framed by a rising yellow sun and a floating glass caption.</p></a></li>
+      <li style="--mat:#cadbc9"><a href="window/index.html">
+        <figure><img src="window/preview.webp" width="780" height="1560" alt=""></figure>
+        <h2>2. Kitchen Window</h2><p>An arched kitchen photograph between a serif masthead and a glass sill.</p></a></li>
+      <li style="--mat:#cadbc9"><a href="notes/index.html">
+        <figure><img src="notes/preview.webp" width="780" height="1560" alt="" loading="lazy"></figure>
+        <h2>3. Harvest Notes</h2><p>A botanical field sheet with an oversized wheat specimen and a ruled ledger.</p></a></li>
+      <li style="--mat:#cadbc9"><a href="stone/index.html">
+        <figure><img src="stone/preview.webp" width="780" height="1560" alt="" loading="lazy"></figure>
+        <h2>4. Millstone</h2><p>A graphic mill poster with bold type and concentric grinding rings.</p></a></li>
+      <li style="--mat:#cadbc9"><a href="table/index.html">
+        <figure><img src="table/preview.webp" width="780" height="1560" alt="" loading="lazy"></figure>
+        <h2>5. At the Table</h2><p>An overhead lunch photograph with a folded, translucent menu on green gingham.</p></a></li>
+    </ol>
+  </main>
+</body>
+</html>

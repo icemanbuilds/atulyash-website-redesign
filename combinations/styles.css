@@ -1,0 +1,53 @@
+:root { --wheat:#ffd139; --cream:#fbf8de; --forest:#143b24 }
+.menu nav { background:#153d23 }
+.concept-hero { position:relative; max-width:960px; margin:18px auto 48px; padding:0 clamp(16px,4vw,48px); overflow:visible }
+.concept-hero figure,.concept-hero p { margin:0 }
+.concept-hero h1 { font-size:clamp(34px,8.4vw,74px); letter-spacing:-.055em; line-height:1.03 }
+.concept-hero p { max-width:34ch; line-height:1.42 }
+.concept-order { display:inline-flex; align-items:center; justify-content:center; min-height:46px; padding:9px 20px; border-radius:24px; font-weight:700; background:var(--wheat); color:#193721; text-decoration:none }
+.kitchen-photo { position:relative; margin:24px 0 0; overflow:hidden; border-radius:16px }
+.kitchen-photo img { width:100%; height:clamp(165px,28vw,285px); object-fit:cover }
+.kitchen-photo figcaption { position:absolute; left:12px; bottom:12px; padding:4px 12px; border-radius:20px; color:white; background:#12341ef2; font-size:14px }
+.pack-stop a { background:var(--wheat); color:#173719 }
+.solar-stage { position:relative; display:grid; place-items:center; isolation:isolate; min-height:275px }
+.sun-disc { position:absolute; border-radius:50%; width:clamp(170px,36vw,330px); aspect-ratio:1; background:linear-gradient(145deg,#ffdf65,#ffcb2c); z-index:-1; transform:translate(12%,-3%) }
+.solar-stage img { height:clamp(240px,42vw,380px); width:auto; transform:rotate(-7deg); filter:drop-shadow(0 13px 9px #071b1473) }
+.solar-caption { max-width:680px; margin:auto; padding:clamp(22px,4vw,40px); border-radius:26px; position:relative }
+.solar-caption p,.table-menu p { margin:14px 0 18px }
+.window .concept-hero { display:grid; grid-template-columns:1fr; max-width:780px }
+.window-title { z-index:1; padding:16px 0 22px }
+.window-title h1 { font:500 clamp(44px,11vw,82px)/.96 Georgia,serif; letter-spacing:-.065em }
+.window-frame { overflow:hidden; margin-left:12%!important; border-radius:48% 48% 0 0 / 28% 28% 0 0; box-shadow:-9px 0 var(--wheat) }
+.window-frame img { width:100%; height:clamp(215px,32vw,350px); object-fit:cover; object-position:center 40% }
+.window-sill { position:relative; border-radius:5px 5px 20px 20px; padding:18px 20px; display:flex; align-items:center; justify-content:space-between; gap:12px }
+.window-sill p { font-size:.92rem; max-width:24ch }
+.window-sill a { flex:none; background:var(--cream); color:var(--forest); font-size:.9rem; padding-inline:14px }
+.sheet { max-width:650px; margin:auto; padding:clamp(22px,4vw,40px); border-radius:3px; background:linear-gradient(120deg,#e1eedbe8,#ccdfcce8); color:#18452b; border-left:6px solid var(--wheat) }
+.sheet h1 { font:italic 500 clamp(37px,9.5vw,70px)/1 Georgia,serif; letter-spacing:-.055em }
+.specimen { position:relative; margin-block:20px; background-image:linear-gradient(#17422a12 1px,transparent 1px),linear-gradient(90deg,#17422a12 1px,transparent 1px); background-size:20px 20px; padding:12px 8px 20px }
+.specimen img { margin:auto; height:clamp(145px,28vw,230px); object-fit:contain; filter:drop-shadow(2px 4px 3px #37512e29) }
+.specimen span { position:absolute; right:0; bottom:0; background:var(--wheat); padding:2px 10px; font:italic 17px Georgia,serif; transform:rotate(-4deg) }
+.ledger { display:grid; grid-template-columns:auto 1fr; border-top:1px solid #6b8b72; margin-bottom:18px }
+.ledger>* { padding:7px 0; border-bottom:1px solid #94ad96; font-size:14px }
+.ledger b { text-align:right }
+.sheet .concept-order { color:#fff; background:var(--forest); border-radius:4px }
+.mill-poster { margin:auto; max-width:740px; padding:24px 16px 0; border-top:3px solid var(--wheat); text-align:center; background:linear-gradient(180deg,#103b29ee,#103b29aa); overflow:hidden }
+.mill-poster h1 { font:900 clamp(42px,11.1vw,80px)/.97 "Arial Black",system-ui,sans-serif; letter-spacing:-.075em; color:var(--cream) }
+.mill-wheel { width:min(84%,340px); aspect-ratio:1; padding:8%; margin:20px auto; border-radius:50%; position:relative; background:repeating-radial-gradient(circle,transparent 0 9px,#ede9979c 10px,transparent 11px 15px); border:2px solid var(--wheat); display:grid; place-items:center }
+.mill-wheel img { width:100%; aspect-ratio:1; border-radius:50%; object-fit:cover; outline:5px solid var(--wheat) }
+.mill-label { margin-inline:-16px; padding:14px; display:grid; justify-items:center; gap:12px }
+.table .concept-hero { padding:18px clamp(14px,5vw,44px) 24px; max-width:750px; background-color:#27563e; background-image:repeating-linear-gradient(0deg,transparent 0 17px,#e3f1c917 17px 34px),repeating-linear-gradient(90deg,transparent 0 17px,#e3f1c917 17px 34px) }
+.table-photo { margin:0 0 0 12%; transform:rotate(2deg); background:var(--cream); padding:5px; box-shadow:0 8px 18px #09271860 }
+.table-photo img { height:clamp(205px,32vw,340px); width:100%; object-fit:cover; object-position:center }
+.table-menu { margin:-32px 9% 0 0; position:relative; padding:26px 18px 20px; color:#153e29; background:#edf4dcf0; border-radius:1px; box-shadow:0 8px 18px #09271840 }
+.table-menu::before { content:""; position:absolute; top:0; right:0; width:26px; height:26px; background:linear-gradient(45deg,var(--wheat) 50%,#26573e 51%) }
+.table-menu h1 { font:600 clamp(35px,8.3vw,62px)/1.01 Georgia,serif; letter-spacing:-.055em }
+.table-menu p { font-size:15px }
+@media(min-width:850px) {
+ .sunroom .concept-hero { display:grid; align-items:center; grid-template-columns:1fr 1.2fr }
+ .sunroom .solar-stage { order:2 }
+ .solar-caption h1 { font-size:60px }
+ .window .concept-hero { grid-template-columns:1fr 1fr; align-items:end; gap:0 24px }
+ .window-frame { grid-column:2; grid-row:1; margin:0!important }
+ .window-sill { grid-column:1/-1 }
+}
