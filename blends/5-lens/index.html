@@ -11,34 +11,30 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600..900&family=DM+Sans:opsz,wght@9..40,400..700&display=swap">
 <link rel="stylesheet" href="../glass.css">
 <style>
-/* 5 Lens. The wheat field sits soft behind frosted glass; every photo is seen through one thick, clear lens
-   that magnifies the middle and bends at the rim. The yellow pillar carries the brand down the left. */
-:root{--sun:#FFCF39;--ink:#0B2A16;--col:25%;--g:16px}
+/* 5 Lens. The sharp wheat wall, with one thick clear lens onto the kitchen wherever 5 Reeded had fluted glass.
+   A full-height yellow column runs down the left like a painted kitchen pillar, and comes back as the pack selector. */
+:root{--glass:rgba(22,92,44,.30);--sun:#FFCF39;--ink:#0B2A16;--col:25%;--g:16px}
 *{box-sizing:border-box}
 body{margin:0;color:#fff;font:400 15.5px/1.55 "DM Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:clip}
-/* the whole wall sits behind frosted glass */
-body::before{inset:-24px;filter:blur(10px) saturate(1.25)}
-body::after{background:linear-gradient(180deg,rgba(5,25,10,.34),rgba(5,25,10,.22) 40%,rgba(5,25,10,.46))}
 img{display:block;max-width:100%;height:auto}
 a{color:inherit}
 :focus-visible{outline:3px solid #fff;outline-offset:3px}
 h1,h2,h3{margin:0;font-family:"Big Shoulders Display",Impact,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:-.005em;line-height:.9}
-h2{font-size:clamp(44px,12.4vw,64px)}
+h2{font-size:clamp(46px,13vw,72px)}
 .k{font:700 13px/1.3 "DM Sans";letter-spacing:.12em;text-transform:uppercase}
 
-/* clear glass */
-.cg{border:1px solid rgba(255,255,255,.42);
-  background:linear-gradient(140deg,rgba(255,255,255,.22),rgba(255,255,255,.05) 46%,rgba(255,255,255,.10)),rgba(8,36,16,.26);
-  -webkit-backdrop-filter:blur(14px) saturate(1.6);backdrop-filter:blur(14px) saturate(1.6);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.6),inset 0 -10px 24px rgba(0,0,0,.08),0 22px 44px rgba(0,0,0,.24)}
-.cg p,.cg b,.cg span{text-shadow:0 1px 10px rgba(0,0,0,.3)}
-
-/* the lens: a baked image of the photo through thick glass, plus a live rim and drop shadow */
-.lens{position:relative;aspect-ratio:1;border-radius:50%;filter:drop-shadow(0 26px 40px rgba(0,0,0,.42))}
+/* a thick clear lens takes the place of the fluted glass: the wheat wall stays sharp around it,
+   and the photo sits inside, magnified in the middle and bent at the rim */
+.lens{position:absolute;z-index:1;aspect-ratio:1;border-radius:50%;filter:drop-shadow(0 24px 36px rgba(0,0,0,.42))}
 .lens img{width:100%;height:100%;border-radius:50%}
 .lens::after{content:"";position:absolute;inset:0;border-radius:50%;pointer-events:none;box-shadow:inset 0 0 0 2px rgba(255,255,255,.55),inset -10px -14px 30px rgba(0,0,0,.22),inset 10px 12px 26px rgba(255,255,255,.16)}
+.hero .lens{left:50%;top:57%;width:min(86%,330px);transform:translate(-50%,-50%)}
+.mani .lens{right:var(--g);top:56px;width:min(64%,300px)}
+.panel .lens{left:50%;top:44%;width:84%;transform:translate(-50%,-50%)}
+.close .lens{left:var(--g);top:40px;width:min(62%,290px)}
+.shade{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(6,30,14,.62),rgba(6,30,14,0) 38%,rgba(6,30,14,0) 62%,rgba(6,30,14,.7))}
+.plate{border-radius:22px}
 
-/* ---------- first screen ---------- */
 .col{position:relative;z-index:2;background:linear-gradient(180deg,#FFD64A,var(--sun) 40%,#FFC52A);color:var(--ink)}
 .hero{position:relative;height:100svh;min-height:720px;max-height:920px;display:grid;grid-template-columns:var(--col) 1fr}
 .hero .col{display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:16px 0 20px}
@@ -47,60 +43,47 @@ h2{font-size:clamp(44px,12.4vw,64px)}
 .hero .v span{font-weight:600;opacity:.62}
 .round{display:grid;place-items:center;width:76px;height:76px;border-radius:50%;background:var(--ink);color:#fff;text-decoration:none;font:700 13px/1.15 "DM Sans";text-align:center}
 .view{position:relative;overflow:hidden}
-.hero .view::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,30,14,.45),rgba(6,30,14,0) 40%)}
 .bar{position:absolute;z-index:3;top:12px;right:12px;left:16px;display:flex;justify-content:space-between;align-items:center}
 .bar .name{display:inline-flex;align-items:center;min-height:44px;font:800 22px/1 "Big Shoulders Display";letter-spacing:.04em;text-transform:uppercase;text-decoration:none}
 .menu>summary{display:flex;align-items:center;min-height:44px;padding:0 14px;border-radius:99px;font:600 13px/1 "DM Sans";letter-spacing:.12em;background:rgba(255,255,255,.14);box-shadow:inset 0 0 0 1px rgba(255,255,255,.35);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
 .menu>nav{border-radius:20px}
-.hero h1{position:absolute;z-index:2;left:16px;right:12px;top:66px;font-size:clamp(56px,16.5vw,84px);line-height:.88;text-shadow:0 2px 28px rgba(0,0,0,.35)}
-.hero .lens{position:absolute;z-index:1;left:50%;top:60%;width:min(92%,340px);transform:translate(-50%,-50%)}
-.hero .bottom{position:absolute;z-index:3;left:12px;right:12px;bottom:14px;padding:16px;border-radius:22px}
+.hero h1{text-shadow:0 2px 28px rgba(0,0,0,.35);position:absolute;z-index:2;left:16px;right:12px;top:66px;font-size:clamp(56px,16.5vw,84px);line-height:.88}
+.hero .bottom{position:absolute;z-index:2;left:12px;right:12px;bottom:14px;padding:16px}
 .hero .bottom p{margin:0;font-size:15px;line-height:1.45}
 .hero .bottom a{display:inline-flex;align-items:center;min-height:44px;margin-top:4px;font-weight:700;text-underline-offset:4px}
 
-/* ---------- why we question atta ---------- */
-.mani{position:relative;padding:72px var(--g) 0}
-.mani .lens{width:72%;margin:0 -6px 0 auto}
-.mani .cg{position:relative;margin-top:-90px;padding:22px 20px;border-radius:24px}
-.mani .cg .k{display:block;margin-bottom:10px;opacity:.85}
-.mani .cg p{margin:14px 0 0;line-height:1.6}
+.mani{position:relative;height:640px;margin-top:0}
+.mani .plate{position:absolute;z-index:2;left:var(--g);right:var(--g);bottom:18px;padding:20px 18px}
+.mani h2{font-size:clamp(44px,12.4vw,64px)}
+.mani p{margin:14px 0 0;font-size:15.5px;line-height:1.6}
+.mani .k{position:absolute;z-index:2;top:20px;left:var(--g);opacity:.8}
 
-/* ---------- the Atulyash way: one lens, tap through the steps ---------- */
-.way{padding:80px var(--g) 10px}
-.way-h{display:flex;justify-content:space-between;align-items:end;gap:12px;margin-bottom:18px}
-.way-h span{opacity:.8;text-align:right}
-.stage{position:relative}
-.stage .lens{width:min(100%,380px);margin:0 auto}
-.stage .lens img{position:absolute;inset:0;opacity:0;transition:opacity .45s ease}
-.stage .lens img.on{opacity:1}
-.chips{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-top:-34px;position:relative;z-index:2;padding:6px;border-radius:16px}
-.chips button{min-height:44px;border:0;border-radius:11px;background:transparent;color:#fff;font:800 20px/1 "Big Shoulders Display";cursor:pointer}
-.chips button[aria-selected="true"]{background:var(--sun);color:var(--ink)}
-.txt{margin-top:10px;padding:16px 18px;border-radius:20px;min-height:112px}
-.txt b{display:block;font:800 32px/.95 "Big Shoulders Display";text-transform:uppercase}
-.txt p{margin:8px 0 0;font-size:15px;line-height:1.45}
+.panels{padding:64px 0 10px}
+.ph{display:flex;justify-content:space-between;align-items:end;padding:0 20px 20px}
+.ph span{opacity:.75;text-align:right}
+.track{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 20px 10px;scrollbar-width:none}
+.track::-webkit-scrollbar{display:none}
+.panel{position:relative;flex:0 0 72%;height:480px;scroll-snap-align:start;overflow:hidden;border-radius:24px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.28)}
+.panel .shade{background:linear-gradient(180deg,rgba(6,30,14,.35),transparent 30%,transparent 55%,rgba(6,30,14,.6))}
+.panel .n{text-shadow:0 2px 6px rgba(0,0,0,.35),0 4px 26px rgba(0,0,0,.55);position:absolute;z-index:2;top:12px;left:14px;font:900 96px/.8 "Big Shoulders Display";color:rgba(255,255,255,.94)}
+.panel .t{position:absolute;z-index:2;left:10px;right:10px;bottom:10px;padding:14px;border-radius:18px}
+.panel .t b{display:block;font:800 32px/.95 "Big Shoulders Display";text-transform:uppercase}
+.panel .t p{margin:8px 0 0;font-size:14px;line-height:1.4}
 
-/* ---------- packs ---------- */
-.packs{display:grid;grid-template-columns:var(--col) 1fr;min-height:580px;margin-top:72px}
+.packs{display:grid;grid-template-columns:var(--col) 1fr;min-height:580px;margin-top:54px}
 .packs .col{display:flex;flex-direction:column}
 .seg{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;border:0;border-bottom:2px solid rgba(11,42,22,.18);background:transparent;color:var(--ink);font:800 40px/.9 "Big Shoulders Display"}
 .seg small{font:600 13px/1.2 "DM Sans";margin-top:6px}
 .seg[aria-pressed="true"]{background:var(--ink);color:var(--sun)}
 .packs .view{min-height:580px}
+.packs .pk{position:absolute;z-index:2;left:50%;top:50%;width:52%;transform:translate(-50%,-46%);filter:drop-shadow(0 20px 24px rgba(0,0,0,.45))}
 .packs .tt{position:absolute;z-index:2;top:18px;left:16px;right:16px}
 .packs .tt p{margin:8px 0 0}
-.packs .disc{position:absolute;left:50%;top:53%;width:80%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;
-  background:radial-gradient(circle at 34% 28%,rgba(255,255,255,.34),rgba(255,255,255,.06) 42%,rgba(255,255,255,.02) 70%),rgba(8,36,16,.18);
-  -webkit-backdrop-filter:blur(6px) saturate(1.4);backdrop-filter:blur(6px) saturate(1.4);
-  box-shadow:inset 0 0 0 2px rgba(255,255,255,.5),inset -12px -16px 34px rgba(0,0,0,.22),0 26px 40px rgba(0,0,0,.3)}
-.packs .pk{position:absolute;z-index:2;left:50%;top:53%;width:50%;transform:translate(-50%,-50%);filter:drop-shadow(0 20px 24px rgba(0,0,0,.45))}
-.packs .bt{position:absolute;z-index:2;left:12px;right:12px;bottom:12px;padding:10px;border-radius:20px}
+.packs .bt{position:absolute;z-index:2;left:12px;right:12px;bottom:12px;padding:10px}
 .buy{display:flex;justify-content:space-between;align-items:center;min-height:56px;padding:0 18px;border-radius:14px;background:#fff;color:var(--ink);font-weight:700;text-decoration:none}
 
-/* ---------- close ---------- */
-.close{position:relative;padding:80px var(--g) 0}
-.close .lens{width:68%;margin:0 0 0 -4px}
-.close .cg{position:relative;margin-top:-80px;padding:20px 18px;border-radius:24px}
+.close{position:relative;min-height:620px;margin-top:54px}
+.close .plate{position:absolute;z-index:2;left:var(--g);right:var(--g);bottom:18px;padding:20px 18px}
 .close h2{font-size:clamp(42px,12vw,60px)}
 form{margin-top:18px}
 form label{display:block}
@@ -108,25 +91,24 @@ form label{display:block}
 .pinrow input{height:54px;padding:0 14px;border:0;border-radius:12px;background:rgba(255,255,255,.95);color:var(--ink)}
 .pinrow button{height:54px;padding:0 20px;border:0;border-radius:12px;background:var(--sun);color:var(--ink);font-weight:800}
 .links{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
-.links a{display:flex;align-items:center;justify-content:center;min-height:50px;border-radius:12px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.6);background:rgba(255,255,255,.08);text-decoration:none;font-weight:700}
-.foot{display:flex;justify-content:space-between;padding:40px 20px 40px;font:800 24px/1 "Big Shoulders Display";text-transform:uppercase}
+.links a{display:flex;align-items:center;justify-content:center;min-height:50px;border-radius:12px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.5);text-decoration:none;font-weight:700}
+.foot{display:flex;justify-content:space-between;padding:30px 20px 40px;font:800 24px/1 "Big Shoulders Display";text-transform:uppercase}
 .foot span:last-child{font:600 13px/1.4 "DM Sans";letter-spacing:.1em;text-align:right;opacity:.75}
 
 @media (min-width:900px){
+  .hero .lens{left:auto;right:6%;top:46%;transform:translateY(-50%);width:min(34vw,440px)}
+  .mani .lens{right:auto;left:var(--g);top:60px;width:420px}
+  .close .lens{top:60px;width:400px}
   :root{--col:clamp(180px,18%,260px);--g:40px}
   .hero h1{font-size:120px;max-width:9ch;top:90px;left:40px}
-  .hero .lens{left:auto;right:3%;top:50%;transform:translateY(-50%);width:min(38vw,520px)}
   .hero .bottom{left:auto;width:420px;right:30px;bottom:30px}
-  .mani,.close{display:grid;grid-template-columns:1fr 1fr;align-items:center;max-width:1180px;margin-left:auto;margin-right:auto}
-  .mani .lens,.close .lens{width:100%;margin:0}
-  .mani .cg,.close .cg{margin:0 0 0 -60px}
-  .way{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:20px 40px;align-items:center}
-  .way-h{grid-column:1/-1}
+  .mani{height:680px}
+  .mani .plate{left:auto;right:40px;width:520px;bottom:40px}
+  .panel{flex-basis:32%;height:560px}
   .packs .pk{width:300px}
-  .packs .disc{width:460px}
   .packs .bt{left:auto;width:420px;right:24px}
+  .close .plate{left:auto;right:40px;width:520px;bottom:40px}
 }
-@media (prefers-reduced-motion:reduce){.stage .lens img{transition:none}}
 </style>
 </head>
 <body>
@@ -139,41 +121,35 @@ form label{display:block}
     <a class="round" href="#packs">See<br>packs</a>
   </aside>
   <div class="view">
+    <div class="lens"><img src="../img/lens/kitchen-steam.webp" alt="Rotis cooking on a tawa, seen through a round glass lens" width="720" height="720"></div>
+    <div class="shade"></div>
     <header class="bar">
       <a class="name" href="#top">Atulyash</a>
       <details class="menu" data-menu><summary>MENU</summary><nav class="gl" aria-label="Main"><a href="#packs">Packs and prices</a><a href="#mani-h">Why we question atta</a><a href="#way-h">The Atulyash way</a><a href="#pin">Check delivery</a></nav></details>
     </header>
     <h1 id="hero-h">Milled yesterday. At your door today.</h1>
-    <div class="lens"><img src="../img/lens/kitchen-steam.webp" alt="Rotis cooking on a tawa, seen through a round glass lens" width="720" height="720"></div>
-    <div class="bottom cg"><p>Atta in its purest form. Ours is milled slowly on natural stone. Fresh, every week.</p><a href="#pin">Check delivery to my area <span class="arr" aria-hidden="true"></span></a></div>
+    <div class="bottom gl dense plate"><p>Atta in its purest form. Ours is milled slowly on natural stone. Fresh, every week.</p><a href="#pin">Check delivery to my area <span class="arr" aria-hidden="true"></span></a></div>
   </div>
 </section>
 
 <section class="mani" aria-labelledby="mani-h">
-  <div class="lens"><img loading="lazy" src="../img/lens/thali-hands.webp" alt="Hands serving rotis" width="720" height="720"></div>
-  <div class="cg">
-    <span class="k">Why we question atta</span>
+  <div class="lens" aria-hidden="true"><img src="../img/lens/thali-hands.webp" alt="" width="720" height="720" loading="lazy"></div>
+  <div class="plate gl dense">
     <h2 id="mani-h">We question everything. Why not atta?</h2>
     <p>We keep changing everything around us. Our skincare, our cooking oil, even our utensils, because we research what is best for our family. So why don't we stop and think about our atta? Its quality, where it comes from, how it is made. We just take their word for it.</p>
   </div>
 </section>
 
-<section class="way" aria-labelledby="way-h">
-  <div class="way-h"><h2 id="way-h">The Atulyash way</h2><span class="k">Tap a step</span></div>
-  <div class="stage" data-stage>
-    <div class="lens">
-      <img class="on" loading="lazy" src="../img/lens/field-day.webp" alt="" width="720" height="720">
-      <img loading="lazy" src="../img/lens/cleaning.webp" alt="" width="720" height="720">
-      <img loading="lazy" src="../img/lens/chakki-flour.webp" alt="" width="720" height="720">
-      <img loading="lazy" src="../img/lens/packing.webp" alt="" width="720" height="720">
-      <img loading="lazy" src="../img/lens/phulka-tawa.webp" alt="" width="720" height="720">
-      <img loading="lazy" src="../img/lens/rider.webp" alt="" width="720" height="720">
-    </div>
-    <div class="chips cg" role="tablist" aria-label="Steps">
-      <button role="tab" aria-selected="true" aria-controls="step-txt">01</button><button role="tab" aria-selected="false" aria-controls="step-txt">02</button><button role="tab" aria-selected="false" aria-controls="step-txt">03</button><button role="tab" aria-selected="false" aria-controls="step-txt">04</button><button role="tab" aria-selected="false" aria-controls="step-txt">05</button><button role="tab" aria-selected="false" aria-controls="step-txt">06</button>
-    </div>
+<section class="panels" aria-labelledby="way-h">
+  <div class="ph"><h2 id="way-h">The Atulyash way</h2><span class="k">Swipe<br><span class="arr" aria-hidden="true"></span></span></div>
+  <div class="track" tabindex="0" aria-label="Six steps, scroll sideways">
+    <div class="panel"><div class="lens" aria-hidden="true"><img src="../img/lens/field-day.webp" alt="" width="720" height="720" loading="lazy"></div><div class="shade"></div><span class="n">01</span><div class="t gl dense"><b>The wheat</b><p>Single-origin MP Sharbati. Never blended with other varieties.</p></div></div>
+    <div class="panel"><div class="lens" aria-hidden="true"><img src="../img/lens/cleaning.webp" alt="" width="720" height="720" loading="lazy"></div><div class="shade"></div><span class="n">02</span><div class="t gl dense"><b>The cleaning</b><p>In several stages.</p></div></div>
+    <div class="panel"><div class="lens" aria-hidden="true"><img src="../img/lens/chakki-flour.webp" alt="" width="720" height="720" loading="lazy"></div><div class="shade"></div><span class="n">03</span><div class="t gl dense"><b>The stone</b><p>Natural stone chakkis. No emery stone, no steel rollers.</p></div></div>
+    <div class="panel"><div class="lens" aria-hidden="true"><img src="../img/lens/packing.webp" alt="" width="720" height="720" loading="lazy"></div><div class="shade"></div><span class="n">04</span><div class="t gl dense"><b>The packing</b><p>Packed with minimal handling.</p></div></div>
+    <div class="panel"><div class="lens" aria-hidden="true"><img src="../img/lens/phulka-tawa.webp" alt="" width="720" height="720" loading="lazy"></div><div class="shade"></div><span class="n">05</span><div class="t gl dense"><b>The milling day</b><p>Milled in small batches the day before, delivered the next morning.</p></div></div>
+    <div class="panel"><div class="lens" aria-hidden="true"><img src="../img/lens/rider.webp" alt="" width="720" height="720" loading="lazy"></div><div class="shade"></div><span class="n">06</span><div class="t gl dense"><b>The riders</b><p>We deliver with our own riders.</p></div></div>
   </div>
-  <div class="cg txt" id="step-txt" role="tabpanel" aria-live="polite"><b>The wheat</b><p>Single-origin MP Sharbati. Never blended with other varieties.</p></div>
 </section>
 
 <section class="packs" id="packs" aria-labelledby="packs-h">
@@ -183,16 +159,17 @@ form label{display:block}
     <button class="seg" data-kg="6" aria-pressed="false">6 kg<small>₹720</small></button>
   </aside>
   <div class="view">
+    
+    <div class="shade"></div>
     <div class="tt"><h2 id="packs-h">Choose<br>your pack</h2><p>₹120 a kg, about ₹3.60 a roti.</p></div>
-    <div class="disc" aria-hidden="true"></div>
     <img class="pk" loading="lazy" src="../img/pack.webp" alt="Atulyash 2 kg pack" width="900" height="1334">
-    <div class="bt cg"><a class="buy" data-order href="https://wa.me/919818588996">Order fresh atta <span><span data-total>₹240</span> <span class="arr" aria-hidden="true"></span></span></a></div>
+    <div class="bt gl plate"><a class="buy" data-order href="https://wa.me/919818588996">Order fresh atta <span><span data-total>₹240</span> <span class="arr" aria-hidden="true"></span></span></a></div>
   </div>
 </section>
 
 <section class="close" id="pin" aria-labelledby="close-h">
-  <div class="lens"><img loading="lazy" src="../img/lens/roti-cloth.webp" alt="" width="720" height="720"></div>
-  <div class="cg">
+  <div class="lens" aria-hidden="true"><img src="../img/lens/roti-cloth.webp" alt="" width="720" height="720" loading="lazy"></div>
+  <div class="plate gl dense">
     <h2 id="close-h">Bring home atta in its purest form.</h2>
     <form data-pin novalidate>
       <label class="k" for="pin-in">Do we deliver to you?</label>
@@ -205,17 +182,5 @@ form label{display:block}
 </main>
 <footer class="foot"><span>Freshly milled.<br>Delivered weekly.</span><span>Delhi NCR</span></footer>
 <script src="../core.js"></script>
-<script>
-(function(){
-var st=document.querySelector('[data-stage]');if(!st)return;
-var S=[["The wheat","Single-origin MP Sharbati. Never blended with other varieties."],["The cleaning","In several stages."],["The stone","Natural stone chakkis. No emery stone, no steel rollers."],["The packing","Packed with minimal handling."],["The milling day","Milled in small batches the day before, delivered the next morning."],["The riders","We deliver with our own riders."]];
-var imgs=st.querySelectorAll('.lens img'),bs=st.querySelectorAll('[role=tab]'),tx=document.getElementById('step-txt'),cur=0;
-function go(i){cur=i;imgs.forEach(function(m,j){m.classList.toggle('on',j===i)});bs.forEach(function(b,j){b.setAttribute('aria-selected',j===i?'true':'false')});tx.innerHTML='<b>'+S[i][0]+'</b><p>'+S[i][1]+'</p>'}
-bs.forEach(function(b,i){b.addEventListener('click',function(){go(i)})});
-var x0=null,lz=st.querySelector('.lens');
-lz.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
-lz.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40)go(Math.max(0,Math.min(5,cur+(dx<0?1:-1))));x0=null},{passive:true});
-})();
-</script>
 </body>
 </html>
