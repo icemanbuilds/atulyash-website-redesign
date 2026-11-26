@@ -7,7 +7,8 @@
 <link rel="icon" href="data:,">
 <title>Atulyash: 2B Living</title>
 <link rel="stylesheet" href="../glass.css">
-<link rel="stylesheet" href="../veer/veer.css?v=9">
+<link rel="preload" href="../fonts/baloo2-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../veer/veer.css?v=10">
 <style>
 /* 6 Alt. Golden Kitchen, laid over Glass Field: its masthead, bold serif with the italic second line, the
    kitchen still life, the fact list, the kitchen journal, the thali gallery and the pack rows, each on its own panel.
@@ -555,6 +556,59 @@ html.mo .packs.in .pack-card.rise:active{transform:scale(.97,.95);transition-dur
   .hero .acts{margin-top:14px}
   .art{min-height:clamp(165px,46vw,210px)}
 }
+
+/* ================= Dr. Asha's films: her card, a snap scroller of six shorts, then the long films ================= */
+.asha{display:grid;grid-template-columns:72px 1fr;gap:14px;align-items:center;margin:0 0 22px;padding:14px 16px 14px 14px;border-radius:22px 22px 22px 6px;background:var(--paper);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.75),0 0 0 1px rgba(150,110,20,.10),0 1px 2px rgba(90,60,0,.14),0 10px 22px rgba(90,60,0,.14)}
+.asha-pic{width:72px;height:72px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 3px var(--sun),0 0 0 4px rgba(148,96,0,.25),0 8px 16px rgba(60,40,0,.25)}
+.asha-k{margin:0;font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.asha h3{margin:3px 0 4px;font-size:22px;line-height:1.1;letter-spacing:-.02em}
+.asha-cv{margin:0;font-size:14px;line-height:1.45;color:var(--body)}
+.films-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 12px}
+.films-top p{margin:0;font:italic 400 20px/1.2 Georgia,"Times New Roman",serif;color:var(--ink)}
+.films-nav{display:flex;gap:8px;flex:none}
+.films-nav button{display:grid;place-items:center;width:44px;height:44px;padding:0;border:0;border-radius:50%;background:var(--button);color:#FFFAF0;cursor:pointer;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.22),inset 0 -2px 0 rgba(0,0,0,.22),0 6px 14px rgba(54,94,18,.3);transition:opacity .25s ease,transform .12s ease,box-shadow .25s ease}
+.films-nav button:disabled{background:transparent;color:rgba(33,63,20,.45);box-shadow:inset 0 0 0 1.5px rgba(33,63,20,.28);cursor:default}
+.films-nav button:active:not(:disabled){transform:scale(.93)}
+.films-nav button:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.films-nav svg{width:18px;height:18px}
+.films{display:grid;grid-auto-flow:column;grid-auto-columns:min(80%,300px);gap:12px;margin:0 -20px 16px;padding:4px 20px 18px;overflow-x:auto;overscroll-behavior-x:contain;
+  scroll-snap-type:x mandatory;scroll-padding:0 20px;scrollbar-width:none}
+.films::-webkit-scrollbar{display:none}
+.film{scroll-snap-align:start;display:flex}
+.film a{display:flex;flex-direction:column;width:100%;padding:8px 8px 6px;border-radius:20px 20px 20px 6px;background:var(--paper);color:var(--ink);text-decoration:none;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.75),0 0 0 1px rgba(150,110,20,.10),0 1px 2px rgba(90,60,0,.14),0 10px 22px rgba(90,60,0,.16);transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s ease}
+.film a:focus-visible{outline:3px solid var(--button);outline-offset:3px}
+.fth{position:relative;display:block;aspect-ratio:16/9;overflow:hidden;border-radius:14px;background:#EFE4C8}
+.fth img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.fplay{position:absolute;left:8px;top:8px;display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--sun);color:var(--ink);box-shadow:0 0 0 3px rgba(255,250,240,.7),0 4px 10px rgba(0,0,0,.3);transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
+.fplay svg{width:14px;height:14px;margin-left:2px}
+.fn{margin:12px 6px 0;font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.ft{flex:1;margin:5px 6px 0;font:700 18px/1.2 Georgia,"Times New Roman",serif;letter-spacing:-.02em}
+.fw{display:inline-flex;align-items:center;gap:6px;min-height:44px;margin:4px 6px 0;font-size:14px;font-weight:700}
+.fw svg{width:16px;height:16px;transition:transform .25s ease}
+@media (hover:hover){
+  .film a:hover{transform:translateY(-3px);box-shadow:inset 0 1px 0 rgba(255,255,255,.75),0 0 0 1px rgba(150,110,20,.12),0 2px 4px rgba(90,60,0,.14),0 18px 32px rgba(90,60,0,.2)}
+  .film a:hover .fth img{transform:scale(1.04)}
+  .film a:hover .fplay{transform:scale(1.12)}
+  .film a:hover .fw svg{transform:translateX(3px)}
+}
+.journal li.conv img{aspect-ratio:16/9;object-position:center}
+.journal .fk{margin:0 0 4px;font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+@media (min-width:900px){
+  .asha{grid-template-columns:88px 1fr;gap:18px;max-width:660px;padding:16px 22px 16px 16px}
+  .asha-pic{width:88px;height:88px}
+  .asha h3{font-size:26px}
+  .films{grid-auto-columns:300px;gap:16px;margin:0 -48px 22px;padding:4px 48px 20px;scroll-padding:0 48px}
+  .journal ul{grid-template-columns:1.5fr 1fr;grid-template-rows:auto;align-items:start}
+  .journal li:first-child{grid-row:auto}
+}
+/* motion: her photo settles in, then the films slide along the row one after another */
+html.mo .asha-pic{opacity:0;transform:scale(.7) rotate(-8deg);transition:opacity .5s ease .25s,transform .8s cubic-bezier(.25,1.4,.45,1) .25s}
+html.mo .journal.in .asha-pic{opacity:1;transform:none}
+html.mo .film{opacity:0;transform:translateX(40px);transition:opacity .5s ease,transform .9s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--i,0)*90ms + 450ms)}
+html.mo .journal.in .film{opacity:1;transform:none}
 </style>
 </head>
 <body>
@@ -597,13 +651,32 @@ html.mo .packs.in .pack-card.rise:active{transform:scale(.97,.95);transition-dur
   </ul>
 </section>
 
-<div class="vgap s"><div class="vpeek"><button class="veer r" type="button" data-pose="peek" data-say="Short films from our kitchen. Perfect with chai." data-tips="Our atta is milled the day before it reaches you.|The chokar (bran) stays in the atta.|We deliver across Delhi NCR with our own riders.|Single-origin MP Sharbati wheat, never blended." aria-label="Veer. Tap for a tip"><span class="vbub" aria-live="polite"></span></button></div></div>
+<div class="vgap s"><div class="vpeek"><button class="veer r" type="button" data-pose="peek" data-say="Dr. Asha answers your atta questions. Perfect with chai." data-tips="Our atta is milled the day before it reaches you.|The chokar (bran) stays in the atta.|We deliver across Delhi NCR with our own riders.|Single-origin MP Sharbati wheat, never blended." aria-label="Veer. Tap for a tip"><span class="vbub" aria-live="polite"></span></button></div></div>
 
 <section class="panel y journal" aria-labelledby="journal-h">
   <h2 id="journal-h">From the kitchen</h2>
+  <div class="asha">
+    <img class="asha-pic" loading="lazy" decoding="async" src="../img/films/asha-176.webp" alt="Dr. Asha Kawatra" width="88" height="88">
+    <div>
+      <p class="asha-k">Short films with</p>
+      <h3>Dr. Asha Kawatra</h3>
+      <p class="asha-cv">35 years in foods and nutrition. Formerly Head of Foods and Nutrition, CCS HAU, Hisar.</p>
+    </div>
+  </div>
+  <div class="films-top">
+    <p id="films-l">Six questions about atta</p>
+    <div class="films-nav"><button type="button" class="fprev" aria-label="Previous film" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><button type="button" class="fnext" aria-label="Next film"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button></div>
+  </div>
+  <div class="films" role="list" aria-labelledby="films-l">
+    <div class="film" role="listitem"><a href="https://www.youtube.com/watch?v=cua0_aQ-UY0"><span class="fth"><img loading="lazy" decoding="async" src="../img/films/cua0_aQ-UY0.webp" alt="" width="560" height="315"><span class="fplay" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5Z"/></svg></span></span><span class="fn">01 of 06</span><span class="ft">How fresh should your atta really be?</span><span class="fw">Watch on YouTube<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></span></a></div>
+    <div class="film" role="listitem"><a href="https://www.youtube.com/watch?v=PzP9nVrr2Tk"><span class="fth"><img loading="lazy" decoding="async" src="../img/films/PzP9nVrr2Tk.webp" alt="" width="560" height="315"><span class="fplay" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5Z"/></svg></span></span><span class="fn">02 of 06</span><span class="ft">Does the way atta is ground really matter?</span><span class="fw">Watch on YouTube<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></span></a></div>
+    <div class="film" role="listitem"><a href="https://www.youtube.com/watch?v=rEaM-MX7zoc"><span class="fth"><img loading="lazy" decoding="async" src="../img/films/rEaM-MX7zoc.webp" alt="" width="560" height="315"><span class="fplay" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5Z"/></svg></span></span><span class="fn">03 of 06</span><span class="ft">What high-speed milling does to atta</span><span class="fw">Watch on YouTube<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></span></a></div>
+    <div class="film" role="listitem"><a href="https://www.youtube.com/watch?v=FTo3DuW3ksk"><span class="fth"><img loading="lazy" decoding="async" src="../img/films/FTo3DuW3ksk.webp" alt="" width="560" height="315"><span class="fplay" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5Z"/></svg></span></span><span class="fn">04 of 06</span><span class="ft">Why should bran stay in your atta?</span><span class="fw">Watch on YouTube<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></span></a></div>
+    <div class="film" role="listitem"><a href="https://www.youtube.com/watch?v=Z2dWNr6ez7E"><span class="fth"><img loading="lazy" decoding="async" src="../img/films/Z2dWNr6ez7E.webp" alt="" width="560" height="315"><span class="fplay" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5Z"/></svg></span></span><span class="fn">05 of 06</span><span class="ft">How milling affects cost and quality</span><span class="fw">Watch on YouTube<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></span></a></div>
+    <div class="film" role="listitem"><a href="https://www.youtube.com/watch?v=QQWG7bTq18E"><span class="fth"><img loading="lazy" decoding="async" src="../img/films/QQWG7bTq18E.webp" alt="" width="560" height="315"><span class="fplay" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5Z"/></svg></span></span><span class="fn">06 of 06</span><span class="ft">Is gluten bad for everyone?</span><span class="fw">Watch on YouTube<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></span></a></div>
+  </div>
   <ul>
-    <li><img loading="lazy" decoding="async" src="../img/gk/phulka.webp" alt="Puffed phulka on a steel thali" width="512" height="512"><div><h3>How fresh should your atta really be?</h3><a class="yt" href="https://www.youtube.com/watch?v=cua0_aQ-UY0">Watch on YouTube<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a></div></li>
-    <li><img loading="lazy" decoding="async" src="../img/gk/chakki-248.webp" srcset="../img/gk/chakki-248.webp 248w, ../img/gk/chakki.webp 512w" sizes="(min-width: 1228px) 122px, (min-width: 900px) calc(12vw - 25px), calc(30vw - 28.8px)" alt="" width="248" height="248"><div><h3>Does the way atta is ground really matter?</h3><a class="yt" href="https://www.youtube.com/watch?v=PzP9nVrr2Tk">Watch on YouTube<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a></div></li>
+    <li class="conv"><img loading="lazy" decoding="async" src="../img/films/pj7Y9ffc7IQ.webp" alt="Dr. Asha Kawatra in conversation" width="560" height="315"><div><p class="fk">The full conversation</p><h3>Everyday food deserves extraordinary thought</h3><a class="yt" href="https://www.youtube.com/watch?v=pj7Y9ffc7IQ">Watch on YouTube<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a></div></li>
     <li><img loading="lazy" decoding="async" src="../img/gk/wheat-field-248.webp" srcset="../img/gk/wheat-field-248.webp 248w, ../img/gk/wheat-field.webp 512w" sizes="(min-width: 1228px) 122px, (min-width: 900px) calc(12vw - 25px), calc(30vw - 28.8px)" alt="" width="248" height="248"><div><h3>From wheat to fresh&nbsp;atta</h3><a class="yt" href="https://www.youtube.com/watch?v=3mXae8undRI">Watch on YouTube<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a></div></li>
   </ul>
 </section>
@@ -1010,6 +1083,19 @@ document.querySelectorAll('.panel:not(.hero)').forEach(p=>{const g=p.previousEle
   if(g){g._panel=p;io.observe(g);}else open(p);});
 })();
 </script>
-<script src="../veer/veer.js?v=9"></script>
+<script>
+/* film row: arrow buttons step one card, and switch off at either end */
+document.querySelectorAll('.films').forEach(row=>{
+  const top=row.previousElementSibling, prev=top.querySelector('.fprev'), next=top.querySelector('.fnext');
+  const cards=row.querySelectorAll('.film');
+  cards.forEach((c,i)=>c.style.setProperty('--i',i));
+  const step=()=>cards[0].offsetWidth+(parseFloat(getComputedStyle(row).columnGap)||12);
+  const update=()=>{prev.disabled=row.scrollLeft<4;next.disabled=row.scrollLeft+row.clientWidth>=row.scrollWidth-4;};
+  prev.addEventListener('click',()=>row.scrollBy({left:-step(),behavior:'smooth'}));
+  next.addEventListener('click',()=>row.scrollBy({left:step(),behavior:'smooth'}));
+  row.addEventListener('scroll',update,{passive:true});addEventListener('resize',update);update();
+});
+</script>
+<script src="../veer/veer.js?v=10"></script>
 </body>
 </html>
