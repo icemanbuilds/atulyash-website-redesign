@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600..900&family=DM+Sans:opsz,wght@9..40,400..700&display=swap">
 <link rel="stylesheet" href="../glass.css">
 <style>
-/* 5 Lens. The sharp wheat wall, with one thick clear lens onto the kitchen wherever 5 Reeded had fluted glass.
+/* 5 Lens. Green fluted glass bends the wheat wall; a thick clear lens, set into the fluting, looks through into the kitchen.
    A full-height yellow column runs down the left like a painted kitchen pillar, and comes back as the pack selector. */
 :root{--glass:rgba(22,92,44,.30);--sun:#FFCF39;--ink:#0B2A16;--col:25%;--g:16px}
 *{box-sizing:border-box}
@@ -23,15 +23,13 @@ h1,h2,h3{margin:0;font-family:"Big Shoulders Display",Impact,sans-serif;font-wei
 h2{font-size:clamp(46px,13vw,72px)}
 .k{font:700 13px/1.3 "DM Sans";letter-spacing:.12em;text-transform:uppercase}
 
-/* a thick clear lens takes the place of the fluted glass: the wheat wall stays sharp around it,
-   and the photo sits inside, magnified in the middle and bent at the rim */
-.lens{position:absolute;z-index:1;aspect-ratio:1;border-radius:50%;filter:drop-shadow(0 24px 36px rgba(0,0,0,.42))}
-.lens img{width:100%;height:100%;border-radius:50%}
-.lens::after{content:"";position:absolute;inset:0;border-radius:50%;pointer-events:none;box-shadow:inset 0 0 0 2px rgba(255,255,255,.55),inset -10px -14px 30px rgba(0,0,0,.22),inset 10px 12px 26px rgba(255,255,255,.16)}
-.hero .lens{left:50%;top:57%;width:min(86%,330px);transform:translate(-50%,-50%)}
-.mani .lens{right:var(--g);top:56px;width:min(64%,300px)}
-.panel .lens{left:50%;top:44%;width:84%;transform:translate(-50%,-50%)}
-.close .lens{left:var(--g);top:40px;width:min(62%,290px)}
+/* fluted glass, built by script: narrow strips that each magnify their slice of the picture behind */
+.reed{position:absolute;inset:0;overflow:hidden}
+.reed .f{position:absolute;top:0;bottom:0;background-repeat:no-repeat;filter:blur(.6px) saturate(1.1)}
+.reed .f::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,30,10,.30),rgba(255,255,255,.18) 30%,rgba(255,255,255,0) 55%,rgba(0,30,10,.34)),var(--glass)}
+.reed .lens{position:absolute;z-index:1;aspect-ratio:1;border-radius:50%;filter:drop-shadow(0 22px 34px rgba(0,0,0,.45))}
+.reed .lens img{width:100%;height:100%;border-radius:50%}
+.reed .lens::after{content:"";position:absolute;inset:0;border-radius:50%;box-shadow:inset 0 0 0 2px rgba(255,255,255,.6),inset -10px -14px 30px rgba(0,0,0,.22),inset 10px 12px 26px rgba(255,255,255,.18)}
 .shade{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(6,30,14,.62),rgba(6,30,14,0) 38%,rgba(6,30,14,0) 62%,rgba(6,30,14,.7))}
 .plate{border-radius:22px}
 
@@ -63,7 +61,7 @@ h2{font-size:clamp(46px,13vw,72px)}
 .ph span{opacity:.75;text-align:right}
 .track{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 20px 10px;scrollbar-width:none}
 .track::-webkit-scrollbar{display:none}
-.panel{position:relative;flex:0 0 72%;height:480px;scroll-snap-align:start;overflow:hidden;border-radius:24px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.28)}
+.panel{position:relative;flex:0 0 72%;height:480px;scroll-snap-align:start;overflow:hidden}
 .panel .shade{background:linear-gradient(180deg,rgba(6,30,14,.35),transparent 30%,transparent 55%,rgba(6,30,14,.6))}
 .panel .n{text-shadow:0 2px 6px rgba(0,0,0,.35),0 4px 26px rgba(0,0,0,.55);position:absolute;z-index:2;top:12px;left:14px;font:900 96px/.8 "Big Shoulders Display";color:rgba(255,255,255,.94)}
 .panel .t{position:absolute;z-index:2;left:10px;right:10px;bottom:10px;padding:14px;border-radius:18px}
@@ -96,9 +94,6 @@ form label{display:block}
 .foot span:last-child{font:600 13px/1.4 "DM Sans";letter-spacing:.1em;text-align:right;opacity:.75}
 
 @media (min-width:900px){
-  .hero .lens{left:auto;right:6%;top:46%;transform:translateY(-50%);width:min(34vw,440px)}
-  .mani .lens{right:auto;left:var(--g);top:60px;width:420px}
-  .close .lens{top:60px;width:400px}
   :root{--col:clamp(180px,18%,260px);--g:40px}
   .hero h1{font-size:120px;max-width:9ch;top:90px;left:40px}
   .hero .bottom{left:auto;width:420px;right:30px;bottom:30px}
@@ -121,7 +116,7 @@ form label{display:block}
     <a class="round" href="#packs">See<br>packs</a>
   </aside>
   <div class="view">
-    <div class="lens"><img src="../img/lens/kitchen-steam.webp" alt="Rotis cooking on a tawa, seen through a round glass lens" width="720" height="720"></div>
+    <div class="reed" data-img="../img/glass-bg.webp" data-lens="kitchen-steam" data-ly="0.56" data-clear="0.40,0.82" data-pos="0.8" role="img" aria-label="Wheat seen through green fluted glass, with a round clear lens onto rotis cooking on a tawa"></div>
     <div class="shade"></div>
     <header class="bar">
       <a class="name" href="#top">Atulyash</a>
@@ -133,7 +128,7 @@ form label{display:block}
 </section>
 
 <section class="mani" aria-labelledby="mani-h">
-  <div class="lens" aria-hidden="true"><img src="../img/lens/thali-hands.webp" alt="" width="720" height="720" loading="lazy"></div>
+  <div class="reed" data-img="../img/glass-bg.webp" data-lens="thali-hands" data-ly="0.3" data-clear="0.62,0.92" data-pos="0.3" aria-hidden="true"></div>
   <div class="plate gl dense">
     <h2 id="mani-h">We question everything. Why not atta?</h2>
     <p>We keep changing everything around us. Our skincare, our cooking oil, even our utensils, because we research what is best for our family. So why don't we stop and think about our atta? Its quality, where it comes from, how it is made. We just take their word for it.</p>
@@ -143,12 +138,12 @@ form label{display:block}
 <section class="panels" aria-labelledby="way-h">
   <div class="ph"><h2 id="way-h">The Atulyash way</h2><span class="k">Swipe<br><span class="arr" aria-hidden="true"></span></span></div>
   <div class="track" tabindex="0" aria-label="Six steps, scroll sideways">
-    <div class="panel"><div class="lens" aria-hidden="true"><img src="../img/lens/field-day.webp" alt="" width="720" height="720" loading="lazy"></div><div class="shade"></div><span class="n">01</span><div class="t gl dense"><b>The wheat</b><p>Single-origin MP Sharbati. Never blended with other varieties.</p></div></div>
-    <div class="panel"><div class="lens" aria-hidden="true"><img src="../img/lens/cleaning.webp" alt="" width="720" height="720" loading="lazy"></div><div class="shade"></div><span class="n">02</span><div class="t gl dense"><b>The cleaning</b><p>In several stages.</p></div></div>
-    <div class="panel"><div class="lens" aria-hidden="true"><img src="../img/lens/chakki-flour.webp" alt="" width="720" height="720" loading="lazy"></div><div class="shade"></div><span class="n">03</span><div class="t gl dense"><b>The stone</b><p>Natural stone chakkis. No emery stone, no steel rollers.</p></div></div>
-    <div class="panel"><div class="lens" aria-hidden="true"><img src="../img/lens/packing.webp" alt="" width="720" height="720" loading="lazy"></div><div class="shade"></div><span class="n">04</span><div class="t gl dense"><b>The packing</b><p>Packed with minimal handling.</p></div></div>
-    <div class="panel"><div class="lens" aria-hidden="true"><img src="../img/lens/phulka-tawa.webp" alt="" width="720" height="720" loading="lazy"></div><div class="shade"></div><span class="n">05</span><div class="t gl dense"><b>The milling day</b><p>Milled in small batches the day before, delivered the next morning.</p></div></div>
-    <div class="panel"><div class="lens" aria-hidden="true"><img src="../img/lens/rider.webp" alt="" width="720" height="720" loading="lazy"></div><div class="shade"></div><span class="n">06</span><div class="t gl dense"><b>The riders</b><p>We deliver with our own riders.</p></div></div>
+    <div class="panel"><div class="reed" data-img="../img/field-day.webp" data-lens="field-day" data-ly="0.42" data-clear="0.3,0.62"></div><div class="shade"></div><span class="n">01</span><div class="t gl dense"><b>The wheat</b><p>Single-origin MP Sharbati. Never blended with other varieties.</p></div></div>
+    <div class="panel"><div class="reed" data-img="../img/cleaning.webp" data-lens="cleaning" data-ly="0.42" data-clear="0.34,0.66"></div><div class="shade"></div><span class="n">02</span><div class="t gl dense"><b>The cleaning</b><p>In several stages.</p></div></div>
+    <div class="panel"><div class="reed" data-img="../img/chakki-flour.webp" data-lens="chakki-flour" data-ly="0.42" data-clear="0.35,0.7"></div><div class="shade"></div><span class="n">03</span><div class="t gl dense"><b>The stone</b><p>Natural stone chakkis. No emery stone, no steel rollers.</p></div></div>
+    <div class="panel"><div class="reed" data-img="../img/packing.webp" data-lens="packing" data-ly="0.42" data-clear="0.3,0.62"></div><div class="shade"></div><span class="n">04</span><div class="t gl dense"><b>The packing</b><p>Packed with minimal handling.</p></div></div>
+    <div class="panel"><div class="reed" data-img="../img/phulka-tawa.webp" data-lens="phulka-tawa" data-ly="0.42" data-clear="0.3,0.66"></div><div class="shade"></div><span class="n">05</span><div class="t gl dense"><b>The milling day</b><p>Milled in small batches the day before, delivered the next morning.</p></div></div>
+    <div class="panel"><div class="reed" data-img="../img/rider.webp" data-lens="rider" data-ly="0.42" data-clear="0.36,0.7"></div><div class="shade"></div><span class="n">06</span><div class="t gl dense"><b>The riders</b><p>We deliver with our own riders.</p></div></div>
   </div>
 </section>
 
@@ -159,7 +154,7 @@ form label{display:block}
     <button class="seg" data-kg="6" aria-pressed="false">6 kg<small>₹720</small></button>
   </aside>
   <div class="view">
-    
+    <div class="reed" data-img="../img/glass-bg.webp" data-clear="-1,-1" aria-hidden="true"></div>
     <div class="shade"></div>
     <div class="tt"><h2 id="packs-h">Choose<br>your pack</h2><p>₹120 a kg, about ₹3.60 a roti.</p></div>
     <img class="pk" loading="lazy" src="../img/pack.webp" alt="Atulyash 2 kg pack" width="900" height="1334">
@@ -168,7 +163,7 @@ form label{display:block}
 </section>
 
 <section class="close" id="pin" aria-labelledby="close-h">
-  <div class="lens" aria-hidden="true"><img src="../img/lens/roti-cloth.webp" alt="" width="720" height="720" loading="lazy"></div>
+  <div class="reed" data-img="../img/glass-bg.webp" data-lens="roti-cloth" data-ly="0.26" data-clear="0.08,0.36" data-pos="0.5" aria-hidden="true"></div>
   <div class="plate gl dense">
     <h2 id="close-h">Bring home atta in its purest form.</h2>
     <form data-pin novalidate>
@@ -182,5 +177,22 @@ form label{display:block}
 </main>
 <footer class="foot"><span>Freshly milled.<br>Delivered weekly.</span><span>Delhi NCR</span></footer>
 <script src="../core.js"></script>
+<script>
+(function(){
+function build(el){var src=el.dataset.img,ln=el.dataset.lens,ly=parseFloat(el.dataset.ly||'0.45'),cl=(el.dataset.clear||'-1,-1').split(',').map(Number),px=parseFloat(el.dataset.pos||'0.5');var im=new Image();im.onload=function(){
+  var W=el.clientWidth,H=el.clientHeight;if(!W||!H)return;el.innerHTML='';
+  var s=Math.max(W/im.naturalWidth,H/im.naturalHeight),bw=im.naturalWidth*s,bh=im.naturalHeight*s,ox=(bw-W)*px,oy=(bh-H)/2;
+  var w=Math.max(14,Math.round(W/11)),n=Math.ceil(W/w),m=1.45,frag=document.createDocumentFragment();
+  for(var i=0;i<n;i++){var x0=i*w,c=x0+w/2;
+    var d=document.createElement('div'),cx=(c+ox)*m;d.className='f';d.style.left=x0+'px';d.style.width=(w+1)+'px';
+    d.style.backgroundImage='url('+src+')';d.style.backgroundSize=(bw*m)+'px '+bh+'px';d.style.backgroundPosition=(-(cx-w/2))+'px '+(-oy)+'px';frag.appendChild(d)}
+  if(ln&&cl[0]>=0){var D=Math.min(Math.max((cl[1]-cl[0])*W*1.5,W*.72),W*.9,H*.6),x=Math.min(Math.max((cl[0]+cl[1])/2*W,D/2+8),W-D/2-8),y=Math.max(ly*H,D/2+8);
+    if(W>700){D=Math.min(W*.34,H*.5);x=Math.min(Math.max((cl[0]+cl[1])/2*W,W*.7),W-D/2-24);y=Math.max(Math.min(ly,.42)*H,D/2+24)}
+    var L=document.createElement('div');L.className='lens';L.style.width=D+'px';L.style.left=(x-D/2)+'px';L.style.top=(y-D/2)+'px';
+    L.innerHTML='<img src="../img/lens/'+ln+'.webp" alt="" width="720" height="720">';frag.appendChild(L)}
+  el.appendChild(frag)};im.src=src}
+var all=[].slice.call(document.querySelectorAll('.reed'));function run(){all.forEach(build)}run();var t,lw=innerWidth;addEventListener('resize',function(){if(innerWidth===lw)return;lw=innerWidth;clearTimeout(t);t=setTimeout(run,150)});
+})();
+</script>
 </body>
 </html>
