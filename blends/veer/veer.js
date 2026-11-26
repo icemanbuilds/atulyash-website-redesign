@@ -80,10 +80,13 @@ const io=new IntersectionObserver(entries=>{
     const v=all.get(entry.target);
     if(entry.isIntersecting)visible.add(v);
     else visible.delete(v);
-    if(entry.isIntersecting&&!v.seen){
-      v.seen=true;
-      setTimeout(()=>{v.btn.classList.add('up');act(v,v.pose);say(v,v.btn.dataset.say,6000);},reduce?0:350);
+    /* every time he comes back into view (scrolling down or up) he greets again; a short cooldown stops flicker at the edge */
+    if(entry.isIntersecting&&performance.now()-(v.shownAt||-1e9)>2500){
+      v.seen=true;v.shownAt=performance.now();
+      clearTimeout(v.inT);
+      v.inT=setTimeout(()=>{if(!visible.has(v))return;v.btn.classList.add('up');act(v,v.pose);say(v,v.btn.dataset.say,6000);},reduce?0:350);
     }
+    if(!entry.isIntersecting){clearTimeout(v.inT);v.btn.classList.remove('say');}
   });
   syncAnimation();
 });
