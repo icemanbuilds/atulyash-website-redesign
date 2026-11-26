@@ -1,6 +1,6 @@
 /* Veer: a cut-out character rig. Shared by the 2B motion designs.
    He stands, peeks or lies in the gaps over the wheat, never over text, images or buttons. */
-.vgap{position:relative;height:150px}
+.vgap{position:relative;z-index:5;height:150px}
 .vgap.s{height:100px}
 .vgap.m{height:84px}
 .veer{position:absolute;bottom:0;display:block;width:var(--vw,96px);height:var(--vh,150px);min-width:44px;min-height:44px;padding:0;border:0;background:none;cursor:pointer;-webkit-tap-highlight-color:transparent;z-index:6;font:inherit}
@@ -18,8 +18,10 @@
 .vbub{position:absolute;bottom:52px;z-index:7;width:max-content;max-width:min(224px,56vw);padding:10px 14px;border-radius:18px 18px 18px 6px;background:#FFFAF0;color:#213F14;
   font:600 14.5px/1.35 system-ui,-apple-system,"Segoe UI",sans-serif;letter-spacing:0;text-align:left;box-shadow:0 12px 26px rgba(0,0,0,.24);
   opacity:0;transform:translateY(10px) scale(.86);transform-origin:0 100%;transition:opacity .3s,transform .5s cubic-bezier(.3,1.6,.5,1);pointer-events:none}
-.veer.l .vbub{left:calc(100% - 10px)}
-.veer.r .vbub{right:calc(100% - 10px);border-radius:18px 18px 6px 18px;transform-origin:100% 100%}
+/* the bubble sits beside him, never over him, and keeps the page margin: --vx is how far his box sits from the screen edge */
+.vbub{--vx:calc(var(--g,18px) + 12px);max-width:min(224px,calc(100vw - var(--vx) - var(--vw,96px) - 8px - var(--g,18px)))}
+.veer.l .vbub{left:calc(100% + 8px)}
+.veer.r .vbub{right:calc(100% + 8px);border-radius:18px 18px 6px 18px;transform-origin:100% 100%}
 .veer.say .vbub{opacity:1;transform:none}
 .vbub:empty{display:none}
 
@@ -29,17 +31,18 @@
 .vclip{position:absolute;inset:-60px 0 0;overflow:hidden}
 .vclip img{position:absolute;left:0;bottom:-3px;width:100%;transform:translateY(105%);transition:transform 1s cubic-bezier(.3,1.45,.5,1)}
 .veer.up .vclip img{transform:none}
-.vpeek .vbub{bottom:40px}
+.vpeek .vbub{bottom:40px;--vx:calc(var(--g,18px) + 26px);--vw:112px}
 /* lie: on the top edge of the panel below */
 .vlie{position:absolute;right:calc(var(--g,18px) + 18px);bottom:-10px;width:156px;height:96px}
 .vlie .veer{left:0;right:0;width:100%;height:100%}
 .vlie .vfig img{position:absolute;left:0;bottom:0;width:100%}
-.vlie .vbub{bottom:36px}
+.vlie .vbub{bottom:36px;--vx:calc(var(--g,18px) + 18px);--vw:156px}
 
 @media (min-width:900px){
   .vgap{height:200px}.vgap.s{height:130px}.vgap.m{height:110px}
   .veer{--vw:124px;--vh:194px}
   .vpeek{width:146px;height:130px}
   .vlie{width:200px;height:122px}
+  .vpeek .vbub{--vw:146px}.vlie .vbub{--vw:200px}
 }
 @media (prefers-reduced-motion:reduce){.vclip img{transform:none}}
