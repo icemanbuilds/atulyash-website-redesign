@@ -7,7 +7,7 @@
 <link rel="icon" href="data:,">
 <title>Atulyash: 2B Breathing</title>
 <link rel="stylesheet" href="../glass.css">
-<link rel="stylesheet" href="../veer/veer.css?v=7">
+<link rel="stylesheet" href="../veer/veer.css?v=8">
 <style>
 /* 6 Alt. Golden Kitchen, laid over Glass Field: its masthead, bold serif with the italic second line, the
    kitchen still life, the fact list, the kitchen journal, the thali gallery and the pack rows, each on its own panel.
@@ -309,6 +309,231 @@ html:not(.mo) .jtrav{display:none}
 /* panels land on a soft spring */
 .mo .panel:not(.hero){transform:translateY(64px) scale(.95);transition:opacity .8s ease,transform 1.25s cubic-bezier(.34,1.32,.5,1)}
 .mo .panel.in{transform:none}
+
+/* Site footer */
+.site-footer {
+  margin-bottom: 18px;
+  padding: 14px;
+  border-radius: 28px 28px 28px 8px;
+  background: #163A16;
+  color: var(--paper);
+}
+.footer-app {
+  display: grid;
+  gap: 16px;
+  padding: 14px;
+  border-radius: 22px 22px 22px 6px;
+  background: var(--paper);
+  color: var(--ink);
+}
+.footer-app-icon {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border: 1px solid #E2D7C0;
+  border-radius: 14px;
+  background: var(--paper);
+}
+.footer-app-title { display: contents; }
+.footer-app-copy {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  align-items: center;
+  gap: 10px 12px;
+}
+.footer-app-title h2 {
+  grid-column: 1 / -1;
+  font-size: 26px;
+  line-height: 1.08;
+}
+.footer-app-title h2 span { display: block; text-wrap: balance; }
+.footer-app-title em { display: block; color: var(--accent); }
+.footer-label {
+  margin: 0;
+  color: var(--sun);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.footer-app .footer-label { color: var(--button); }
+.footer-stores { display: flex; flex-wrap: wrap; gap: 8px; }
+.footer-store {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 48px;
+  padding: 6px 9px;
+  border: 1px solid #E2D7C0;
+  border-radius: 12px;
+  background: #F3ECDD;
+  font-size: 14px;
+  font-weight: 750;
+  line-height: 1.2;
+}
+.footer-store small {
+  display: block;
+  margin-bottom: 2px;
+  font-size: 8px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.footer-details { padding: 18px 4px 0; }
+.footer-contact-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 16px; }
+.footer-phone {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font: 22px/1.2 Georgia, serif;
+  white-space: nowrap;
+}
+.footer-socials { display: flex; gap: 8px; }
+.footer-socials a {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255,250,240,.35);
+  border-radius: 50%;
+}
+.footer-socials a:is(:hover, :focus-visible) { background: var(--sun); color: var(--ink); }
+.footer-policies {
+  margin-top: 16px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255,250,240,.14);
+}
+.footer-policies ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: rgba(255,250,240,.78);
+  font-size: 13.5px;
+  line-height: 1.3;
+}
+.footer-policies :is(a, span) { display: flex; align-items: center; padding: 13.5px 0; }
+.footer-policies span { color: rgba(255,250,240,.45); }
+.footer-phone, .footer-policies a { text-decoration: none; text-underline-offset: 3px; }
+.footer-phone:is(:hover, :focus-visible), .footer-policies a:is(:hover, :focus-visible) {
+  text-decoration: underline;
+}
+.site-footer a:focus-visible { outline: 2px solid var(--sun); outline-offset: 3px; }
+.footer-brand {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 16px;
+  padding: 0 4px 4px;
+}
+.footer-brand img {
+  width: 112px;
+  height: 17px;
+  object-fit: cover;
+  object-position: top;
+  filter: brightness(0) invert(1);
+  opacity: .9;
+}
+@media (min-width: 900px) {
+  .site-footer { margin-top: 26px; padding: 28px; }
+  .footer-app {
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 24px;
+    padding: 24px;
+  }
+  .footer-app-copy { gap: 16px; }
+  .footer-app-title { display: block; }
+  .footer-app-title h2 { margin-top: 5px; font-size: 34px; }
+  .footer-store { padding-inline: 12px; }
+  .footer-details {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    align-items: start;
+    gap: 32px;
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255,250,240,.14);
+  }
+  .footer-policies { margin: 0; padding: 0; border: 0; }
+  .footer-policies :is(a, span) { padding: 4px 0; }
+}
+
+/* ================= Motion: each section enters its own way (nothing rises from below) ================= */
+/* panels unroll from the top, like dough rolled out; the negative inset keeps the shadow once open */
+html.mo .panel:not(.hero){opacity:0;transform:none;clip-path:inset(-90px -90px 100% -90px round 28px);
+  transition:opacity .5s ease,clip-path 1.1s cubic-bezier(.65,0,.3,1)}
+html.mo .panel.in{opacity:1;transform:none;clip-path:inset(-90px round 28px)}
+html.mo .panel:focus-within{clip-path:none;opacity:1}
+/* default child reveal: a quiet fade, no movement */
+html.mo .rise{transform:none}
+/* headings: words come into focus, the italic line writes itself in like ink */
+html.mo h2 .w{transform:none;filter:blur(6px);transition:opacity .7s ease,filter .9s ease;transition-delay:calc(var(--w,0)*60ms + 120ms)}
+html.mo .in h2 .w{filter:none}
+html.mo h2 em .w{opacity:1;filter:none;clip-path:inset(-30% 100% -30% 0);transition:clip-path .8s cubic-bezier(.6,0,.3,1);transition-delay:calc(var(--w,0)*110ms + 380ms)}
+html.mo .in h2 em .w{clip-path:inset(-30% -12% -30% 0)}
+/* hero */
+@keyframes focus-in{from{opacity:0;filter:blur(8px)}to{opacity:1;filter:none}}
+@keyframes ink{from{clip-path:inset(-30% 100% -30% 0)}to{clip-path:inset(-30% -12% -30% 0)}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes settle{from{opacity:0;transform:scale(1.09) rotate(-4deg)}to{opacity:1;transform:none}}
+html.mo .hero h1{animation:focus-in 1s ease both}
+html.mo .hero h1 em{animation:ink 1s .45s cubic-bezier(.6,0,.3,1) both}
+html.mo .hero h1 .w{animation:focus-in .9s ease both;animation-delay:calc(var(--w,0)*80ms + 100ms)}
+html.mo .hero h1 em .w{animation:ink .8s cubic-bezier(.6,0,.3,1) both;animation-delay:calc(var(--w,0)*110ms + 250ms)}
+html.mo .hero h1:has(.w),html.mo .hero h1:has(.w) em{animation:none}
+html.mo .hero .lede,html.mo .hero .acts{animation-name:fade;animation-duration:.8s}
+html.mo .art img{animation-name:settle;animation-duration:1.1s;animation-timing-function:cubic-bezier(.2,.9,.3,1.15)}
+/* Why Atulyash: rows slide in from the left while the icons draw */
+html.mo .facts li.rise{transform:translateX(-18px);transition:opacity .6s ease,transform .8s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--i,0)*130ms + 250ms)}
+html.mo .facts.in li.rise{transform:none}
+/* kitchen: photos develop like prints */
+html.mo .journal li img{filter:saturate(.1) brightness(1.12) contrast(.9);transition:filter 1.6s ease,transform 1.8s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--i,0)*160ms + 300ms)}
+html.mo .journal li:first-child img{transform:scale(1.12)}
+html.mo .journal.in li img{filter:none;transform:none}
+/* meals: the plate is set down in a growing circle, the small photos develop */
+html.mo .gallery img.main{clip-path:circle(0% at 50% 55%);transition:clip-path 1.3s cubic-bezier(.6,0,.25,1) .2s,opacity .4s}
+html.mo .meals.in .gallery img.main{clip-path:circle(75% at 50% 55%)}
+html.mo .gallery img:not(.main){filter:saturate(.1) brightness(1.12);transition:filter 1.4s ease,opacity .6s;transition-delay:calc(var(--i,0)*150ms + 500ms)}
+html.mo .meals.in .gallery img:not(.main){filter:none}
+/* question card: tags tick on one by one, atta lands last with a wobble */
+@keyframes wob{0%{opacity:0;transform:scale(.6) rotate(-14deg)}60%{opacity:1;transform:scale(1.08) rotate(4deg)}100%{opacity:1;transform:none}}
+html.mo .q-list li{opacity:0;transform:scale(.85);transition:opacity .3s ease,transform .5s cubic-bezier(.3,1.7,.5,1)}
+html.mo .meals.in .q-list li{opacity:1;transform:none}
+html.mo .meals.in .q-list li:nth-child(1){transition-delay:.7s}
+html.mo .meals.in .q-list li:nth-child(2){transition-delay:.85s}
+html.mo .meals.in .q-list li:nth-child(3){transition-delay:1s}
+html.mo .meals.in .q-list li.atta{animation:wob .75s 1.3s both}
+/* packs: dealt onto the table like cards */
+html.mo .pack-card.rise{transform:translateX(-44px) rotate(-6deg);transform-origin:0 100%}
+html.mo .packs.in .pack-card.rise{transform:none;transition:opacity .45s ease,transform .9s cubic-bezier(.25,1.35,.45,1);transition-delay:calc(var(--i,0)*140ms + 250ms)}
+html.mo .packs.in .pack-card.rise:active{transform:scale(.97,.95);transition-duration:.12s;transition-delay:0s}
+
+/* ================= Depth: layered shadows, light edges, pressable buttons ================= */
+.panel{box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 1px 2px rgba(30,20,0,.18),0 10px 22px rgba(20,25,5,.18),0 30px 60px rgba(10,20,5,.26)}
+.panel.y{box-shadow:inset 0 1px 0 rgba(255,246,205,.95),inset 0 -3px 0 rgba(160,105,0,.14),0 1px 2px rgba(60,40,0,.2),0 10px 22px rgba(40,30,0,.18),0 30px 60px rgba(10,20,5,.26)}
+.site-footer{box-shadow:inset 0 1px 0 rgba(255,236,170,.14),0 1px 2px rgba(0,0,0,.25),0 12px 26px rgba(0,0,0,.25),0 30px 60px rgba(0,0,0,.3)}
+.mast{box-shadow:inset 0 1px 0 #fff,0 1px 2px rgba(0,0,0,.14),0 10px 26px rgba(0,0,0,.22)}
+.button{box-shadow:inset 0 1px 0 rgba(255,255,255,.22),inset 0 -2px 0 rgba(0,0,0,.22),0 2px 3px rgba(0,0,0,.16),0 8px 18px rgba(54,94,18,.32)}
+.button:hover{box-shadow:inset 0 1px 0 rgba(255,255,255,.22),inset 0 -2px 0 rgba(0,0,0,.22),0 4px 6px rgba(0,0,0,.16),0 14px 26px rgba(54,94,18,.36)}
+.button:active{transform:translateY(1px) scale(.98);box-shadow:inset 0 2px 5px rgba(0,0,0,.3),0 1px 2px rgba(0,0,0,.2);transition-duration:.08s}
+.pack-card,.journal li,.jpath li.on{box-shadow:inset 0 1px 0 rgba(255,255,255,.75),0 0 0 1px rgba(150,110,20,.10),0 1px 2px rgba(90,60,0,.14),0 10px 22px rgba(90,60,0,.14)}
+.journal li img,.gallery img,.way li img{box-shadow:0 2px 4px rgba(30,20,0,.16),0 10px 22px rgba(30,20,0,.22)}
+.pinrow input{box-shadow:inset 0 2px 5px rgba(33,63,20,.10)}
+.meals .q{box-shadow:inset 0 1px 0 rgba(255,236,170,.12),0 2px 4px rgba(0,0,0,.18),0 16px 32px rgba(10,30,5,.32)}
+.sticker{box-shadow:inset 0 1px 0 rgba(255,255,255,.2),inset 0 -3px 0 rgba(0,0,0,.18),0 4px 8px rgba(0,0,0,.2),0 14px 28px rgba(0,0,0,.26)}
+
+/* phones: hero is about 80% of its old height so the wheat shows below it on first sight */
+@media (max-width:899px){
+  .hero{padding-top:26px}
+  .hero h1{font-size:clamp(36px,10.2vw,46px)}
+  .hero .lede{margin-top:10px;max-width:27ch;font-size:16px}
+  .hero .acts{margin-top:14px}
+  .art{min-height:clamp(165px,46vw,210px)}
+}
 </style>
 </head>
 <body>
@@ -445,6 +670,75 @@ html:not(.mo) .jtrav{display:none}
   <div class="links"><a href="tel:+919818588996">Call us</a><a href="https://wa.me/919818588996">WhatsApp us</a></div>
 </section>
 </main>
+<footer class="panel site-footer" aria-label="Atulyash footer">
+  <div class="footer-app">
+    <div class="footer-app-copy">
+      <span class="footer-app-icon" aria-hidden="true">
+        <svg viewBox="0 0 40 40" width="38" height="38" fill="none">
+          <path d="M8 32 20 7l12 25" stroke="#365E12" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M9 26c7-4 13 2 22-4" stroke="#D9A441" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <div class="footer-app-title">
+        <p class="footer-label">ATULYASH MOBILE APP</p>
+        <h2><span>Your deliveries. Your schedule.</span> <em>One app.</em></h2>
+      </div>
+    </div>
+    <div class="footer-stores">
+      <div class="footer-store" role="group" aria-disabled="true">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+          <path fill="#4285F4" d="M3 2.5a1.6 1.6 0 0 0-.5 1.2v16.6c0 .5.2.9.5 1.2l9.4-9.5Z"/>
+          <path fill="#34A853" d="M3 2.5c.5-.5 1.2-.5 1.9-.1l11.4 6.5-3.9 3.1Z"/>
+          <path fill="#FBBC04" d="m16.3 8.9 4.4 2.5c.6.3.6.9 0 1.2l-4.4 2.5-3.9-3.1Z"/>
+          <path fill="#EA4335" d="m12.4 12 3.9 3.1L4.9 21.6c-.7.4-1.4.4-1.9-.1Z"/>
+        </svg>
+        <span><small>Coming soon on</small>Google Play</span>
+      </div>
+      <div class="footer-store" role="group" aria-disabled="true">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+          <path d="M17.05 12.54c.03 3.02 2.65 4.03 2.68 4.04-.02.07-.42 1.44-1.39 2.85-.84 1.22-1.71 2.44-3.08 2.46-1.35.03-1.78-.8-3.32-.8s-2.02.78-3.3.83c-1.32.05-2.33-1.32-3.18-2.54-1.73-2.5-3.05-7.06-1.28-10.14.88-1.53 2.45-2.5 4.15-2.52 1.3-.03 2.53.88 3.33.88.8 0 2.3-1.08 3.88-.92.66.03 2.5.27 3.69 2.02-.1.06-2.21 1.29-2.18 3.84ZM14.54 5.01c.7-.85 1.18-2.03 1.05-3.2-1.02.04-2.25.68-2.98 1.53-.66.75-1.23 1.95-1.08 3.1 1.13.09 2.29-.57 3.01-1.43Z"/>
+        </svg>
+        <span><small>Coming soon on</small>App Store</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-details">
+    <div class="footer-contact">
+      <p class="footer-label">CONTACT</p>
+      <div class="footer-contact-row">
+        <a class="footer-phone" href="tel:+919818588996">+91 98185 88996</a>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/atulyashfoods/" aria-label="Atulyash on Instagram" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.8"/>
+              <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/>
+              <circle cx="17.4" cy="6.7" r="1.1" fill="currentColor"/>
+            </svg>
+          </a>
+          <a href="https://www.facebook.com/p/Atulyash-61590744692965/" aria-label="Atulyash on Facebook" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+              <path d="M14 21v-8h2.7l.4-3.1H14v-2c0-.9.3-1.5 1.6-1.5h1.7V3.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.1H8V13h2.6v8Z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <nav class="footer-policies" aria-label="Policies">
+      <ul>
+        <li><a href="https://atulyash.com/legal/terms.html" target="_blank" rel="noopener">Terms &amp; Conditions</a></li>
+        <li><a href="https://atulyash.com/legal/privacy.html" target="_blank" rel="noopener">Privacy Policy</a></li>
+        <li><a href="https://atulyash.com/legal/atulyash-cancellation-return-refund-policy-27-aug.docx" target="_blank" rel="noopener">Cancellation, Return &amp; Refund Policy</a></li>
+        <li><a href="https://atulyash.com/legal/atulyash-rider-app-terms-of-use-27-aug.docx" target="_blank" rel="noopener">Rider App Terms of Use</a></li>
+        <li><a href="https://atulyash.com/legal/atulyash-rider-privacy-notice-27-aug.docx" target="_blank" rel="noopener">Rider Privacy Notice</a></li>
+        <li><span>Delivery / Shipping Policy</span></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="footer-brand">
+    <img src="../img/gk/wordmark-308.webp" alt="Atulyash" width="308" height="70">
+    <span class="footer-label">Delhi NCR</span>
+  </div>
+</footer>
 <script src="../core.js"></script>
 
 <script>
@@ -573,6 +867,18 @@ if(!reduce)addEventListener('scroll',schedule,{passive:true});
 schedule();
 })();
 </script>
-<script src="../veer/veer.js?v=7"></script>
+<script>
+/* panels unroll from the top, so a closed panel is fully clipped and cannot be watched itself:
+   watch the gap just above each panel and open the panel when that gap comes into view (or is already passed) */
+(()=>{if(!document.documentElement.classList.contains('mo'))return;
+const open=p=>p&&p.classList.add('in');
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting||e.boundingClientRect.bottom<0){open(e.target._panel);io.unobserve(e.target);}
+}),{rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.panel:not(.hero)').forEach(p=>{const g=p.previousElementSibling;
+  if(g){g._panel=p;io.observe(g);}else open(p);});
+})();
+</script>
+<script src="../veer/veer.js?v=8"></script>
 </body>
 </html>
