@@ -90,24 +90,11 @@ section + section { margin-top: clamp(36px, 6vw, 72px); }
 .others figure { min-width: 0; }
 .others .preview { --preview-width: 124px; }
 .others .caption p { max-width: 26ch; }
-.frame-browser {
-  display: grid; gap: 18px; align-items: start; padding: 14px;
-  border: 1px solid var(--line); border-radius: 16px;
-}
-.frame-controls { display: grid; gap: 12px; align-content: start; }
 select {
   width: 100%; min-height: 44px; padding: 8px; border: 1px solid #7e8978;
   border-radius: 8px; background: #fff; color: var(--ink); font: inherit;
 }
 label { display: block; margin-bottom: 4px; font-size: 14px; font-weight: 650; }
-.frame-display {
-  display: grid; place-items: center; padding: clamp(10px, 2vw, 20px);
-  min-width: 0; background: var(--paper); border-radius: 10px;
-}
-#frame { width: min(100%, 260px); }
-#frame.desktop { --frame-width: 1440px; --frame-height: 900px; width: 100%; }
-#frame img { display: block; width: 100%; height: auto; border-radius: 6px; }
-#frame iframe { border-radius: 6px; }
 .link-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
 .link-list a {
   display: flex; justify-content: space-between; align-items: center; gap: 12px;
@@ -120,8 +107,7 @@ label { display: block; margin-bottom: 4px; font-size: 14px; font-weight: 650; }
 }
 @media (min-width: 560px) {
   .others { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .frame-browser { grid-template-columns: minmax(170px, .6fr) minmax(0, 1.4fr); padding: 20px; }
-}
+  }
 @media (min-width: 860px) {
   .finalist-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
   .design { padding: 18px; }
@@ -136,7 +122,6 @@ label { display: block; margin-bottom: 4px; font-size: 14px; font-weight: 650; }
     <a class="action" href="#finalists">Finalists</a>
     <a class="action" href="#design-1">Design 1</a>
     <a class="action" href="#design-2">Design 2</a>
-    <a class="action" href="#frames">Section frames</a>
   </nav>
 </header>
 <main class="shell">
@@ -190,89 +175,8 @@ label { display: block; margin-bottom: 4px; font-size: 14px; font-weight: 650; }
       </article>
     </div>
   </section>
-  <section id="frames" aria-labelledby="frames-heading">
-    <div class="section-heading"><h2 id="frames-heading">Section frames</h2></div>
-    <div class="frame-browser">
-      <div class="frame-controls">
-        <div>
-          <label for="frame-design">Design</label>
-          <select id="frame-design">
-            <option value="1a">1A Glass lens</option>
-            <option value="1b">1B Glass lens</option>
-            <option value="6-sunlit" selected>2A Sunlit panels</option>
-            <option value="6-alt">2B Sunlit panels</option>
-          </select>
-        </div>
-        <div>
-          <label for="frame-view">View</label>
-          <select id="frame-view">
-            <option value="a-hero">First screen</option>
-            <option value="b-next">Next section</option>
-            <option value="c-third">Third section</option>
-            <option value="desktop">Desktop</option>
-            <option value="live">Live phone</option>
-          </select>
-        </div>
-        <p><a class="action" id="frame-link" href="finalists/2a/">Open full page</a></p>
-      </div>
-      <div class="frame-display">
-        <div class="viewport" id="frame"><img src="previews/6-sunlit-a-hero.png" alt="2A Sunlit panels, first screen" loading="lazy"></div>
-      </div>
-    </div>
-  </section>
 </main>
 <script>
-const designPicker = document.querySelector('#frame-design');
-const viewPicker = document.querySelector('#frame-view');
-const frame = document.querySelector('#frame');
-const frameLink = document.querySelector('#frame-link');
-const finalistPaths = {
-  '1a': 'finalists/1a/', '1b': 'finalists/1b/',
-  '6-sunlit': 'finalists/2a/', '6-alt': 'finalists/2b/'
-};
-const clearSections = { 'b-next': '.mani', 'c-third': '.way' };
-
-function showFrame() {
-  const design = designPicker.value;
-  const view = viewPicker.value;
-  const title = designPicker.selectedOptions[0].text + ', ' + viewPicker.selectedOptions[0].text;
-  const path = finalistPaths[design] || design + '/index.html';
-  const clear = design === '1b';
-  frame.classList.toggle('desktop', view === 'desktop');
-  frameLink.href = path;
-
-  if (clear || view === 'live') {
-    const preview = document.createElement('iframe');
-    preview.title = title + ' (live)';
-    const section = clearSections[view];
-    if (section) {
-      preview.addEventListener('load', () => {
-        try {
-          const target = preview.contentDocument?.querySelector(section);
-          if (target) preview.contentWindow.scrollTo(0, target.offsetTop);
-        } catch {
-          // The fragment still works when local file origins are isolated.
-        }
-      });
-    }
-    const fallback = { 'b-next': '#mani-h', 'c-third': '#way-h' };
-    const previewPath = path.endsWith('/') ? path + 'index.html' : path;
-    preview.src = previewPath + (clear && fallback[view] ? fallback[view] : '');
-    frame.replaceChildren(preview);
-    return;
-  }
-
-  const image = document.createElement('img');
-  image.alt = title;
-  image.src = view === 'desktop'
-    ? 'previews/desktop-' + design + '.png'
-    : 'previews/' + design + '-' + view + '.png';
-  frame.replaceChildren(image);
-}
-
-designPicker.addEventListener('change', showFrame);
-viewPicker.addEventListener('change', showFrame);
-
 const sectionLinks = document.querySelectorAll('.top a');
 function setCurrentSection() {
   sectionLinks.forEach(link => {
