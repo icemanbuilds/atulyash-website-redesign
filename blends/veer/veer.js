@@ -74,7 +74,16 @@ document.querySelectorAll('.veer').forEach(btn=>{
   all.set(btn,v);
   btn.addEventListener('click',()=>{const t=v.tips[v.tip++%v.tips.length];say(v,t,6000);act(v,v.kind==='stand'?(v.tip%2?'thumb':'wave'):'');});
 });
-/* arriving in view: hop in, do his pose, say his line */
+/* he never stands on air: wait until the panel under his gap has opened, give its top edge a moment to settle, then he rises */
+function whenGrounded(v,cb){
+  const gap=v.btn.closest('.vgap'), panel=gap&&gap.nextElementSibling;
+  if(reduce||!document.documentElement.classList.contains('mo')||!panel){cb();return;}
+  const go=()=>setTimeout(cb,450);
+  if(panel.classList.contains('in')){go();return;}
+  const mo=new MutationObserver(()=>{if(panel.classList.contains('in')){mo.disconnect();go();}});
+  mo.observe(panel,{attributes:true,attributeFilter:['class']});
+}
+/* arriving in view: rise in once his panel is there, do his pose, say his line */
 const io=new IntersectionObserver(entries=>{
   entries.forEach(entry=>{
     const v=all.get(entry.target);
@@ -84,7 +93,10 @@ const io=new IntersectionObserver(entries=>{
     if(entry.isIntersecting&&performance.now()-(v.shownAt||-1e9)>2500){
       v.seen=true;v.shownAt=performance.now();
       clearTimeout(v.inT);
-      v.inT=setTimeout(()=>{if(!visible.has(v))return;v.btn.classList.add('up');act(v,v.pose);say(v,v.btn.dataset.say,6000);},reduce?0:350);
+      const greet=first=>{if(!visible.has(v))return;act(v,v.pose);if(first)v.hopT=-9;say(v,v.btn.dataset.say,6000);};
+      if(v.landed)v.inT=setTimeout(greet,reduce?0:350);
+      else if(!v.waiting){v.waiting=true;
+        whenGrounded(v,()=>{v.btn.classList.add('up');v.landed=true;v.inT=setTimeout(()=>greet(true),reduce?0:750);});}
     }
     if(!entry.isIntersecting){clearTimeout(v.inT);v.btn.classList.remove('say');}
   });
