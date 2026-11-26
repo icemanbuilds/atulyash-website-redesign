@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="data:,">
+<title>Atulyash: test page</title>
+<style>
+:root{--bg:#0F2318;--fg:#EEF4EA;--mute:#A9C2A6;--sun:#FFCF39}
+*{box-sizing:border-box}
+body{margin:0;padding:24px 16px 48px;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,sans-serif}
+h1{margin:0 0 4px;font-size:22px}
+p{margin:0 0 20px;color:var(--mute)}
+.row{display:flex;gap:22px;overflow-x:auto;padding-bottom:12px}
+figure{margin:0;flex:none}
+figcaption{display:flex;justify-content:space-between;gap:12px;margin-bottom:8px;font-weight:700;color:var(--sun)}
+figcaption a{color:var(--fg);font-weight:600}
+iframe{width:390px;height:844px;border:0;border-radius:24px;display:block;background:#0B2B16;box-shadow:0 0 0 6px #1E3A2A}
+@media (max-width:440px){iframe{width:calc(100vw - 44px);height:780px}}
+</style>
+</head>
+<body>
+<h1>Test page: 4 Clear and 5 Reeded</h1>
+<p>Copies of 4 and 5, each with a version where the bold headlines are yellow. Scroll inside each phone.</p>
+<div class="row">
+<figure><figcaption>4 Clear<a href="4-clear/index.html">Open</a></figcaption><iframe src="4-clear/index.html" title="4 Clear"></iframe></figure>
+<figure><figcaption>4 Clear, yellow headlines<a href="4-yellow/index.html">Open</a></figcaption><iframe src="4-yellow/index.html" title="4 Clear, yellow headlines"></iframe></figure>
+<figure><figcaption>5 Reeded<a href="5-reeded/index.html">Open</a></figcaption><iframe src="5-reeded/index.html" title="5 Reeded"></iframe></figure>
+<figure><figcaption>5 Reeded, yellow headlines<a href="5-yellow/index.html">Open</a></figcaption><iframe src="5-yellow/index.html" title="5 Reeded, yellow headlines"></iframe></figure>
+</div>
+</body>
+</html>
