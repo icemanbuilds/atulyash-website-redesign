@@ -12,7 +12,7 @@
    kitchen still life, the fact list, the kitchen journal, the thali gallery and the pack rows, each on its own panel.
    Panels alternate sunny yellow and warm white, and the wheat wall stays fixed and visible around all of them. */
 :root{--paper:#FFFAF0;--panel:#FFF3D8;--sun:#FFCF39;--gold:linear-gradient(150deg,#FFD13E,#FFCF39 55%,#FFCD34);
-  --ink:#213F14;--body:#34341F;--button:#365E12;--rule:#6F532341;--accent:#946000;--g:12px}
+  --ink:#213F14;--body:#34341F;--button:#365E12;--rule:#6F532341;--accent:#946000;--g:18px}
 *{box-sizing:border-box}
 body{margin:0;color:var(--body);font:400 16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;overflow-x:clip}
 body::after{background:linear-gradient(180deg,rgba(5,25,10,.28),rgba(5,25,10,.12) 40%,rgba(5,25,10,.34))}
@@ -32,7 +32,7 @@ svg{flex:none}
 .panel{position:relative;margin:0 var(--g);border-radius:28px;padding:30px 20px;box-shadow:0 22px 46px rgba(0,0,0,.24)}
 .panel.y{background:var(--gold)}
 .panel.w{background:var(--paper)}
-.gap{height:22px}
+.gap{height:46px}
 .panel+.gap+.panel{margin-top:0}
 
 /* ---------- masthead ---------- */
@@ -134,6 +134,7 @@ form label{display:block;font-weight:700;color:var(--ink)}
   .mast-order span{position:static;width:auto;height:auto;clip:auto}
   .panel{padding:48px}
   .field-gap{height:28px}
+  .gap{height:72px}
   .hero{display:grid;grid-template-columns:1fr 1fr;align-items:end;padding:56px 48px 0}
   .hero h1{font-size:76px}
   .hero>div:first-child{padding-bottom:56px}
