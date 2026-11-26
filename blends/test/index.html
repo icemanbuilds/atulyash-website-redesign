@@ -4,31 +4,109 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<link rel="icon" href="data:,">
-<title>Atulyash: test page</title>
+<title>4 Clear and 5 Lens tests | Atulyash</title>
 <style>
-:root{--bg:#0F2318;--fg:#EEF4EA;--mute:#A9C2A6;--sun:#FFCF39}
-*{box-sizing:border-box}
-body{margin:0;padding:24px 16px 48px;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,sans-serif}
-h1{margin:0 0 4px;font-size:22px}
-p{margin:0 0 20px;color:var(--mute)}
-.row{display:flex;gap:22px;overflow-x:auto;padding-bottom:12px}
-figure{margin:0;flex:none}
-figcaption{display:flex;justify-content:space-between;gap:12px;margin-bottom:8px;font-weight:700;color:var(--sun)}
-figcaption a{color:var(--fg);font-weight:600}
-iframe{width:390px;height:844px;border:0;border-radius:24px;display:block;background:#0B2B16;box-shadow:0 0 0 6px #1E3A2A}
-@media (max-width:440px){iframe{width:calc(100vw - 44px);height:780px}}
+:root {
+  color-scheme: light;
+  --ink: #191e17;
+  --muted: #50594e;
+  --line: #dce2d8;
+  --paper: #f4f6f1;
+  --green: #365e12;
+  --yellow: #ffcf39;
+}
+* { box-sizing: border-box; }
+html { scroll-padding-top: 76px; }
+body { margin: 0; background: #fff; color: var(--ink); font: 16px/1.5 system-ui, sans-serif; }
+.shell { width: min(100% - 32px, 1240px); margin-inline: auto; }
+.top { position: sticky; z-index: 2; top: 0; background: #fff; border-bottom: 1px solid var(--line); }
+.top nav { display: flex; align-items: center; gap: 4px; overflow-x: auto; padding: 5px 4px; }
+.top a { flex: none; white-space: nowrap; padding-inline: 12px; text-decoration: none; }
+.top a:hover, .top a[aria-current] { background: var(--paper); }
+.top a[aria-current] { box-shadow: inset 0 -2px var(--green); }
+a { color: var(--green); text-underline-offset: .2em; }
+a:hover { text-decoration-thickness: 2px; }
+a, button, select { -webkit-tap-highlight-color: #ffcf3966; }
+:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+.action { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; }
+.intro { padding-block: clamp(26px, 5vw, 56px) 24px; }
+h1, h2, h3, p, figure { margin: 0; }
+h1 { font-size: clamp(30px, 4vw, 46px); line-height: 1.08; letter-spacing: -.035em; }
+h2 { font-size: clamp(23px, 2.4vw, 30px); line-height: 1.18; letter-spacing: -.02em; }
+h3 { font-size: 17px; line-height: 1.3; }
+p { color: var(--muted); }
+.intro p { margin-top: 10px; max-width: 60ch; }
+main { padding-bottom: 48px; }
+.caption { display: flex; align-items: center; justify-content: space-between; gap: 6px; }
+.caption p { font-size: 14px; margin-top: 3px; }
+.open {
+  flex: none; border: 1px solid var(--line); border-radius: 8px; padding-inline: 10px;
+  background: #fff; font-size: 14px; font-weight: 650; text-decoration: none;
+}
+.open:hover { border-color: var(--green); background: var(--paper); }
+.viewport { container-type: inline-size; width: 100%; overflow: hidden; background: var(--paper); }
+.viewport iframe {
+  display: block; border: 0; width: var(--frame-width, 390px); height: var(--frame-height, 844px);
+  zoom: min(1, calc(100cqw / var(--frame-width, 390px)));
+}
+@media (max-width: 480px) {
+  .top nav { gap: 2px; }
+  .top a { padding-inline: 7px; font-size: 14px; }
+}
+@media (min-width: 740px) {
+  .shell { width: min(100% - 80px, 1240px); }
+}
+.phones { display: grid; gap: 22px; min-width: 0; }
+.phones figure { width: 100%; max-width: 390px; min-width: 0; }
+.phones .caption { margin-bottom: 8px; }
+.phones .viewport { border-radius: 16px; background: #244123; }
+@media (min-width: 680px) {
+  .phones { grid-template-columns: repeat(2, minmax(0, 390px)); gap: 24px; }
+}
 </style>
 </head>
 <body>
-<h1>Test page: 4 Clear and 5 Lens</h1>
-<p><a href="six.html" style="color:#FFCF39">See 6 Sunlit next to its sources, 2 and 3</a></p>
-<p>Copies of 4 and 5, each with a version where the bold headlines are yellow. Scroll inside each phone.</p>
-<div class="row">
-<figure><figcaption>4 Clear<a href="4-clear/index.html">Open</a></figcaption><iframe src="4-clear/index.html" title="4 Clear"></iframe></figure>
-<figure><figcaption>4 Clear, yellow headlines<a href="4-yellow/index.html">Open</a></figcaption><iframe src="4-yellow/index.html" title="4 Clear, yellow headlines"></iframe></figure>
-<figure><figcaption>5 Lens<a href="5-lens/index.html">Open</a></figcaption><iframe src="5-lens/index.html" title="5 Lens"></iframe></figure>
-<figure><figcaption>5 Lens, yellow headlines<a href="5-lens-yellow/index.html">Open</a></figcaption><iframe src="5-lens-yellow/index.html" title="5 Lens, yellow headlines"></iframe></figure>
-</div>
+<header class="top">
+  <nav class="shell" aria-label="Collection">
+    <a class="action" href="../">&#8592; All designs</a>
+  </nav>
+</header>
+<main class="shell">
+  <div class="intro">
+    <h1>4 Clear and 5 Lens tests</h1>
+    <p>Each design has a white-headline and a yellow-headline version.</p>
+    <p><a class="action" href="six.html">Compare 2A with its sources</a></p>
+  </div>
+  <div class="phones">
+    <figure>
+      <figcaption class="caption">
+        <div><h2>4 Clear</h2></div>
+        <a class="action open" href="4-clear/index.html" aria-label="Open 4 Clear">Open</a>
+      </figcaption>
+      <div class="viewport"><iframe src="4-clear/index.html" title="4 Clear live preview" loading="lazy"></iframe></div>
+    </figure>
+    <figure>
+      <figcaption class="caption">
+        <div><h2>4 Clear, yellow headlines</h2></div>
+        <a class="action open" href="4-yellow/index.html" aria-label="Open 4 Clear, yellow headlines">Open</a>
+      </figcaption>
+      <div class="viewport"><iframe src="4-yellow/index.html" title="4 Clear, yellow headlines live preview" loading="lazy"></iframe></div>
+    </figure>
+    <figure>
+      <figcaption class="caption">
+        <div><h2>5 Lens</h2></div>
+        <a class="action open" href="5-lens/index.html" aria-label="Open 5 Lens">Open</a>
+      </figcaption>
+      <div class="viewport"><iframe src="5-lens/index.html" title="5 Lens live preview" loading="lazy"></iframe></div>
+    </figure>
+    <figure>
+      <figcaption class="caption">
+        <div><h2>5 Lens, yellow headlines</h2></div>
+        <a class="action open" href="5-lens-yellow/index.html" aria-label="Open 5 Lens, yellow headlines">Open</a>
+      </figcaption>
+      <div class="viewport"><iframe src="5-lens-yellow/index.html" title="5 Lens, yellow headlines live preview" loading="lazy"></iframe></div>
+    </figure>
+  </div>
+</main>
 </body>
 </html>

@@ -4,49 +4,319 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<link rel="icon" href="data:,">
-<title>Atulyash blends: compare</title>
+<title>Homepage designs | Atulyash</title>
 <style>
-:root{--bg:#0B2414;--fg:#EAF2E4;--mute:#9DB59A;--sun:#FFCF39}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,sans-serif}
-header{padding:28px 24px 8px;max-width:1900px;margin:0 auto}
-h1{margin:0;font-size:24px;font-weight:650}
-header p{margin:6px 0 0;color:var(--mute);max-width:80ch}
-.tabs{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
-.tabs button{font:inherit;color:var(--fg);background:transparent;border:1px solid #2F5537;border-radius:99px;padding:8px 16px;cursor:pointer}
-.tabs button[aria-pressed=true]{background:var(--sun);color:#0B2414;border-color:var(--sun);font-weight:650}
-.row{display:flex;gap:22px;overflow-x:auto;padding:22px 24px 40px;max-width:1900px;margin:0 auto}
-figure{margin:0;flex:0 0 auto}
-figcaption{margin-bottom:10px}
-figcaption b{display:block;font-size:16px}
-figcaption span{color:var(--mute);font-size:13px}
-.phone{width:342px;height:740px;border-radius:30px;overflow:hidden;border:6px solid #000;background:#000;position:relative}
-.phone iframe{width:390px;height:844px;border:0;transform:scale(.8615);transform-origin:0 0}
-.phone img{width:100%;height:100%;object-fit:cover;object-position:top}
-figure a{display:inline-block;margin-top:8px;color:var(--mute);font-size:13px}
+:root {
+  color-scheme: light;
+  --ink: #191e17;
+  --muted: #50594e;
+  --line: #dce2d8;
+  --paper: #f4f6f1;
+  --green: #365e12;
+  --yellow: #ffcf39;
+}
+* { box-sizing: border-box; }
+html { scroll-padding-top: 76px; }
+body { margin: 0; background: #fff; color: var(--ink); font: 16px/1.5 system-ui, sans-serif; }
+.shell { width: min(100% - 32px, 1240px); margin-inline: auto; }
+.top { position: sticky; z-index: 2; top: 0; background: #fff; border-bottom: 1px solid var(--line); }
+.top nav { display: flex; align-items: center; gap: 4px; overflow-x: auto; padding: 5px 4px; }
+.top a { flex: none; white-space: nowrap; padding-inline: 12px; text-decoration: none; }
+.top a:hover, .top a[aria-current] { background: var(--paper); }
+.top a[aria-current] { box-shadow: inset 0 -2px var(--green); }
+a { color: var(--green); text-underline-offset: .2em; }
+a:hover { text-decoration-thickness: 2px; }
+a, button, select { -webkit-tap-highlight-color: #ffcf3966; }
+:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+.action { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; }
+.intro { padding-block: clamp(26px, 5vw, 56px) 24px; }
+h1, h2, h3, p, figure { margin: 0; }
+h1 { font-size: clamp(30px, 4vw, 46px); line-height: 1.08; letter-spacing: -.035em; }
+h2 { font-size: clamp(23px, 2.4vw, 30px); line-height: 1.18; letter-spacing: -.02em; }
+h3 { font-size: 17px; line-height: 1.3; }
+p { color: var(--muted); }
+.intro p { margin-top: 10px; max-width: 60ch; }
+main { padding-bottom: 48px; }
+.group-title { display: flex; align-items: center; gap: 10px; }
+.badge {
+  flex: none; display: grid; place-items: center; min-height: 32px; padding-inline: 10px;
+  border-radius: 999px; background: var(--yellow); color: var(--ink); font-size: 13px; font-weight: 750;
+}
+.caption { display: flex; align-items: center; justify-content: space-between; gap: 6px; }
+.caption p { font-size: 14px; margin-top: 3px; }
+.open {
+  flex: none; border: 1px solid var(--line); border-radius: 8px; padding-inline: 10px;
+  background: #fff; font-size: 14px; font-weight: 650; text-decoration: none;
+}
+.open:hover { border-color: var(--green); background: var(--paper); }
+.viewport { container-type: inline-size; width: 100%; overflow: hidden; background: var(--paper); }
+.viewport iframe {
+  display: block; border: 0; width: var(--frame-width, 390px); height: var(--frame-height, 844px);
+  zoom: min(1, calc(100cqw / var(--frame-width, 390px)));
+}
+@media (max-width: 480px) {
+  .top nav { gap: 2px; }
+  .top a { padding-inline: 7px; font-size: 14px; }
+}
+@media (min-width: 740px) {
+  .shell { width: min(100% - 80px, 1240px); }
+}
+section + section { margin-top: clamp(36px, 6vw, 72px); }
+.section-heading {
+  display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between;
+  gap: 2px 16px; margin-bottom: 14px;
+}
+.section-heading a { font-weight: 650; }
+.finalist-grid { display: grid; gap: 16px; }
+.design { min-width: 0; border: 1px solid var(--line); border-radius: 16px; padding: 11px; }
+.design header { margin-bottom: 10px; }
+.design-link { color: inherit; text-decoration: none; }
+.design-link:hover { text-decoration: underline; }
+.alts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.preview {
+  display: grid; place-items: center; background: var(--paper); overflow: hidden;
+  border-radius: 10px; padding: 8px;
+}
+.preview .phone {
+  width: 100%; max-width: var(--preview-width, 156px); aspect-ratio: 390 / 844;
+  border-radius: 8px; overflow: hidden; position: relative; background: #244123;
+}
+.phone img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.phone .sheet { position: absolute; right: 0; width: 500%; max-width: none; object-fit: fill; }
+.preview .viewport { aspect-ratio: 390 / 844; }
+.design .caption, .others .caption { margin-top: 6px; }
+.design figcaption > p { font-size: 14px; }
+.others { display: grid; gap: 14px; }
+.others figure { min-width: 0; }
+.others .preview { --preview-width: 124px; }
+.others .caption p { max-width: 26ch; }
+.frame-browser {
+  display: grid; gap: 18px; align-items: start; padding: 14px;
+  border: 1px solid var(--line); border-radius: 16px;
+}
+.frame-controls { display: grid; gap: 12px; align-content: start; }
+select {
+  width: 100%; min-height: 44px; padding: 8px; border: 1px solid #7e8978;
+  border-radius: 8px; background: #fff; color: var(--ink); font: inherit;
+}
+label { display: block; margin-bottom: 4px; font-size: 14px; font-weight: 650; }
+.frame-display {
+  display: grid; place-items: center; padding: clamp(10px, 2vw, 20px);
+  min-width: 0; background: var(--paper); border-radius: 10px;
+}
+#frame { width: min(100%, 260px); }
+#frame.desktop { --frame-width: 1440px; --frame-height: 900px; width: 100%; }
+#frame img { display: block; width: 100%; height: auto; border-radius: 6px; }
+#frame iframe { border-radius: 6px; }
+.link-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.link-list a {
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  min-height: 52px; padding: 8px 0; border-bottom: 1px solid var(--line); font-weight: 650;
+}
+@media (max-width: 559px) {
+  .others figure { display: grid; grid-template-columns: 108px minmax(0, 1fr); gap: 12px; }
+  .others .preview { --preview-width: 82px; }
+  .others .caption { margin-top: 0; }
+}
+@media (min-width: 560px) {
+  .others { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .frame-browser { grid-template-columns: minmax(170px, .6fr) minmax(0, 1.4fr); padding: 20px; }
+}
+@media (min-width: 860px) {
+  .finalist-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+  .design { padding: 18px; }
+  .alts { gap: 16px; }
+  .preview { padding: 12px; }
+}
 </style>
 </head>
 <body>
-<header>
-  <h1>Glass Field + Golden Kitchen: three directions</h1>
-  <p><a href="finalists/" style="color:#FFCF39;font-weight:700">See the finalists: Design 1 (alts 1A, 1B) and Design 2 (alts 2A, 2B)</a></p>
-  <p>Live pages at phone width. Scroll inside each phone, or switch to the still frames of each section. The 3x captures for inspecting on a phone are in the previews folder.</p>
-  <div class="tabs" role="group" aria-label="View">
-    <button data-v="live" aria-pressed="true">Live</button>
-    <button data-v="a-hero" aria-pressed="false">First screen</button>
-    <button data-v="b-next" aria-pressed="false">Next section</button>
-    <button data-v="c-third" aria-pressed="false">Third section</button>
-    <button data-v="desktop" aria-pressed="false">Desktop</button>
-  </div>
+<header class="top">
+  <nav class="shell" aria-label="Collection">
+    <a class="action" href="#finalists">Finalists</a>
+    <a class="action" href="#other-designs">Other designs</a>
+    <a class="action" href="#sources">Sources</a>
+    <a class="action" href="#test-and-archive">Test and archive</a>
+  </nav>
 </header>
-<div class="row" id="row"></div>
+<main class="shell">
+  <div class="intro">
+    <h1>Atulyash homepage designs</h1>
+    <p>Browse the finalists, earlier designs and source directions.</p>
+  </div>
+  <section id="finalists" aria-labelledby="finalists-heading">
+    <div class="section-heading">
+      <h2 id="finalists-heading">Finalists</h2>
+      <a class="action" href="finalists/">Compare live finalists</a>
+    </div>
+    <div class="finalist-grid">
+      <article class="design" aria-labelledby="design-1">
+        <header><div class="group-title"><span class="badge">Design 1</span><h3 id="design-1"><a class="action design-link" href="finalists/#design-1">Clear glass</a></h3></div></header>
+        <div class="alts">
+          <figure>
+            <div class="preview"><div class="phone"><img class="sheet" src="previews/compare-a-hero.png" alt="Alt 1A first screen"></div></div>
+            <figcaption>
+              <div class="caption"><h3>Alt 1A</h3><a class="action open" href="finalists/1a/" aria-label="Open alt 1A">Open</a></div>
+              <p>White headlines</p>
+            </figcaption>
+          </figure>
+          <figure>
+            <div class="preview"><div class="phone"><div class="viewport" inert><iframe src="finalists/1b/index.html" title="Alt 1B live preview" tabindex="-1"></iframe></div></div></div>
+            <figcaption>
+              <div class="caption"><h3>Alt 1B</h3><a class="action open" href="finalists/1b/" aria-label="Open alt 1B">Open</a></div>
+              <p>Yellow headlines</p>
+            </figcaption>
+          </figure>
+        </div>
+      </article>
+      <article class="design" aria-labelledby="design-2">
+        <header><div class="group-title"><span class="badge">Design 2</span><h3 id="design-2"><a class="action design-link" href="finalists/#design-2">Sunlit panels</a></h3></div></header>
+        <div class="alts">
+          <figure>
+            <div class="preview"><div class="phone"><img src="previews/6-sunlit-a-hero.png" alt="Alt 2A first screen"></div></div>
+            <figcaption>
+              <div class="caption"><h3>Alt 2A</h3><a class="action open" href="finalists/2a/" aria-label="Open alt 2A">Open</a></div>
+              <p>Cream and yellow, wheat through windows</p>
+            </figcaption>
+          </figure>
+          <figure>
+            <div class="preview"><div class="phone"><img src="previews/6-alt-a-hero.png" alt="Alt 2B first screen"></div></div>
+            <figcaption>
+              <div class="caption"><h3>Alt 2B</h3><a class="action open" href="finalists/2b/" aria-label="Open alt 2B">Open</a></div>
+              <p>Yellow and white, abstract shapes</p>
+            </figcaption>
+          </figure>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section id="other-designs" aria-labelledby="other-heading">
+    <div class="section-heading"><h2 id="other-heading">Other designs</h2><a class="action" href="#frames">View section frames</a></div>
+    <div class="others">
+      <figure>
+        <div class="preview"><div class="phone"><img src="previews/1-sill-a-hero.png" alt="1 Sill first screen" loading="lazy"></div></div>
+        <figcaption class="caption"><div><h3>1 Sill</h3><p>Window sash, yellow sill</p></div><a class="action open" href="1-sill/index.html" aria-label="Open 1 Sill">Open</a></figcaption>
+      </figure>
+      <figure>
+        <div class="preview"><div class="phone"><img src="previews/2-arch-a-hero.png" alt="2 Arch first screen" loading="lazy"></div></div>
+        <figcaption class="caption"><div><h3>2 Arch</h3><p>Arched window, golden tawa</p></div><a class="action open" href="2-arch/index.html" aria-label="Open 2 Arch">Open</a></figcaption>
+      </figure>
+      <figure>
+        <div class="preview"><div class="phone"><img src="previews/5-lens-a-hero.png" alt="5 Lens first screen" loading="lazy"></div></div>
+        <figcaption class="caption"><div><h3>5 Lens</h3><p>Kitchen through a glass lens, yellow pillar</p></div><a class="action open" href="5-lens/index.html" aria-label="Open 5 Lens">Open</a></figcaption>
+      </figure>
+    </div>
+  </section>
+  <section id="frames" aria-labelledby="frames-heading">
+    <div class="section-heading"><h2 id="frames-heading">Section frames</h2></div>
+    <div class="frame-browser">
+      <div class="frame-controls">
+        <div>
+          <label for="frame-design">Design</label>
+          <select id="frame-design">
+            <option value="1a">1A Clear glass</option>
+            <option value="1b">1B Clear glass</option>
+            <option value="6-sunlit">2A Sunlit panels</option>
+            <option value="6-alt">2B Sunlit panels</option>
+            <option value="1-sill" selected>1 Sill</option>
+            <option value="2-arch">2 Arch</option>
+            <option value="5-lens">5 Lens</option>
+          </select>
+        </div>
+        <div>
+          <label for="frame-view">View</label>
+          <select id="frame-view">
+            <option value="a-hero">First screen</option>
+            <option value="b-next">Next section</option>
+            <option value="c-third">Third section</option>
+            <option value="desktop">Desktop</option>
+            <option value="live">Live phone</option>
+          </select>
+        </div>
+        <p><a class="action" id="frame-link" href="1-sill/index.html">Open full page</a></p>
+      </div>
+      <div class="frame-display">
+        <div class="viewport" id="frame"><img src="previews/1-sill-a-hero.png" alt="1 Sill, first screen" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+  <section id="sources" aria-labelledby="sources-heading">
+    <div class="section-heading"><h2 id="sources-heading">Sources</h2></div>
+    <ul class="link-list">
+      <li><a href="../opening/14-golden-kitchen/index.html">2 Golden Kitchen<span aria-hidden="true">&#8599;</span></a></li>
+      <li><a href="../opening/9-glass-field/index.html">3 Glass Field<span aria-hidden="true">&#8599;</span></a></li>
+      <li><a href="test/six.html">Compare both sources with Design 2A<span aria-hidden="true">&#8599;</span></a></li>
+    </ul>
+  </section>
+  <section id="test-and-archive" aria-labelledby="test-heading">
+    <div class="section-heading"><h2 id="test-heading">Test and archive</h2></div>
+    <ul class="link-list">
+      <li><a href="test/">Test variations<span aria-hidden="true">&#8599;</span></a></li>
+      <li><a href="archive/5-reeded/">5 Reeded archive<span aria-hidden="true">&#8599;</span></a></li>
+    </ul>
+  </section>
+</main>
 <script>
-var C=[["1-sill","1 Sill","Window sash, yellow sill"],["2-arch","2 Arch","Arched window, golden tawa"],["4-clear","4 Clear","Reeded first screen, clear glass below"],["5-lens","5 Lens","Kitchen through a glass lens, yellow pillar"],["6-sunlit","6 Sunlit","Golden Kitchen cream and yellow, wheat through clear windows"],["6-alt","6 Alt","Alternate 6: Golden Kitchen panels in yellow and white, shaped edges, wheat always behind"]];
-var row=document.getElementById('row');
-function draw(v){if(v==='desktop'){row.innerHTML=C.map(function(c){return '<figure><figcaption><b>'+c[1]+'</b><span>'+c[2]+'</span></figcaption><img style="width:660px;border-radius:12px;display:block" src="previews/desktop-'+c[0]+'.png" alt="'+c[1]+' at desktop width"><a href="'+c[0]+'/index.html">Open full page</a></figure>'}).join('');return}row.innerHTML=C.map(function(c){var inner=v==='live'?'<iframe src="'+c[0]+'/index.html" title="'+c[1]+'" loading="lazy"></iframe>':'<img src="previews/'+c[0]+'-'+v+'.png" alt="'+c[1]+'">';return '<figure><figcaption><b>'+c[1]+'</b><span>'+c[2]+'</span></figcaption><div class="phone">'+inner+'</div><a href="'+c[0]+'/index.html">Open full page</a></figure>'}).join('')}
-document.querySelectorAll('.tabs button').forEach(function(b){b.onclick=function(){document.querySelectorAll('.tabs button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});draw(b.dataset.v)}});
-draw('live');
+const designPicker = document.querySelector('#frame-design');
+const viewPicker = document.querySelector('#frame-view');
+const frame = document.querySelector('#frame');
+const frameLink = document.querySelector('#frame-link');
+const finalistPaths = {
+  '1a': 'finalists/1a/', '1b': 'finalists/1b/',
+  '6-sunlit': 'finalists/2a/', '6-alt': 'finalists/2b/'
+};
+const clearSections = { 'b-next': '.mani', 'c-third': '.way' };
+
+function showFrame() {
+  const design = designPicker.value;
+  const view = viewPicker.value;
+  const title = designPicker.selectedOptions[0].text + ', ' + viewPicker.selectedOptions[0].text;
+  const path = finalistPaths[design] || design + '/index.html';
+  const clear = design === '1a' || design === '1b';
+  frame.classList.toggle('desktop', view === 'desktop');
+  frameLink.href = path;
+
+  if (clear || view === 'live') {
+    const preview = document.createElement('iframe');
+    preview.title = title + ' (live)';
+    const section = clearSections[view];
+    if (section) {
+      preview.addEventListener('load', () => {
+        try {
+          const target = preview.contentDocument?.querySelector(section);
+          if (target) preview.contentWindow.scrollTo(0, target.offsetTop);
+        } catch {
+          // The fragment still works when local file origins are isolated.
+        }
+      });
+    }
+    const fallback = { 'b-next': '#mani-h', 'c-third': '#way-h' };
+    const previewPath = path.endsWith('/') ? path + 'index.html' : path;
+    preview.src = previewPath + (clear && fallback[view] ? fallback[view] : '');
+    frame.replaceChildren(preview);
+    return;
+  }
+
+  const image = document.createElement('img');
+  image.alt = title;
+  image.src = view === 'desktop'
+    ? 'previews/desktop-' + design + '.png'
+    : 'previews/' + design + '-' + view + '.png';
+  frame.replaceChildren(image);
+}
+
+designPicker.addEventListener('change', showFrame);
+viewPicker.addEventListener('change', showFrame);
+
+const sectionLinks = document.querySelectorAll('.top a');
+function setCurrentSection() {
+  sectionLinks.forEach(link => {
+    if (link.hash === (location.hash || '#finalists')) link.setAttribute('aria-current', 'location');
+    else link.removeAttribute('aria-current');
+  });
+}
+window.addEventListener('hashchange', setCurrentSection);
+setCurrentSection();
 </script>
 </body>
 </html>
