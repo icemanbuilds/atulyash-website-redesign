@@ -1,0 +1,750 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="data:,">
+<title>Atulyash: 2B motion draft</title>
+<link rel="stylesheet" href="../glass.css">
+<style>
+/* 6 Alt. Golden Kitchen, laid over Glass Field: its masthead, bold serif with the italic second line, the
+   kitchen still life, the fact list, the kitchen journal, the thali gallery and the pack rows, each on its own panel.
+   Panels alternate sunny yellow and warm white, and the wheat wall stays fixed and visible around all of them. */
+:root{--paper:#FFFAF0;--panel:#FFF3D8;--sun:#FFCF39;--gold:linear-gradient(150deg,#FFD13E,#FFCF39 55%,#FFCD34);
+  --ink:#213F14;--body:#34341F;--button:#365E12;--rule:#6F532341;--accent:#946000;--g:18px}
+*{box-sizing:border-box}
+body{margin:0;color:var(--body);font:400 16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;overflow-x:clip}
+body::after{background:linear-gradient(180deg,rgba(5,25,10,.28),rgba(5,25,10,.12) 40%,rgba(5,25,10,.34))}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--button);outline-offset:3px}
+h1,h2,h3{margin:0;font-family:Georgia,"Times New Roman",serif;font-weight:700;color:var(--ink);letter-spacing:-.04em;line-height:1.02}
+h1 em,h2 em{font-weight:400;font-style:italic}
+h2{font-size:clamp(30px,8.4vw,42px)}
+svg{flex:none}
+.button{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:0 20px;border-radius:99px;background:var(--button);color:#fff;font-weight:700;font-size:15.5px;text-decoration:none}
+.button svg{width:18px;height:18px}
+.button.small{min-height:44px;padding:0 16px;font-size:14px}
+.text-link{display:inline-flex;align-items:center;min-height:44px;font-weight:700;text-decoration:underline;text-underline-offset:4px;color:var(--ink)}
+
+/* panels float over the field */
+.panel{position:relative;margin:0 var(--g);border-radius:28px;padding:30px 20px;box-shadow:0 22px 46px rgba(0,0,0,.24)}
+.panel.y{background:var(--gold)}
+.panel.w{background:var(--paper)}
+.gap{height:46px}
+.panel+.gap+.panel{margin-top:0}
+
+/* ---------- masthead ---------- */
+.mast{position:sticky;top:10px;z-index:20;margin:10px var(--g) 0;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 8px 8px 6px;border-radius:99px;background:var(--paper);box-shadow:0 12px 28px rgba(0,0,0,.22)}
+.mast .menu>summary{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;color:var(--ink)}
+.mast .menu>summary svg{width:24px;height:24px}
+.mast .menu>nav{left:0;right:auto;background:var(--paper)!important;border:0!important;border-radius:18px;box-shadow:0 18px 36px rgba(0,0,0,.2)!important}
+.mast .menu>nav a{color:var(--ink)!important}
+.mast .menu>nav a:hover{background:var(--panel)!important}
+.brand img{width:128px}
+.mast-order{width:44px;height:44px;min-height:44px;padding:0;border-radius:50%}
+.mast-order span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* ---------- hero: yellow ---------- */
+.field-gap{height:14px}
+.hero{padding:34px 20px 0;overflow:hidden}
+.hero h1{max-width:12ch;font-size:clamp(44px,12.4vw,64px)}
+.hero h1 em{display:block}
+.hero .lede{margin:14px 0 0;max-width:24ch;font-size:17px;color:#3A3A1E}
+.hero .acts{display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px;margin-top:20px}
+.art{position:relative;min-height:clamp(220px,62vw,300px);margin:6px -20px 0}
+.art img{position:absolute}
+.art .pack{width:46%;max-height:90%;object-fit:contain;bottom:12%;right:16%;filter:drop-shadow(10px 14px 11px #2e230e45);z-index:2}
+.art .sprig{width:56%;left:2%;bottom:14%}
+.art .grain{width:34%;left:10%;bottom:6%;z-index:1}
+.art .flour{width:30%;left:17%;bottom:7%;filter:drop-shadow(6px 10px 6px #39240e58);z-index:3}
+.art .roti{width:40%;right:-3%;bottom:0;filter:drop-shadow(5px 8px 8px #39240e55);z-index:3}
+
+/* ---------- why Atulyash: white ---------- */
+.facts h2{font-size:clamp(26px,7vw,34px);margin-bottom:8px}
+.facts ul{list-style:none;margin:0;padding:0}
+.facts li{display:grid;grid-template-columns:30px 1fr;gap:2px 14px;align-items:center;padding:13px 0;border-bottom:1px solid var(--rule)}
+.facts li:last-child{border-bottom:0}
+.facts svg{grid-row:span 2;width:27px;height:27px;color:var(--button)}
+.facts strong{color:var(--ink)}
+.facts p{margin:0;font-size:14.5px;color:#55553A}
+
+/* ---------- from the kitchen: yellow ---------- */
+.journal h2{margin-bottom:16px}
+.journal ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.journal li{display:grid;grid-template-columns:30% 1fr;gap:14px;align-items:center;padding:10px;border-radius:18px;background:var(--paper)}
+.journal li:first-child{grid-template-columns:1fr;padding:0;overflow:hidden;border-radius:22px}
+.journal li img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:12px}
+.journal li:first-child img{aspect-ratio:1.5;border-radius:0;object-position:center 57%}
+.journal li:first-child>div{padding:16px 18px 18px}
+.journal h3{font-size:19px;line-height:1.15;letter-spacing:-.02em}
+.journal li:first-child h3{font-size:26px}
+.journal .yt{display:inline-flex;align-items:center;gap:6px;min-height:40px;margin-top:4px;font-weight:700;font-size:14.5px;color:var(--ink);text-underline-offset:3px}
+.journal .yt svg{width:16px;height:16px}
+
+/* ---------- the everyday table + why we question atta: white ---------- */
+.meals h2{margin-bottom:16px}
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.gallery img{width:100%;height:140px;object-fit:cover;border-radius:16px}
+.gallery img.main{grid-column:1/-1;height:230px;border-radius:20px}
+.meals .q{margin:20px 0 0;padding:18px 18px 20px;border-radius:20px;background:#163A16;color:#EAF1E2}
+.meals .q strong{display:block;margin-bottom:8px;font:700 24px/1.08 Georgia,serif;letter-spacing:-.03em;color:var(--sun)}
+.meals .q p{margin:0;line-height:1.6}
+
+/* ---------- the Atulyash way: yellow ---------- */
+.way h2{margin-bottom:14px}
+.way ol{list-style:none;margin:0;padding:0}
+.way li{display:grid;grid-template-columns:76px 1fr;gap:14px;align-items:center;padding:10px 0;border-top:1px solid var(--rule)}
+.way li:first-child{border-top:0}
+.way img{width:76px;height:76px;border-radius:14px;object-fit:cover}
+.way .n{display:block;font:700 13px/1 system-ui,sans-serif;letter-spacing:.12em;color:var(--accent)}
+.way h3{margin-top:4px;font-size:21px;letter-spacing:-.02em}
+.way p{margin:3px 0 0;font-size:14.5px;line-height:1.4;color:#3A3A1E}
+
+/* ---------- packs: white ---------- */
+.packs-title p{margin:6px 0 0;color:#55553A}
+.packs ul{list-style:none;margin:16px 0 0;padding:0}
+.pack-card{display:grid;grid-template-columns:62px 1fr auto;gap:14px;align-items:center;padding:12px 0;border-top:1px solid var(--rule)}
+.pack-card img{width:62px;height:72px;object-fit:contain;filter:drop-shadow(3px 6px 5px #2e230e40)}
+.pack-card strong{display:block;font:700 22px/1 Georgia,serif;color:var(--ink);letter-spacing:-.02em}
+.pack-card span{display:block;margin-top:4px;font-weight:700;color:var(--accent)}
+.packs .note{margin:14px 0 0;font-size:14.5px;color:#55553A}
+
+/* ---------- close: yellow ---------- */
+.close h2 em{display:block}
+.close .lead{margin:10px 0 0;color:#3A3A1E}
+form{margin-top:20px}
+form label{display:block;font-weight:700;color:var(--ink)}
+.pinrow{display:grid;grid-template-columns:1fr auto;gap:6px;margin-top:8px}
+.pinrow input{height:54px;padding:0 16px;border:2px solid rgba(33,63,20,.2);border-radius:99px;background:#fff;color:var(--ink)}
+.pinrow button{height:54px;padding:0 22px;border:0;border-radius:99px;background:var(--button);color:#fff;font-weight:700}
+[data-pin] output{color:var(--ink)}
+.links{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+.links a{display:flex;align-items:center;justify-content:center;min-height:50px;border-radius:99px;border:2px solid var(--button);text-decoration:none;font-weight:700;color:var(--ink)}
+.foot{display:flex;justify-content:space-between;align-items:end;gap:16px;padding:34px calc(var(--g) + 20px) 44px;color:#fff}
+.foot img{width:120px;filter:brightness(0) invert(1);opacity:.95}
+.foot span{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-shadow:0 2px 10px rgba(0,0,0,.4)}
+
+@media (min-width:900px){
+  :root{--g:max(24px,calc(50% - 590px))}
+  .mast{padding:8px 10px 8px 14px}
+  .brand img{width:150px}
+  .mast-order{width:auto;padding:0 18px;border-radius:99px}
+  .mast-order span{position:static;width:auto;height:auto;clip:auto}
+  .panel{padding:48px}
+  .field-gap{height:28px}
+  .gap{height:72px}
+  .hero{display:grid;grid-template-columns:1fr 1fr;align-items:end;padding:56px 48px 0}
+  .hero h1{font-size:76px}
+  .hero>div:first-child{padding-bottom:56px}
+  .art{min-height:420px;margin:0 -48px 0 0}
+  .facts ul{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .facts li{border:0}
+  .journal ul{grid-template-columns:1.5fr 1fr;grid-template-rows:repeat(2,auto);gap:14px}
+  .journal li:first-child{grid-row:span 2}
+  .meals{display:grid;grid-template-columns:1.3fr 1fr;gap:20px 40px;align-items:center}
+  .meals h2{grid-column:1/-1}
+  .meals .q{margin:0}
+  .way ol{display:grid;grid-template-columns:1fr 1fr;column-gap:40px}
+  .way li:nth-child(2){border-top:0}
+  .packs ul{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .pack-card{grid-template-columns:62px 1fr;border:0;padding:18px;border-radius:20px;background:var(--panel)}
+  .pack-card .button{grid-column:1/-1}
+  .close form,.close .links{max-width:520px}
+}
+/* ---------- shape play: each panel gets its own silhouette ---------- */
+.hero{border-radius:28px 28px 50% 50%/28px 28px 38px 38px;padding-bottom:18px}
+.facts{border-radius:28px 28px 78% 28px/28px 28px 110px 28px;padding-bottom:64px}
+.journal li:first-child img{border-radius:0 0 50% 50%/0 0 26px 26px}
+.gallery img.main{border-radius:62% 38% 46% 54%/58% 44% 56% 42%;height:270px}
+.gallery img:not(.main){border-radius:16px 16px 16px 44px}
+.gallery img:nth-child(3){border-radius:16px 16px 44px 16px}
+.way{background:#FFCF39!important;margin-top:16px}
+.way{border-radius:28px 80% 28px 28px/28px 130px 28px 28px;padding-top:60px}
+.way img{border-radius:58% 42% 50% 50%/52% 58% 42% 48%}
+.way li:nth-child(even) img{border-radius:44% 56% 40% 60%/60% 42% 58% 40%}
+.pack-card img{width:62px;height:62px;padding:6px;border-radius:50%;background:radial-gradient(circle,#FFE48A,#FFCF39)}
+.close{margin-top:30px}
+.sticker{position:absolute;top:-26px;right:18px;display:grid;place-items:center;width:92px;height:92px;border-radius:50%;background:var(--button);color:#fff;text-align:center;font:700 13px/1.15 system-ui,sans-serif;transform:rotate(9deg);box-shadow:0 10px 22px rgba(0,0,0,.25)}
+.sticker b{display:block;font:700 22px/1 Georgia,serif;color:var(--sun)}
+.close h2{padding-right:78px}
+@media (min-width:900px){
+  .hero{border-radius:28px 28px 50% 50%/28px 28px 70px 70px;padding-bottom:30px}
+  .facts{border-radius:28px 28px 60% 28px/28px 28px 150px 28px;padding-bottom:96px}
+  .way{border-radius:28px 60% 28px 28px/28px 170px 28px 28px;padding-top:80px}
+  .gallery img.main{height:340px}
+  .sticker{width:120px;height:120px;right:48px;top:-34px;font-size:15px}
+  .sticker b{font-size:28px}
+  .close h2{padding-right:0}
+}
+
+/* ================= motion draft ================= */
+/* journey: the drawing is pinned while you scroll; a camera pans down it, one step at a time */
+.journey .j-lede{margin:8px 0 0;color:#3A3A1E}
+.j-track{position:relative;margin-top:18px}
+.j-stick{display:flex;flex-direction:column;gap:14px}
+.j-stage{position:relative;overflow:hidden;border-radius:22px 22px 22px 70px/22px 22px 22px 90px;background:var(--paper);box-shadow:inset 0 0 0 1px #6F532322}
+.j-stage>svg{display:block;width:100%;height:100%}
+.j-stage .hand{font:italic 400 19px Georgia,serif;fill:var(--ink)}
+.j-stage .arrow{fill:none;stroke:var(--ink);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.j-pause{position:absolute;top:10px;right:10px;display:grid;place-items:center;width:44px;height:44px;border:0;border-radius:50%;background:#fff;color:var(--ink);box-shadow:0 6px 16px rgba(0,0,0,.14);cursor:pointer}
+.j-pause svg{width:13px;height:13px}
+.j-bars{display:flex;gap:6px}
+.j-bars i{flex:1;height:4px;border-radius:4px;background:#21401433;overflow:hidden;position:relative}
+.j-bars i::after{content:"";position:absolute;inset:0;background:var(--ink);transform:scaleX(var(--f,0));transform-origin:left}
+.way .j-steps{list-style:none;margin:0;padding:0;display:block}
+.way .j-steps li{display:block;border:0;padding:12px 0 0}
+.way .j-steps h3{margin-top:4px;font-size:24px}
+.way .j-steps p{font-size:15.5px}
+/* with script: pin, and show one step at a time */
+.jsj .j-track{height:460svh}
+.jsj .j-stick{position:sticky;top:84px;height:calc(100svh - 104px)}
+.jsj .j-stage{flex:1;min-height:0}
+.jsj .j-cap{flex:none}
+.jsj .way .j-steps{position:relative;height:118px}
+.jsj .way .j-steps li{position:absolute;inset:0;opacity:0;transform:translateY(14px);transition:opacity .45s,transform .55s cubic-bezier(.2,.8,.2,1)}
+.jsj .way .j-steps li.on{opacity:1;transform:none}
+html:not(.jsj) .j-stage{aspect-ratio:400/1940;max-width:460px}
+html:not(.jsj) .j-pause{display:none}
+
+/* panels rise into place as they arrive */
+.mo .panel:not(.hero){opacity:0;transform:translateY(56px) scale(.965);transition:opacity .9s ease,transform 1.1s cubic-bezier(.2,.8,.2,1)}
+.mo .panel.in{opacity:1;transform:none}
+.mo .rise{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .8s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--i,0)*90ms + 200ms)}
+.mo .in .rise{opacity:1;transform:none}
+
+/* hero: words arrive, the still life floats and drifts apart as you scroll */
+@keyframes up{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-8px) rotate(-1.2deg)}}
+@keyframes bob2{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-5px) rotate(2deg)}}
+.mo .hero h1,.mo .hero .lede,.mo .hero .acts{animation:up .9s cubic-bezier(.2,.8,.2,1) both}
+.mo .hero h1 em{display:block;animation:up .9s .18s cubic-bezier(.2,.8,.2,1) both}
+.mo .hero .lede{animation-delay:.32s}
+.mo .hero .acts{animation-delay:.44s}
+.mo .art img{animation:up 1s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(.35s + var(--i,0)*.1s)}
+.mo.ready .art .pack{animation:bob 6s ease-in-out infinite}
+.mo.ready .art .roti{animation:bob2 7s ease-in-out infinite}
+.mo.ready .art .sprig{animation:bob2 8s ease-in-out infinite;transform-origin:bottom left}
+.mo .art img{translate:0 calc(var(--hy,0) * var(--d,0) * 1px)}
+.art .pack{--d:-.22}.art .roti{--d:.18}.art .flour{--d:.1}.art .sprig{--d:-.1}.art .grain{--d:.06}
+
+/* the wheat wall drifts a little slower than the page */
+.mo body::before{transform:translateY(calc(var(--wy,0) * -1px)) scale(1.14);transform-origin:top center}
+
+/* blob photos breathe */
+@keyframes morph{0%,100%{border-radius:62% 38% 46% 54%/58% 44% 56% 42%}33%{border-radius:44% 56% 60% 40%/46% 60% 40% 54%}66%{border-radius:56% 44% 38% 62%/60% 40% 58% 42%}}
+.mo .gallery img.main{animation:morph 14s ease-in-out infinite}
+
+/* line icons draw themselves */
+.mo .facts li svg *{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.4s cubic-bezier(.4,0,.2,1);transition-delay:calc(var(--i,0)*160ms + 400ms)}
+.mo .facts.in li svg *{stroke-dashoffset:0}
+
+/* sticker spins in */
+.mo .close .sticker{opacity:0;transform:rotate(-40deg) scale(.4);transition:opacity .4s .5s,transform .9s .5s cubic-bezier(.3,1.6,.5,1)}
+.mo .close.in .sticker{opacity:1;transform:rotate(9deg)}
+
+/* masthead tightens once you scroll */
+.mast{transition:box-shadow .3s,transform .3s}
+.mo .mast.small{transform:scale(.97);box-shadow:0 8px 20px rgba(0,0,0,.28)}
+.button,.links a,.pinrow button{transition:transform .2s,box-shadow .2s}
+.button:hover,.links a:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(0,0,0,.18)}
+.button:active,.links a:active,.pinrow button:active{transform:scale(.97)}
+
+@media (min-width:900px){
+  .jsj .j-stick{top:100px;height:calc(100vh - 130px);flex-direction:row;align-items:stretch;gap:48px}
+  .jsj .j-stage{flex:none;width:min(440px,45%)}
+  .jsj .j-cap{flex:1;display:flex;flex-direction:column;justify-content:center;gap:18px}
+  .jsj .way .j-steps{height:220px}
+  .way .j-steps h3{font-size:40px}
+  .way .j-steps p{font-size:18px;max-width:30ch}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="mast">
+  <details class="menu" data-menu>
+    <summary aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg></summary>
+    <nav aria-label="Main"><a href="#packs">Packs and prices</a><a href="#journal-h">From the kitchen</a><a href="#way-h">The Atulyash way</a><a href="#pin">Check delivery</a></nav>
+  </details>
+  <a class="brand" href="#top"><img src="../img/gk/wordmark.png" alt="Atulyash" width="566" height="129"></a>
+  <a class="button mast-order" href="#packs"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7 3 21h18L19 7ZM8 8V6a4 4 0 0 1 8 0v2"/></svg><span>See packs</span></a>
+</header>
+
+<main id="main">
+<div class="field-gap" aria-hidden="true"></div>
+
+<section class="panel y hero" id="top" aria-labelledby="hero-h">
+  <div>
+    <h1 id="hero-h">Milled yesterday. <em>At your door today.</em></h1>
+    <p class="lede">Fresh chakki atta from MP Sharbati wheat, milled slowly on natural stone.</p>
+    <div class="acts"><a class="button" href="#packs">See packs and prices<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a><a class="text-link" href="#pin">Check delivery to my area</a></div>
+  </div>
+  <div class="art">
+    <img class="sprig" src="../img/gk/sprig.webp" alt="">
+    <img class="pack" src="../img/pack.webp" alt="Atulyash fresh chakki atta, 2 kg pouch" width="900" height="1334">
+    <img class="grain" src="../img/gk/grain.webp" alt="">
+    <img class="flour" src="../img/gk/flour.webp" alt="">
+    <img class="roti" src="../img/gk/plate.webp" alt="">
+  </div>
+</section>
+
+<div class="gap" aria-hidden="true"></div>
+
+<section class="panel w facts" aria-labelledby="facts-h">
+  <h2 id="facts-h">Why Atulyash</h2>
+  <ul>
+    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22V7m0 4C7 11 5 8 5 5c4 0 7 2 7 6Zm0 6c-5 0-7-3-7-6 4 0 7 2 7 6Zm0-6c5 0 7-3 7-6-4 0-7 2-7 6Zm0 6c5 0 7-3 7-6-4 0-7 2-7 6ZM12 7c-2-2-2-4 0-6 2 2 2 4 0 6Z"/></svg><strong>100% whole wheat</strong><p>Made with single-origin MP Sharbati wheat.</p></li>
+    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="12" rx="9" ry="4"/><path d="M3 12v4c0 2 4 4 9 4s9-2 9-4v-4M10 12V6h4v6M9 6V3h6v3"/></svg><strong>Chakki fresh</strong><p>Ground slowly on natural stone chakkis.</p></li>
+    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21C6 14 10 9 16 6M6 16C4 7 10 4 21 3c-1 10-5 16-15 13Z"/></svg><strong>Chokar kept in</strong><p>The bran stays in the atta.</p></li>
+  </ul>
+</section>
+
+<div class="gap" aria-hidden="true"></div>
+
+<section class="panel y journal" aria-labelledby="journal-h">
+  <h2 id="journal-h">From the kitchen</h2>
+  <ul>
+    <li><img loading="lazy" src="../img/gk/phulka.webp" alt="Puffed phulka on a steel thali" width="512" height="512"><div><h3>How fresh should your atta really be?</h3><a class="yt" href="https://www.youtube.com/watch?v=cua0_aQ-UY0">Watch on YouTube<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a></div></li>
+    <li><img loading="lazy" src="../img/gk/chakki.webp" alt=""><div><h3>Does the way atta is ground really matter?</h3><a class="yt" href="https://www.youtube.com/watch?v=PzP9nVrr2Tk">Watch on YouTube<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a></div></li>
+    <li><img loading="lazy" src="../img/gk/wheat-field.webp" alt=""><div><h3>From wheat to fresh atta</h3><a class="yt" href="https://www.youtube.com/watch?v=3mXae8undRI">Watch on YouTube<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a></div></li>
+  </ul>
+</section>
+
+<div class="gap" aria-hidden="true"></div>
+
+<section class="panel w meals" aria-labelledby="meals-h">
+  <h2 id="meals-h">At the everyday <em>table.</em></h2>
+  <div class="gallery">
+    <img class="main" loading="lazy" src="../img/gk/home-thali.webp" alt="A steel thali with chapatis, dal and seasonal vegetables">
+    <img loading="lazy" src="../img/gk/kneading.webp" alt="Hands kneading whole-wheat dough">
+    <img loading="lazy" src="../img/gk/tawa.webp" alt="A phulka cooking on a cast-iron tawa">
+  </div>
+  <div class="q">
+    <strong>We question everything. Why not atta?</strong>
+    <p>We keep changing everything around us. Our skincare, our cooking oil, even our utensils, because we research what is best for our family. So why don't we stop and think about our atta? Its quality, where it comes from, how it is made. We just take their word for it.</p>
+  </div>
+</section>
+
+<div class="gap" aria-hidden="true"></div>
+
+<section class="panel y way journey" aria-labelledby="way-h">
+  <h2 id="way-h">The Atulyash <em>way.</em></h2>
+  <p class="j-lede">From the wheat to your door, in six steps.</p>
+  <div class="j-track" id="jtrack">
+    <div class="j-stick" id="jstick">
+      <div class="j-stage" id="stage">
+        <svg id="w" viewBox="0 0 400 760" preserveAspectRatio="xMidYMin meet" role="img" aria-label="Sharbati wheat floats in the air. Its grains drift through a cleaning sieve while dust and husk float away, fall from a wooden hopper into a turning stone chakki, and come out as fresh brown atta with bran in it, which pours into a bowl and is packed in an Atulyash pack. A rider then carries the pack along a winding road to a front door, where the pack is left at the door.">
+    <defs>
+      <symbol id="wheat" overflow="visible">
+        <path d="M0 2V150" stroke="#3F8A3D" stroke-width="3.4" stroke-linecap="round"/>
+        <path class="tx" d="M-1 132C-4 104-20 84-42 70C-28 92-14 108-4 140Z" fill="#449342"/>
+        <path class="tx" d="M1 118C5 92 20 72 42 60C30 82 16 98 4 126Z" fill="#3B8739"/>
+        <path d="M0 4V-80" stroke="#C9962F" stroke-width="2"/>
+        <path class="tx" d="M0-12C5.5-6 5.5 6 0 12C-5.5 6-5.5-6 0-12Z" fill="#D9A441" transform="translate(-7 -12) rotate(-32)"/><path class="tx" d="M0-12C5.5-6 5.5 6 0 12C-5.5 6-5.5-6 0-12Z" fill="#C28D31" transform="translate(7 -12) rotate(32)"/><path class="tx" d="M0-12C5.5-6 5.5 6 0 12C-5.5 6-5.5-6 0-12Z" fill="#D9A441" transform="translate(-7 -30) rotate(-32)"/><path class="tx" d="M0-12C5.5-6 5.5 6 0 12C-5.5 6-5.5-6 0-12Z" fill="#C28D31" transform="translate(7 -30) rotate(32)"/><path class="tx" d="M0-12C5.5-6 5.5 6 0 12C-5.5 6-5.5-6 0-12Z" fill="#D9A441" transform="translate(-7 -48) rotate(-32)"/><path class="tx" d="M0-12C5.5-6 5.5 6 0 12C-5.5 6-5.5-6 0-12Z" fill="#C28D31" transform="translate(7 -48) rotate(32)"/><path class="tx" d="M0-12C5.5-6 5.5 6 0 12C-5.5 6-5.5-6 0-12Z" fill="#D9A441" transform="translate(-7 -65) rotate(-32)"/><path class="tx" d="M0-12C5.5-6 5.5 6 0 12C-5.5 6-5.5-6 0-12Z" fill="#C28D31" transform="translate(7 -65) rotate(32)"/><path class="tx" d="M0-12C5.5-6 5.5 6 0 12C-5.5 6-5.5-6 0-12Z" fill="#D9A441" transform="translate(0 -84)"/>
+      </symbol>
+      <symbol id="packBody" overflow="visible">
+        <path class="tx" d="M-60 0H60L62 180H-62Z" fill="#F6F1E6"/>
+        <path class="tx" d="M44 0H60L62 180H46Z" fill="#E4DCCB"/>
+        <path class="tx" d="M-61.5 118Q-30 102 0 114Q30 126 61.5 106L62 180H-62Z" fill="#6E9F3F"/>
+        <path d="M46 120Q54 114 61.5 106L62 180H46Z" fill="#5C8A33"/>
+        <text x="-6" y="62" text-anchor="middle" font-family="Georgia,serif" font-size="30" fill="#2F7A35">Atta</text>
+        <rect x="-30" y="72" width="48" height="2.4" rx="1" fill="#CC9E4A"/>
+        <text x="-4" y="162" text-anchor="middle" font-family="system-ui,sans-serif" font-weight="700" font-size="9.5" letter-spacing="2" fill="#FFFDF5">ATULYASH</text>
+      </symbol>
+      <symbol id="grain" overflow="visible"><ellipse rx="4.6" ry="2.8" fill="#CC9E4A"/><path d="M-4 .6Q0 2.6 4 .6" stroke="#A97B2E" stroke-width="1" fill="none"/></symbol>
+      <pattern id="mesh" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0H6M0 0V6" stroke="#B98A50" stroke-width=".9"/></pattern>
+      <clipPath id="topFace"><circle r="112"/></clipPath>
+      <pattern id="grainTex" width="128" height="128" patternUnits="userSpaceOnUse"><image id="grainImg" width="128" height="128"/></pattern>
+    </defs>
+
+    <!-- notes (handwritten) -->
+    <g id="notes">
+      <text class="hand" x="205" y="36" text-anchor="middle" transform="rotate(-3 205 36)">pure MP Sharbati wheat</text>
+      <text class="hand" x="14" y="470" transform="rotate(-2 14 470)">cleaned in<tspan x="14" dy="23">several stages</tspan></text>
+      <text class="hand" x="388" y="602" text-anchor="end" transform="rotate(3 388 602)">dust and husk<tspan x="388" dy="23">float away</tspan></text>
+      <text class="hand" x="14" y="808" transform="rotate(-3 14 808)">stone chakki,<tspan x="14" dy="23">turning slow</tspan></text>
+      <text class="hand" x="392" y="1090" text-anchor="end" transform="rotate(2 392 1090)">chokar (bran)<tspan x="392" dy="23">stays in</tspan></text>
+      <text class="hand" x="14" y="1176" transform="rotate(-2 14 1176)">packed in<tspan x="14" dy="23">small batches</tspan></text>
+      <text class="hand" x="388" y="1376" text-anchor="end" transform="rotate(3 388 1376)">nothing added,<tspan x="388" dy="23">nothing removed</tspan></text>
+      <text class="hand" x="392" y="1616" text-anchor="end" transform="rotate(-2 392 1616)">milled the day<tspan x="392" dy="21">before, at your</tspan><tspan x="392" dy="21">door the next</tspan></text>
+      <text class="hand" x="112" y="1676" transform="rotate(-3 112 1676)">our own riders</text>
+      <text class="hand" x="262" y="1922" text-anchor="middle" transform="rotate(2 262 1922)">your home</text>
+    </g>
+    <g id="arrows"></g>
+
+    <!-- 1 wheat field (stalks are placed by script) -->
+    <g id="field"></g>
+    <g id="looseGrains"></g>
+
+    <!-- 2 sieve -->
+    <g id="sieve">
+      <ellipse class="tx" cx="0" cy="6" rx="98" ry="26" fill="#8A5E36"/>
+      <ellipse class="tx" cx="0" cy="0" rx="98" ry="26" fill="#A9784A"/>
+      <ellipse cx="0" cy="0" rx="86" ry="20" fill="#F2E6CF"/>
+      <ellipse cx="0" cy="0" rx="86" ry="20" fill="url(#mesh)"/>
+    </g>
+    <g id="dust"></g>
+
+    <!-- 3 hopper + stone + bowl -->
+    <g id="hopper">
+      <polygon class="tx" points="-88,-38 88,-38 102,6 -102,6" fill="#E0A445"/>
+      <polygon class="tx" points="-78,-30 78,-30 88,0 -88,0" fill="#A9461F"/>
+      <clipPath id="hopIn"><polygon points="-78,-30 78,-30 88,0 -88,0"/></clipPath>
+      <g clip-path="url(#hopIn)"><ellipse class="tx" rx="3.8" ry="8.5" fill="#E2B04E" transform="translate(-7.0 -16.0) rotate(-8)"/><ellipse class="tx" rx="3.8" ry="8.5" fill="#C9962F" transform="translate(52.5 -18.6) rotate(-4)"/><ellipse class="tx" rx="3.8" ry="8.5" fill="#E2B04E" transform="translate(16.9 -21.5) rotate(-31)"/><ellipse class="tx" rx="3.8" ry="8.5" fill="#C9962F" transform="translate(-60.6 -7.4) rotate(22)"/><ellipse class="tx" rx="3.8" ry="8.5" fill="#E2B04E" transform="translate(14.1 -18.1) rotate(25)"/><ellipse class="tx" rx="3.8" ry="8.5" fill="#D9A441" transform="translate(17.1 -22.0) rotate(53)"/><ellipse class="tx" rx="3.8" ry="8.5" fill="#D9A441" transform="translate(-64.7 -21.4) rotate(16)"/><ellipse class="tx" rx="3.8" ry="8.5" fill="#C9962F" transform="translate(41.2 -16.1) rotate(55)"/><ellipse class="tx" rx="3.8" ry="8.5" fill="#E2B04E" transform="translate(2.8 -15.1) rotate(-79)"/><ellipse class="tx" rx="3.8" ry="8.5" fill="#E2B04E" transform="translate(-61.4 -10.2) rotate(80)"/><ellipse class="tx" rx="3.8" ry="8.5" fill="#C9962F" transform="translate(73.4 -6.9) rotate(-39)"/><ellipse class="tx" rx="3.8" ry="8.5" fill="#D9A441" transform="translate(38.2 -13.0) rotate(-69)"/><ellipse class="tx" rx="3.8" ry="8.5" fill="#E2B04E" transform="translate(39.4 -14.9) rotate(-18)"/><ellipse class="tx" rx="3.8" ry="8.5" fill="#D9A441" transform="translate(67.8 -6.7) rotate(-46)"/><ellipse class="tx" rx="3.8" ry="8.5" fill="#E2B04E" transform="translate(63.2 -21.1) rotate(77)"/><ellipse class="tx" rx="3.8" ry="8.5" fill="#C9962F" transform="translate(-15.2 -23.8) rotate(-48)"/><ellipse class="tx" rx="3.8" ry="8.5" fill="#E2B04E" transform="translate(25.9 -17.7) rotate(-27)"/><ellipse class="tx" rx="3.8" ry="8.5" fill="#D9A441" transform="translate(68.7 -8.4) rotate(-58)"/><ellipse class="tx" rx="3.8" ry="8.5" fill="#E2B04E" transform="translate(30.6 -23.0) rotate(48)"/><ellipse class="tx" rx="3.8" ry="8.5" fill="#E2B04E" transform="translate(-47.7 -11.9) rotate(1)"/><ellipse class="tx" rx="3.8" ry="8.5" fill="#E2B04E" transform="translate(71.8 -8.1) rotate(23)"/><ellipse class="tx" rx="3.8" ry="8.5" fill="#D9A441" transform="translate(-56.8 -14.4) rotate(-80)"/><ellipse class="tx" rx="3.8" ry="8.5" fill="#C9962F" transform="translate(53.9 -4.5) rotate(-31)"/><ellipse class="tx" rx="3.8" ry="8.5" fill="#E2B04E" transform="translate(57.0 -18.2) rotate(79)"/><ellipse class="tx" rx="3.8" ry="8.5" fill="#D9A441" transform="translate(15.1 -14.7) rotate(78)"/><ellipse class="tx" rx="3.8" ry="8.5" fill="#C9962F" transform="translate(-42.4 -17.4) rotate(-27)"/><ellipse class="tx" rx="3.8" ry="8.5" fill="#D9A441" transform="translate(-30.1 -21.9) rotate(-47)"/><ellipse class="tx" rx="3.8" ry="8.5" fill="#E2B04E" transform="translate(20.2 -24.2) rotate(-21)"/><ellipse class="tx" rx="3.8" ry="8.5" fill="#E2B04E" transform="translate(-6.9 -8.9) rotate(53)"/><ellipse class="tx" rx="3.8" ry="8.5" fill="#C9962F" transform="translate(-53.9 -15.1) rotate(-55)"/><ellipse class="tx" rx="3.8" ry="8.5" fill="#D9A441" transform="translate(60.4 -7.3) rotate(36)"/><ellipse class="tx" rx="3.8" ry="8.5" fill="#C9962F" transform="translate(-50.5 -10.7) rotate(-49)"/><ellipse class="tx" rx="3.8" ry="8.5" fill="#C9962F" transform="translate(66.6 -6.1) rotate(-67)"/><ellipse class="tx" rx="3.8" ry="8.5" fill="#C9962F" transform="translate(-67.0 -20.0) rotate(74)"/><ellipse class="tx" rx="3.8" ry="8.5" fill="#E2B04E" transform="translate(-38.7 -9.5) rotate(-13)"/><ellipse class="tx" rx="3.8" ry="8.5" fill="#C9962F" transform="translate(59.9 -13.2) rotate(-52)"/><ellipse class="tx" rx="3.8" ry="8.5" fill="#D9A441" transform="translate(32.6 -21.7) rotate(-3)"/><ellipse class="tx" rx="3.8" ry="8.5" fill="#D9A441" transform="translate(22.7 -13.1) rotate(-35)"/><ellipse class="tx" rx="3.8" ry="8.5" fill="#D9A441" transform="translate(61.8 -18.3) rotate(-69)"/><ellipse class="tx" rx="3.8" ry="8.5" fill="#D9A441" transform="translate(-13.1 -20.9) rotate(-52)"/></g>
+      <polygon class="tx" points="-102,6 102,6 58,94 -58,94" fill="#D0602B"/>
+      <polygon class="tx" points="66,6 102,6 58,94 44,94" fill="#B5501F"/>
+      <rect class="tx" x="-30" y="94" width="60" height="18" fill="#C8582A"/>
+      <rect x="-14" y="106" width="28" height="6" fill="#3E2A1A"/>
+    </g>
+    <g id="fallGrains"></g>
+    <ellipse id="stoneShadow" cx="200" cy="1030" rx="118" ry="9" fill="#ECE4D4"/>
+    <ellipse id="bowlShadow" cx="346" cy="1044" rx="36" ry="5" fill="#ECE4D4"/>
+    <g id="stone">
+      <path class="tx" d="M-112 64V118A112 26 0 0 0 112 118V64Z" fill="#8B867C"/>
+      <path class="tx" d="M70 64V137A112 26 0 0 0 112 118V64Z" fill="#7F7A70"/>
+      <ellipse cx="0" cy="64" rx="112" ry="26" fill="#625E56"/>
+      <rect class="tx" x="100" y="22" width="44" height="20" fill="#8B867C"/>
+      <ellipse cx="144" cy="32" rx="5" ry="10" fill="#7A756C"/><ellipse cx="145" cy="32" rx="3" ry="7" fill="#45413A"/>
+      <path class="tx" d="M-112 0V58A112 26 0 0 0 112 58V0Z" fill="#9C978C"/>
+      <path class="tx" d="M70 0V77A112 26 0 0 0 112 58V0Z" fill="#8F8A7F"/>
+      <g id="sideMarks" stroke="#86817A" stroke-width="2.6" stroke-linecap="round"></g>
+      <g transform="scale(1 .232)">
+        <circle class="tx" r="112" fill="#ABA699"/>
+        <g clip-path="url(#topFace)"><g id="furrows"><circle cx="56" cy="-34" r="3.7" fill="#928C80"/><circle cx="62" cy="97" r="5.6" fill="#928C80"/><circle cx="61" cy="64" r="5.2" fill="#928C80"/><circle cx="-55" cy="4" r="4.1" fill="#928C80"/><circle cx="-94" cy="-94" r="3.8" fill="#928C80"/><circle cx="-48" cy="39" r="5.9" fill="#928C80"/><circle cx="-11" cy="87" r="6.0" fill="#928C80"/><circle cx="91" cy="-27" r="3.7" fill="#928C80"/><circle cx="-55" cy="-61" r="3.6" fill="#928C80"/><circle cx="25" cy="80" r="5.5" fill="#928C80"/><circle cx="-4" cy="31" r="5.4" fill="#928C80"/><circle cx="-83" cy="32" r="5.7" fill="#928C80"/><circle cx="56" cy="50" r="4.4" fill="#928C80"/><circle cx="-64" cy="58" r="4.0" fill="#928C80"/></g></g>
+        <circle r="24" fill="#2F2C27"/>
+      </g>
+    </g>
+    <!-- atta: a short powdery pour from the spout into the bowl -->
+    <path id="haze3" fill="none" stroke="#D9BC97" stroke-width="16" stroke-linecap="round" opacity=".16"/>
+    <path id="haze2" fill="none" stroke="#D3B28A" stroke-width="9" stroke-linecap="round" opacity=".24"/>
+    <path id="ribbon" fill="none" stroke="#C9A27A" stroke-width="4" stroke-linecap="round" opacity=".22"/>
+    <g id="powder"></g>
+    <g id="bowl">
+      <path class="tx" d="M-42 0C-42 28-22 40 0 40C22 40 42 28 42 0Z" fill="#B87536"/>
+      <path class="tx" d="M18 0C18 24 10 37 0 40C22 40 42 28 42 0Z" fill="#9C602F"/>
+      <rect x="-15" y="37" width="30" height="7" rx="2" fill="#9C602F"/>
+      <ellipse cx="0" cy="0" rx="42" ry="9" fill="#D08C45"/>
+      <ellipse cx="0" cy=".5" rx="37" ry="6.5" fill="#7E4E24"/>
+      <g id="bowlFill">
+      <path class="tx" d="M-34 1.5Q-4-16 34 1.5Q0 7-34 1.5Z" fill="#C9A27A"/>
+      <circle cx="14.4" cy="0.8" r="1" fill="#7A4E2A"/><circle cx="-5.0" cy="-3.2" r="1" fill="#7A4E2A"/><circle cx="21.4" cy="-0.9" r="1" fill="#7A4E2A"/><circle cx="-15.8" cy="-5.1" r="1" fill="#7A4E2A"/><circle cx="-16.7" cy="0.3" r="1" fill="#7A4E2A"/><circle cx="14.7" cy="-5.0" r="1" fill="#7A4E2A"/><circle cx="15.7" cy="0.9" r="1" fill="#7A4E2A"/><circle cx="7.5" cy="-3.5" r="1" fill="#7A4E2A"/><circle cx="2.3" cy="-5.1" r="1" fill="#7A4E2A"/>
+      </g>
+    </g>
+
+    <!-- 4 pack -->
+    <g id="pack">
+      <use href="#packBody"/>
+      <ellipse cx="0" cy="0" rx="60" ry="9" fill="#4A3826"/>
+      <clipPath id="mouthClip"><ellipse rx="58" ry="8"/></clipPath>
+      <g clip-path="url(#mouthClip)"><g id="packFill"><path class="tx" d="M-58 6Q0-12 58 6V14H-58Z" fill="#C9A27A"/><circle cx="9.8" cy="2.7" r="1" fill="#7A4E2A"/><circle cx="23.6" cy="4.5" r="1" fill="#7A4E2A"/><circle cx="19.2" cy="4.3" r="1" fill="#7A4E2A"/><circle cx="-37.7" cy="0.2" r="1" fill="#7A4E2A"/><circle cx="35.5" cy="1.8" r="1" fill="#7A4E2A"/><circle cx="32.1" cy="-3.0" r="1" fill="#7A4E2A"/><circle cx="-2.5" cy="-1.8" r="1" fill="#7A4E2A"/><circle cx="3.5" cy="1.2" r="1" fill="#7A4E2A"/><circle cx="-39.0" cy="-2.0" r="1" fill="#7A4E2A"/><circle cx="-17.6" cy="4.2" r="1" fill="#7A4E2A"/></g></g>
+      <g id="packSeal"><rect class="tx" x="-61" y="-13" width="122" height="22" rx="2" fill="#EFE8DA"/><path d="M-61-3H61" stroke="#D6CCB8" stroke-width="1.5"/></g>
+    </g>
+    <g id="pour2"><path id="pourHaze" fill="none" stroke="#D3B28A" stroke-width="8" stroke-linecap="round" opacity=".25"/></g>
+
+    <!-- 5 delivery: island, road, house, rider -->
+    <g id="island">
+      <path class="tx" d="M10 1802Q40 1868 210 1880Q380 1868 410 1802Z" fill="#A9784A"/>
+      <path d="M300 1872Q384 1858 410 1802H350Q346 1852 300 1872Z" fill="#8A5E36"/>
+      <ellipse class="tx" cx="210" cy="1802" rx="200" ry="22" fill="#449342"/>
+      <path id="road" d="M-30 1456C90 1460 250 1474 318 1496C372 1514 372 1566 318 1580C250 1598 130 1604 84 1626C34 1650 40 1702 96 1718C150 1734 170 1806 230 1814C290 1822 350 1820 440 1804" fill="none" stroke="#C9A27A" stroke-width="18" stroke-linecap="round"/>
+      <path d="M-30 1456C90 1460 250 1474 318 1496C372 1514 372 1566 318 1580C250 1598 130 1604 84 1626C34 1650 40 1702 96 1718C150 1734 170 1806 230 1814C290 1822 350 1820 440 1804" fill="none" stroke="#FCFAF5" stroke-width="2" stroke-dasharray="10 10" opacity=".9"/>
+      <rect class="tx" x="210" y="1700" width="110" height="102" fill="#F3E3C7"/>
+      <rect x="298" y="1700" width="22" height="102" fill="#E5D0AC"/>
+      <polygon class="tx" points="198,1704 332,1704 265,1650" fill="#9A3B22"/>
+      <polygon points="265,1650 332,1704 300,1704" fill="#7E2F1B"/>
+      <rect x="222" y="1720" width="24" height="20" fill="#CFE0EA"/><rect x="222" y="1728" width="24" height="3" fill="#A9784A"/>
+      <rect x="250" y="1742" width="34" height="60" fill="#E9B95A"/>
+      <rect x="250" y="1742" width="34" height="6" fill="#D29E3E"/>
+      <rect x="244" y="1801" width="46" height="5" rx="1" fill="#D9C9A8"/>
+      <rect id="door" x="250" y="1742" width="34" height="60" fill="#8A5E36"/>
+      <use id="doorPack" href="#packBody" transform="translate(294 1783) scale(.11)" opacity="0"/>
+    </g>
+    <g id="rider">
+      <rect class="tx" x="-40" y="-60" width="25" height="23" rx="3" fill="#2A530F"/><rect x="-40" y="-60" width="25" height="5" rx="2" fill="#3C6E1F"/>
+      <rect x="-33" y="-51" width="11" height="9" rx="1.5" fill="#CC9E4A"/>
+      <path class="tx" d="M-34-12C-36-25-28-33-13-33H4L6-16H-31Z" fill="#CC9E4A"/>
+      <path d="M-34-12C-35-18-34-22-31-26L4-26 6-16H-31Z" fill="#B98A36"/>
+      <path d="M-27-33Q-25-38-14-38H2Q5-37 3-33Z" fill="#2B302C"/>
+      <rect x="2" y="-18" width="16" height="4" rx="1" fill="#5E5A51"/>
+      <path class="tx" d="M15-14L19-45Q20-49 24-49H28L25-14Z" fill="#CC9E4A"/>
+      <path d="M13-14Q24-23 35-14Z" fill="#B98A36"/>
+      <path d="M23-49L19-60" stroke="#3B453F" stroke-width="3" stroke-linecap="round"/>
+      <path d="M12-60H25" stroke="#2B302C" stroke-width="3.2" stroke-linecap="round"/>
+      <circle cx="28" cy="-46" r="2.6" fill="#F4E3A1"/>
+      <path d="M-9-41L8-39L9-21" stroke="#3B4A40" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <ellipse cx="13" cy="-18" rx="5.5" ry="3" fill="#2B302C"/>
+      <path class="tx" d="M-15-40Q-16-59-5-67Q4-70 7-63L3-40Z" fill="#2A530F"/>
+      <path d="M-15-40Q-16-52-11-60L-6-40Z" fill="#24470D"/>
+      <path d="M1-63L9-55L15-59" stroke="#24470D" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <circle cx="15.5" cy="-59.5" r="3" fill="#A86F48"/>
+      <rect x="-1" y="-70" width="6" height="6" fill="#A86F48"/>
+      <circle cx="2" cy="-77" r="9.5" fill="#9A3B22"/>
+      <path d="M2-77H11.5A9.5 9.5 0 0 1 3-67.6Z" fill="#A86F48"/>
+      <rect x="3" y="-81" width="10" height="4" rx="2" fill="#2B302C"/>
+      <circle cx="9" cy="-73.5" r=".9" fill="#2B302C"/>
+      <circle cx="-21" cy="-9" r="9" fill="#2B302C"/><g class="spk" transform="translate(-21 -9)"><path d="M-6 0H6M0-6V6" stroke="#8E8A80" stroke-width="1.4"/></g><circle cx="-21" cy="-9" r="2.6" fill="#C9C6BC"/>
+      <circle cx="25" cy="-9" r="9" fill="#2B302C"/><g class="spk" transform="translate(25 -9)"><path d="M-6 0H6M0-6V6" stroke="#8E8A80" stroke-width="1.4"/></g><circle cx="25" cy="-9" r="2.6" fill="#C9C6BC"/>
+    </g>
+  </svg>
+        <button class="j-pause" id="pause" type="button" aria-pressed="false"><svg viewBox="0 0 14 14" aria-hidden="true"><rect x="2" y="1" width="3.5" height="12" rx="1" fill="currentColor"/><rect x="8.5" y="1" width="3.5" height="12" rx="1" fill="currentColor"/></svg><span class="sr">Pause</span></button>
+      </div>
+      <div class="j-cap">
+        <div class="j-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <ol class="j-steps" id="jsteps"><li><span class="n">01</span><h3>The wheat</h3><p>Single-origin MP Sharbati. Never blended with other varieties.</p></li><li><span class="n">02</span><h3>The cleaning</h3><p>Cleaned in several stages. Dust and husk float away.</p></li><li><span class="n">03</span><h3>The stone</h3><p>Natural stone chakkis. No emery stone, no steel rollers.</p></li><li><span class="n">04</span><h3>The packing</h3><p>Packed with minimal handling. Nothing added, nothing removed.</p></li><li><span class="n">05</span><h3>The milling day</h3><p>Milled in small batches the day before, delivered the next morning.</p></li><li><span class="n">06</span><h3>The riders</h3><p>We deliver with our own riders, right to your door.</p></li></ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gap" aria-hidden="true"></div>
+
+<section class="panel w packs" id="packs" aria-labelledby="packs-h">
+  <div class="packs-title"><h2 id="packs-h">Choose your pack</h2><p>₹120 a kg. Packed in 2 kg pouches.</p></div>
+  <ul>
+    <li class="pack-card"><img loading="lazy" src="../img/pack.webp" alt="" width="900" height="1334"><div><strong>2 kg</strong><span>₹240</span></div><a class="button small" href="https://wa.me/919818588996?text=Hi%2C%20I%20would%20like%20to%20order%202%20kg%20of%20Atulyash%20atta.">Order 2 kg</a></li>
+    <li class="pack-card"><img loading="lazy" src="../img/pack.webp" alt="" width="900" height="1334"><div><strong>4 kg</strong><span>₹480</span></div><a class="button small" href="https://wa.me/919818588996?text=Hi%2C%20I%20would%20like%20to%20order%204%20kg%20of%20Atulyash%20atta.">Order 4 kg</a></li>
+    <li class="pack-card"><img loading="lazy" src="../img/pack.webp" alt="" width="900" height="1334"><div><strong>6 kg</strong><span>₹720</span></div><a class="button small" href="https://wa.me/919818588996?text=Hi%2C%20I%20would%20like%20to%20order%206%20kg%20of%20Atulyash%20atta.">Order 6 kg</a></li>
+  </ul>
+  <p class="note">About ₹3.60 a roti.</p>
+</section>
+
+<div class="gap" aria-hidden="true"></div>
+
+<section class="panel y close" id="pin" aria-labelledby="close-h">
+  <div class="sticker" aria-hidden="true"><span><b>₹120</b>a kg</span></div>
+  <h2 id="close-h">Freshly milled. <em>Delivered weekly.</em></h2>
+  <p class="lead">We deliver across Delhi NCR. Check your PIN code below.</p>
+  <form data-pin novalidate>
+    <label for="pin-in">Do we deliver to you?</label>
+    <div class="pinrow"><input id="pin-in" inputmode="numeric" autocomplete="postal-code" placeholder="6-digit PIN code" aria-describedby="pin-out"><button type="submit">Check</button></div>
+    <output id="pin-out" aria-live="polite"></output>
+  </form>
+  <div class="links"><a href="tel:+919818588996">Call us</a><a href="https://wa.me/919818588996">WhatsApp us</a></div>
+</section>
+</main>
+<footer class="foot"><img src="../img/gk/wordmark.png" alt="Atulyash" width="566" height="129"><span>Delhi NCR</span></footer>
+<script src="../core.js"></script>
+<script>
+
+(()=>{
+const NS='http://www.w3.org/2000/svg', $=id=>document.getElementById(id);
+const svg=$('w'), reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const mk=(tag,attrs,parent)=>{const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);parent&&parent.appendChild(e);return e;};
+// smooth pseudo-noise: a few slow sines with unrelated periods, so nothing visibly repeats
+const nz=(t,s)=>Math.sin(t*.61+s)*.55+Math.sin(t*1.13+s*1.7)*.3+Math.sin(t*1.97+s*2.9)*.15;
+const lerp=(a,b,t)=>a+(b-a)*t, ease=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
+
+
+/* style-7 texture: speckles inside every shape marked .tx (the copy moves with its shape) */
+(()=>{const c=document.createElement('canvas');c.width=c.height=128;const g=c.getContext('2d'),d=g.createImageData(128,128);
+  for(let i=0;i<d.data.length;i+=4){const r=Math.random();if(r<.16){d.data[i]=48;d.data[i+1]=34;d.data[i+2]=20;d.data[i+3]=30+Math.random()*46;}
+    else if(r>.94){d.data[i]=d.data[i+1]=d.data[i+2]=255;d.data[i+3]=56;}}
+  g.putImageData(d,0,0);$('grainImg').setAttribute('href',c.toDataURL());
+  document.querySelectorAll('.tx').forEach(el=>{const k=el.cloneNode(false);k.removeAttribute('class');k.removeAttribute('id');k.setAttribute('fill','url(#grainTex)');el.after(k);});})();
+
+/* 1. wheat: floating stalks at different depths */
+const stalks=[[92,182,1,-12],[178,150,.82,7],[302,196,1.05,11],[252,116,.6,-5],[46,330,.7,16],[352,338,.66,-12],[140,300,.55,-3]]
+  .map(([x,y,s,r],i)=>({x,y,s,r,i,el:mk('use',{href:'#wheat',opacity:s<.7?.75:1},$('field'))}));
+const earTip=st=>{const a=st.cur.r*Math.PI/180;return [st.cur.x+Math.sin(a)*-48*st.s*-1,st.cur.y-48*st.s*Math.cos(a)];};
+
+/* loose grains drifting from the ears to the sieve */
+const SIEVE={x:200,y:522}, HOP={x:200,y:742};
+const loose=[...Array(11)].map((_,i)=>({el:mk('use',{href:'#grain'},$('looseGrains')),st:i%stalks.length,t:i/11,dur:5.5+(i%4)*.7,seed:i*2.3}));
+/* grains falling from the sieve into the hopper, and from the hopper into the stone */
+const fall=[...Array(6)].map((_,i)=>({el:mk('use',{href:'#grain'},$('fallGrains')),t:i/6}));
+const drop=[...Array(4)].map((_,i)=>({el:mk('use',{href:'#grain'},$('fallGrains')),t:i/4}));
+/* dust and husk */
+const dust=[...Array(9)].map((_,i)=>({el:i%3?mk('circle',{r:1.6+(i%2),fill:'#BDB29C'},$('dust')):mk('rect',{width:6,height:2,rx:1,fill:'#D9C08A'},$('dust')),t:i/9,side:i%2?1:-1,seed:i*1.9}));
+
+/* stone side marks (rotate around the drum) */
+const marks=[...Array(12)].map((_,i)=>({el:mk('path',{d:''},$('sideMarks')),a:i/12*Math.PI*2,h:8+(i*7)%14,y0:12+(i*11)%30}));
+
+/* bran specks riding the ribbon */
+/* powder tipping from the bowl into the pack */
+const pour=[...Array(26)].map((_,i)=>({el:mk('circle',{r:i%6===0?1.4:(.8+(i%4)*.35),fill:i%6===0?'#7A4E2A':['#C9A27A','#D8B892','#BF9468','#E4CCA8'][i%4]},$('pour2')),u:(i*.618)%1,off:((i*71)%21-10)/10,seed:i*1.9}));
+const POW=['#C9A27A','#D8B892','#BF9468','#E4CCA8'];
+const powder=[...Array(70)].map((_,i)=>{const bran=i%6===0;return {el:mk('circle',{r:bran?1.5:(.7+((i*37)%10)/10*1.6).toFixed(2),fill:bran?'#7A4E2A':POW[i%4],opacity:bran?.95:(.55+((i*53)%10)/22).toFixed(2)},$('powder')),
+  u:(i*0.6180339)%1, sp:.11+((i*29)%10)/10*.09, off:((i*71)%21-10)/10, seed:i*1.37};});
+
+/* arrows: a hand-drawn curve with a small loop, drawn in once */
+const ARROWS=[[150,46,104,104,18,1],[70,500,112,516,-10,0],[330,588,322,548,16,1],[60,842,96,924,-16,1],
+  [318,1074,356,1012,14,1],[72,1210,134,1220,12,0],[300,1360,262,1326,-12,1],[376,1672,330,1754,14,1],[120,1688,112,1718,10,0],[262,1902,262,1880,10,0]];
+const arrowEls=ARROWS.map(([x1,y1,x2,y2,b,loop])=>{
+  const dx=x2-x1,dy=y2-y1,L=Math.hypot(dx,dy),ux=dx/L,uy=dy/L,px=-uy,py=ux,pts=[];
+  for(let k=0;k<=48;k++){const t=k/48;let x=x1+dx*t+px*b*Math.sin(Math.PI*t),y=y1+dy*t+py*b*Math.sin(Math.PI*t);
+    if(loop&&t>.3&&t<.5){const u=(t-.3)/.2*Math.PI*2,r=Math.min(7,L*.08);x+=ux*(Math.sin(u)*r)+px*(1-Math.cos(u))*r;y+=uy*(Math.sin(u)*r)+py*(1-Math.cos(u))*r;}
+    pts.push([x,y]);}
+  const [ax,ay]=pts[48],[bx,by]=pts[44],ang=Math.atan2(ay-by,ax-bx);
+  const head=[-.5,.5].map(d=>`M${ax.toFixed(1)} ${ay.toFixed(1)}L${(ax-8*Math.cos(ang+d)).toFixed(1)} ${(ay-8*Math.sin(ang+d)).toFixed(1)}`).join('');
+  const p=mk('path',{class:'arrow',d:'M'+pts.map(q=>q[0].toFixed(1)+' '+q[1].toFixed(1)).join('L')+head},$('arrows'));
+  const len=p.getTotalLength();p.style.strokeDasharray=len;p.style.strokeDashoffset=reduce?0:len;return {p,len};
+});
+let drawn=reduce;
+function drawArrows(){if(drawn)return;drawn=true;arrowEls.forEach((a,i)=>{a.p.style.transition=`stroke-dashoffset 1.1s ease ${.25+i*.18}s`;a.p.style.strokeDashoffset=0;});}
+
+const road=$('road'), roadLen=road.getTotalLength();
+/* where the rider stops: beside the house, so the door stays in view */
+let stopLen=roadLen*.8; for(let l=roadLen*.6;l<roadLen;l+=1){if(road.getPointAtLength(l).x>=214){stopLen=l;break;}}
+const spokes=[...document.querySelectorAll('#rider .spk')], RS=.78;
+/* even speed with a short speed-up and slow-down */
+const cruise=(t,a=.14)=>{const v=1/(1-a);return t<a?v*t*t/(2*a):t>1-a?1-v*(1-t)*(1-t)/(2*a):v*(t-a/2);};
+const ribbon=$('ribbon'), h2=$('haze2'), h3=$('haze3');
+
+function render(T){
+  // wheat
+  stalks.forEach(st=>{
+    const x=st.x+nz(T*.5,st.i*3.1)*12*st.s, y=st.y+nz(T*.42,st.i*1.7+5)*10*st.s, r=st.r+nz(T*.37,st.i*2.3+9)*9;
+    st.cur={x,y,r};st.el.setAttribute('transform',`translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${r.toFixed(1)}) scale(${st.s})`);
+  });
+  // sieve
+  const sx=SIEVE.x+nz(T*.4,11)*5, sy=SIEVE.y+nz(T*.5,12)*6, sr=nz(T*.45,13)*3.5;
+  $('sieve').setAttribute('transform',`translate(${sx.toFixed(1)} ${sy.toFixed(1)}) rotate(${sr.toFixed(2)})`);
+  // loose grains: ear -> sieve along a lazy current
+  loose.forEach(g=>{
+    let t=(T/g.dur+g.t)%1; const st=stalks[g.st];
+    const a=st.cur.r*Math.PI/180, ex=st.cur.x+Math.sin(a)*48*st.s, ey=st.cur.y-Math.cos(a)*48*st.s;
+    const e=ease(t), cx=lerp(ex,sx,e)+Math.sin(t*Math.PI)*nz(T*.3,g.seed)*60, cy=lerp(ey,sy-6,e)-Math.sin(t*Math.PI)*30;
+    const op=t<.08?t/.08:t>.94?(1-t)/.06:1;
+    g.el.setAttribute('transform',`translate(${cx.toFixed(1)} ${cy.toFixed(1)}) rotate(${(T*40+g.seed*50)%360})`);g.el.setAttribute('opacity',op.toFixed(2));
+  });
+  // hopper sits on the stone; both float together, gently
+  const fo=nz(T*.35,31)*4, hx=HOP.x, hy=HOP.y+fo, ox=200, oy=880+fo;
+  $('hopper').setAttribute('transform',`translate(${hx} ${hy.toFixed(1)})`);
+  fall.forEach((g,i)=>{const t=(T/2.6+g.t)%1, e=t*t; const x=lerp(sx,hx+(i-2.5)*14,e)+Math.sin(t*6+i)*6, y=lerp(sy+18,hy-16,e);
+    g.el.setAttribute('transform',`translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${(T*90+i*60)%360})`);g.el.setAttribute('opacity',(t>.9?(1-t)*10:1).toFixed(2));});
+  // dust and husk peel off the sieve and drift away
+  dust.forEach(d=>{const t=(T/4.2+d.t)%1, x=sx+d.side*(70+t*130), y=sy+6+t*40+nz(T*.6,d.seed)*16-Math.sin(t*3)*14;
+    d.el.setAttribute('transform',`translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${(t*240+d.seed*40)%360})`);d.el.setAttribute('opacity',(Math.sin(t*Math.PI)*.9).toFixed(2));});
+  // stone
+  $('stone').setAttribute('transform',`translate(${ox} ${oy.toFixed(1)})`);
+  $('stoneShadow').setAttribute('rx',(118-fo*1.5).toFixed(1));
+  const rot=T*22; $('furrows').setAttribute('transform',`rotate(${rot.toFixed(1)})`);
+  marks.forEach(m=>{const a=m.a+rot*Math.PI/180, c=Math.cos(a); if(c<.2){m.el.setAttribute('d','');return;}
+    const x=Math.sin(a)*106; m.el.setAttribute('d',`M${x.toFixed(1)} ${(m.y0+4).toFixed(1)}v${(3+m.h*.3*c).toFixed(1)}`);m.el.setAttribute('opacity',(c*.8).toFixed(2));});
+  drop.forEach((g,i)=>{const t=(T/1.1+g.t)%1; g.el.setAttribute('transform',`translate(${(hx+Math.sin(t*5+i)*2).toFixed(1)} ${lerp(hy+113,oy-2,t*t).toFixed(1)}) rotate(${(T*120+i*90)%360})`);g.el.setAttribute('opacity',(t>.8?(1-t)/.2:1).toFixed(2));});
+  // packing loop (7 s): the bowl fills under the spout, floats to the open pack and tips the atta in;
+  // the pack seals and drifts on, and a fresh open pack takes its place
+  const P=7, kp=(T%P)/P, cl=v=>Math.max(0,Math.min(1,v));
+  const pk=kp<.08?0:kp<.88?0:(kp-.88)/.08, px=200+nz(T*.33,41)*4, py=1132+nz(T*.4,42)*4;
+  const homeX=346, homeY=996+fo*.8, tipX=px+8, tipY=py-66;
+  const mv=kp<.5?0:kp<.62?ease((kp-.5)/.12):kp<.8?1:kp<.9?1-ease((kp-.8)/.1):0;
+  const tip=kp<.55?0:kp<.62?ease((kp-.55)/.07):kp<.8?1:kp<.86?1-ease((kp-.8)/.06):0;
+  const bx=lerp(homeX,tipX,mv), by=lerp(homeY,tipY,mv)-Math.sin(mv*Math.PI)*18, th=-95*tip;
+  $('bowl').setAttribute('transform',`translate(${bx.toFixed(1)} ${by.toFixed(1)}) rotate(${th.toFixed(1)})`);
+  $('bowlShadow').setAttribute('opacity',(1-mv).toFixed(2));
+  const pourK=cl((kp-.62)/.18);
+  const fill=kp<.5?.25+.75*kp/.5:kp<.62?1:kp<.8?1-pourK:kp<.9?0:.25*(kp-.9)/.1;
+  const bf=$('bowlFill'); bf.setAttribute('transform',`scale(1 ${Math.max(.05,fill).toFixed(2)})`); bf.setAttribute('opacity',fill>.04?1:0);
+  // spout pours only while the bowl is home
+  const on=kp<.5?1:kp<.53?1-(kp-.5)/.03:kp<.93?0:(kp-.93)/.07;
+  const d=`M${ox+145} ${(oy+34).toFixed(1)}C${ox+154} ${(oy+52).toFixed(1)} ${homeX+4} ${(homeY-36).toFixed(1)} ${homeX} ${(homeY-4).toFixed(1)}`;
+  ribbon.setAttribute('d',d);h2.setAttribute('d',d);h3.setAttribute('d',d);
+  ribbon.setAttribute('opacity',(.22*on).toFixed(3));h2.setAttribute('opacity',(.24*on).toFixed(3));h3.setAttribute('opacity',(.16*on).toFixed(3));
+  const rl=ribbon.getTotalLength(), N=30, pts=[];
+  for(let j=0;j<=N;j++){const q=ribbon.getPointAtLength(j/N*rl);pts.push(q.x,q.y);}
+  powder.forEach(g=>{const u=(g.u+T*g.sp*2.2)%1, f=u*N, j=Math.min(N-1,f|0), fr=f-j;
+    const x=pts[j*2]+(pts[j*2+2]-pts[j*2])*fr, y=pts[j*2+1]+(pts[j*2+3]-pts[j*2+1])*fr;
+    const spread=2+u*6;  // the pour widens a little as it falls
+    g.el.setAttribute('cx',(x+g.off*spread+nz(T*1.3,g.seed)*1.5).toFixed(1));
+    g.el.setAttribute('cy',(y+nz(T*1.1,g.seed+3)*2).toFixed(1));
+    // a particle already falling keeps falling when the spout stops, so the stream ends cleanly
+    g.el.setAttribute('opacity',((u>.9?(1-u)*8:.85)*(on>0?1:0)).toFixed(2));});
+  // the pack: open, fills, seals, drifts down and away; a new one fades in
+  const pOp=kp<.08?kp/.08:kp<.88?1:kp<.96?1-(kp-.88)/.08:0, pDy=kp<.08?-10*(1-kp/.08):pk*26;
+  $('pack').setAttribute('transform',`translate(${px.toFixed(1)} ${(py+pDy).toFixed(1)}) rotate(${(nz(T*.3,43)*1.4).toFixed(2)})`);
+  $('pack').setAttribute('opacity',pOp.toFixed(2));
+  const pf=kp<.62?0:kp<.8?pourK:kp<.96?1:0; $('packFill').setAttribute('transform',`translate(0 ${((1-pf)*13).toFixed(1)})`);
+  const se=kp<.8?0:kp<.86?ease((kp-.8)/.06):kp<.96?1:0, ps=$('packSeal');
+  ps.setAttribute('transform',`translate(0 ${(-18*(1-se)).toFixed(1)})`);ps.setAttribute('opacity',se.toFixed(2));
+  // powder tipping out of the bowl lip into the pack mouth
+  const lx=bx-42*Math.cos(th*Math.PI/180), ly=by-42*Math.sin(th*Math.PI/180), mx=px, my=py-2;
+  const flow=kp>.62&&kp<.8?Math.min(1,pourK*12,(1-pourK)*8):0;
+  const pd=`M${lx.toFixed(1)} ${ly.toFixed(1)}Q${(lx-2).toFixed(1)} ${((ly+my)/2).toFixed(1)} ${mx.toFixed(1)} ${my.toFixed(1)}`;
+  $('pourHaze').setAttribute('d',pd);$('pourHaze').setAttribute('opacity',(.25*flow).toFixed(3));
+  pour.forEach(g=>{const u=(g.u+T*1.6)%1, x=lerp(lx,mx,u)+g.off*(1.5+u*5)+nz(T*1.4,g.seed)*1.2, y=lerp(ly,my,u*u*.4+u*.6);
+    g.el.setAttribute('cx',x.toFixed(1));g.el.setAttribute('cy',y.toFixed(1));g.el.setAttribute('opacity',(flow*.9).toFixed(2));});
+  // delivery loop (10 s): ride the switchbacks, stop by the house, the pack hops to the doorstep,
+  // the door opens and takes it in, and the rider rides off
+  const L=10, kd=(T%L)/L, cl1=v=>Math.max(0,Math.min(1,v));
+  const dist=kd<.6?cruise(kd/.6)*stopLen:kd<.74?stopLen:stopLen+(roadLen-stopLen)*cruise(cl1((kd-.74)/.22));
+  const pt=road.getPointAtLength(dist), q1=road.getPointAtLength(Math.max(0,dist-3)), q2=road.getPointAtLength(Math.min(roadLen,dist+3));
+  const dx=q2.x-q1.x, dy=q2.y-q1.y, dl=Math.hypot(dx,dy)||1;
+  const face=Math.max(-1,Math.min(1,dx/dl*2.5));              // squeezes through zero on a hairpin, like turning round
+  const ang=Math.max(-34,Math.min(34,Math.atan2(dy,Math.abs(dx))*180/Math.PI))*(dx<0?-1:1);
+  const moving=kd<.6||kd>.74, bob=moving?-Math.abs(Math.sin(dist*.22))*.9:0;
+  $('rider').setAttribute('transform',`translate(${pt.x.toFixed(1)} ${(pt.y+bob).toFixed(1)}) rotate(${ang.toFixed(1)}) scale(${(face*RS).toFixed(3)} ${RS})`);
+  spokes.forEach(sp=>{const c=sp.getAttribute('transform').split(' rotate')[0];sp.setAttribute('transform',`${c} rotate(${(dist/9*57.3%360).toFixed(1)})`);});
+  // the pack hops from the box on the scooter to the doorstep
+  const ar=ang*Math.PI/180, bxL=-27.5*RS*face, byL=-48.5*RS;
+  const boxX=pt.x+bxL*Math.cos(ar)-byL*Math.sin(ar), boxY=pt.y+bxL*Math.sin(ar)+byL*Math.cos(ar);
+  const hop=cl1((kd-.62)/.08), he=ease(hop), stepX=266, stepY=1781;
+  let dpx=lerp(boxX-6,stepX,he), dpy=lerp(boxY-10,stepY,he)-Math.sin(hop*Math.PI)*34, dop=kd<.62?0:kd<.63?(kd-.62)/.01:1;
+  const inK=cl1((kd-.8)/.06); dpx+=inK*1; dpy-=inK*6; if(kd>.8)dop=1-inK; if(kd>.86)dop=0;
+  const dsc=.11*(1-inK*.25);
+  $('doorPack').setAttribute('transform',`translate(${dpx.toFixed(1)} ${dpy.toFixed(1)}) rotate(${((1-he)*-18).toFixed(1)}) scale(${dsc.toFixed(3)})`);
+  $('doorPack').setAttribute('opacity',dop.toFixed(2));
+  const open=kd<.7?0:kd<.74?(kd-.7)/.04:kd<.88?1:kd<.92?1-(kd-.88)/.04:0;
+  $('door').setAttribute('width',(34-28*ease(open)).toFixed(1));
+}
+
+/* loop, pause, visibility */
+const btn=$('pause'), label=btn.querySelector('span'), icon=btn.querySelector('svg'), pIcon=icon.innerHTML;
+let user=reduce, vis=true, T=reduce?46.8:0, last=0, raf=0;
+function frame(now){raf=0;const dt=last?Math.min(.05,(now-last)/1000):0;last=now;T+=dt;render(T);loop();}
+function loop(){if(!user&&vis&&!raf)raf=requestAnimationFrame(frame);}
+function sync(){label.textContent=user?'Play':'Pause';btn.setAttribute('aria-pressed',String(user));
+  icon.innerHTML=user?'<path d="M3 1.5L12.5 7L3 12.5Z" fill="currentColor"/>':pIcon;if(user||!vis){last=0;}loop();}
+btn.addEventListener('click',()=>{user=!user;sync();});
+new IntersectionObserver(es=>{vis=es[0].isIntersecting;if(vis)drawArrows();sync();},{threshold:.05}).observe($('stage'));
+render(T);sync();
+})();
+</script>
+<script>
+(()=>{
+const H=document.documentElement, reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+H.classList.add('jsj'); if(!reduce) H.classList.add('mo');
+const $=id=>document.getElementById(id);
+/* stagger children inside each panel */
+['.facts li','.journal li','.gallery img','.meals .q','.pack-card','.packs .note','.close form','.close .links'].forEach(sel=>
+  document.querySelectorAll(sel).forEach(el=>{el.classList.add('rise');el.style.setProperty('--i',[...el.parentNode.children].indexOf(el));}));
+document.querySelectorAll('.art img').forEach((el,i)=>el.style.setProperty('--i',i));
+document.querySelectorAll('.facts li svg *').forEach(p=>p.setAttribute('pathLength','1'));
+setTimeout(()=>H.classList.add('ready'),1600);
+/* reveal panels as they arrive */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.08,rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.panel').forEach(p=>io.observe(p));
+/* journey camera: the scroll position inside the pinned track picks the step */
+const track=$('jtrack'), stick=$('jstick'), stage=$('stage'), svg=$('w'), lis=[...$('jsteps').children], bars=[...document.querySelectorAll('.j-bars i')];
+const C=[190,560,905,1150,1560,1790], FULL=1940;
+const sm=t=>t*t*(3-2*t), cl=(v,a,b)=>Math.max(a,Math.min(b,v));
+let cur=-1;
+function journey(){
+  const r=track.getBoundingClientRect(), top=parseFloat(getComputedStyle(stick).top)||0;
+  const total=Math.max(1,r.height-stick.offsetHeight), p=cl((top-r.top)/total,0,1);
+  const W=stage.clientWidth||1, Hh=stage.clientHeight||1, vh=Math.min(FULL,400*Hh/W);
+  const camFor=i=>cl(C[i]-vh*.5,0,FULL-vh);
+  const s=cl(p*6-.5,0,5), i=Math.min(4,Math.floor(s)), f=sm(cl((s-i-.2)/.6,0,1));
+  const y=camFor(i)+(camFor(i+1)-camFor(i))*f;
+  svg.setAttribute('viewBox',`0 ${y.toFixed(1)} 400 ${vh.toFixed(1)}`);
+  const a=Math.min(5,Math.floor(p*6));
+  if(a!==cur){lis.forEach((li,k)=>li.classList.toggle('on',k===a));cur=a;}
+  bars.forEach((b,k)=>b.style.setProperty('--f',cl(p*6-k,0,1).toFixed(3)));
+}
+/* scroll-linked bits */
+const hero=document.querySelector('.hero'), mast=document.querySelector('.mast');
+let tick=0;
+function onScroll(){tick=0;const y=scrollY;
+  journey();
+  if(!reduce){H.style.setProperty('--wy',(y*.05).toFixed(1));
+    if(y<1400) hero.style.setProperty('--hy',y.toFixed(0));
+    mast.classList.toggle('small',y>40);}
+}
+addEventListener('scroll',()=>{if(!tick)tick=requestAnimationFrame(onScroll);},{passive:true});
+addEventListener('resize',onScroll);
+onScroll();
+})();
+</script>
+</body>
+</html>
