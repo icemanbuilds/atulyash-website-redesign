@@ -47,16 +47,15 @@ h2{font-size:clamp(38px,10.5vw,54px)}
 .disc{position:absolute;border-radius:50%;background:radial-gradient(circle at 36% 30%,#FFE27A,var(--sun) 46%,#F2BC1F);box-shadow:0 18px 34px rgba(120,80,0,.22)}
 
 /* ---------- first screen: the field, then the yellow panel ---------- */
-.field{position:relative;height:min(56svh,470px);min-height:380px}
+.field{position:relative;height:250px}
 .bar{position:absolute;z-index:3;top:12px;left:var(--g);right:12px;display:flex;justify-content:space-between;align-items:center}
 .bar .name{display:inline-flex;align-items:center;gap:8px;min-height:44px;font:400 26px/1 "DM Serif Display";color:#fff;text-decoration:none;text-shadow:0 2px 14px rgba(0,0,0,.35)}
 .bar .name img{width:26px}
 .menu>summary{display:flex;align-items:center;justify-content:center;min-height:48px;padding:0 16px;border-radius:99px;font:700 13px/1 "DM Sans";letter-spacing:.1em;color:#fff;background:rgba(255,255,255,.14);box-shadow:inset 0 0 0 1px rgba(255,255,255,.45);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
 .menu>nav{border-radius:20px}
-.field .chip{position:absolute;left:var(--g);top:84px;padding:10px 14px;border-radius:14px;font:700 13px/1.3 "DM Sans"}
-.field .plate{position:absolute;left:50%;bottom:-70px;width:min(60vw,250px);aspect-ratio:1;transform:translateX(-50%);border-radius:50%;z-index:2;
+.field .plate{position:absolute;left:50%;bottom:-78px;width:min(52vw,210px);aspect-ratio:1;transform:translateX(-50%);border-radius:50%;z-index:2;
   background:radial-gradient(circle at 36% 30%,#fff,#FFF8E2 50%,#F2E7C4);box-shadow:0 24px 40px rgba(0,0,0,.28),inset 0 0 0 1px rgba(160,120,20,.18)}
-.field .pk{position:absolute;left:50%;bottom:-54px;width:min(42vw,176px);transform:translateX(-50%);z-index:3;filter:drop-shadow(0 18px 20px rgba(0,0,0,.3))}
+.field .pk{position:absolute;left:50%;bottom:-62px;width:min(36vw,150px);transform:translateX(-50%);z-index:3;filter:drop-shadow(0 18px 20px rgba(0,0,0,.3))}
 .hero{padding:96px 20px 28px}
 .hero h1{font-size:clamp(46px,13vw,72px)}
 .hero h1 em{display:block}
@@ -124,8 +123,7 @@ form label{display:block}
   :root{--g:48px}
   .field{height:260px;min-height:0}
   .bar{max-width:1180px;margin:0 auto;left:48px;right:48px}
-  .field .chip{left:max(48px,calc(50% - 590px))}
-  .field .plate{left:auto;right:max(48px,calc(50% - 590px));transform:none;width:320px;bottom:-150px}
+    .field .plate{left:auto;right:max(48px,calc(50% - 590px));transform:none;width:320px;bottom:-150px}
   .field .pk{left:auto;right:calc(max(48px,calc(50% - 590px)) + 70px);transform:none;width:200px;bottom:-110px}
   .panel{max-width:1180px;margin-left:auto;margin-right:auto}
   .hero,.close,.packs{padding-left:56px;padding-right:56px}
@@ -152,7 +150,6 @@ form label{display:block}
       <a class="name" href="#top"><img src="../img/mark-white.png" alt="" width="228" height="202">Atulyash</a>
       <details class="menu" data-menu><summary>MENU</summary><nav class="gl" aria-label="Main"><a href="#packs">Packs and prices</a><a href="#mani-h">Why we question atta</a><a href="#way-h">The Atulyash way</a><a href="#pin">Check delivery</a></nav></details>
     </header>
-    <span class="chip glass">MP Sharbati wheat<br>Milled on natural stone</span>
     <span class="plate" aria-hidden="true"></span>
     <img class="pk" src="../img/pack.webp" alt="Atulyash 2 kg pack" width="900" height="1334">
   </div>
