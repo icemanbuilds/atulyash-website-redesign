@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="data:,">
+<title>Atulyash: Design 2, alt 2B</title>
+<link rel="stylesheet" href="../../glass.css">
+<style>
+/* 6 Alt. Golden Kitchen, laid over Glass Field: its masthead, bold serif with the italic second line, the
+   kitchen still life, the fact list, the kitchen journal, the thali gallery and the pack rows, each on its own panel.
+   Panels alternate sunny yellow and warm white, and the wheat wall stays fixed and visible around all of them. */
+:root{--paper:#FFFAF0;--panel:#FFF3D8;--sun:#FFCF39;--gold:linear-gradient(150deg,#FFD13E,#FFCF39 55%,#FFCD34);
+  --ink:#213F14;--body:#34341F;--button:#365E12;--rule:#6F532341;--accent:#946000;--g:12px}
+*{box-sizing:border-box}
+body{margin:0;color:var(--body);font:400 16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;overflow-x:clip}
+body::after{background:linear-gradient(180deg,rgba(5,25,10,.28),rgba(5,25,10,.12) 40%,rgba(5,25,10,.34))}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--button);outline-offset:3px}
+h1,h2,h3{margin:0;font-family:Georgia,"Times New Roman",serif;font-weight:700;color:var(--ink);letter-spacing:-.04em;line-height:1.02}
+h1 em,h2 em{font-weight:400;font-style:italic}
+h2{font-size:clamp(30px,8.4vw,42px)}
+svg{flex:none}
+.button{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:0 20px;border-radius:99px;background:var(--button);color:#fff;font-weight:700;font-size:15.5px;text-decoration:none}
+.button svg{width:18px;height:18px}
+.button.small{min-height:44px;padding:0 16px;font-size:14px}
+.text-link{display:inline-flex;align-items:center;min-height:44px;font-weight:700;text-decoration:underline;text-underline-offset:4px;color:var(--ink)}
+
+/* panels float over the field */
+.panel{position:relative;margin:0 var(--g);border-radius:28px;padding:30px 20px;box-shadow:0 22px 46px rgba(0,0,0,.24)}
+.panel.y{background:var(--gold)}
+.panel.w{background:var(--paper)}
+.gap{height:22px}
+.panel+.gap+.panel{margin-top:0}
+
+/* ---------- masthead ---------- */
+.mast{position:sticky;top:10px;z-index:20;margin:10px var(--g) 0;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 8px 8px 6px;border-radius:99px;background:var(--paper);box-shadow:0 12px 28px rgba(0,0,0,.22)}
+.mast .menu>summary{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;color:var(--ink)}
+.mast .menu>summary svg{width:24px;height:24px}
+.mast .menu>nav{left:0;right:auto;background:var(--paper)!important;border:0!important;border-radius:18px;box-shadow:0 18px 36px rgba(0,0,0,.2)!important}
+.mast .menu>nav a{color:var(--ink)!important}
+.mast .menu>nav a:hover{background:var(--panel)!important}
+.brand img{width:128px}
+.mast-order{width:44px;height:44px;min-height:44px;padding:0;border-radius:50%}
+.mast-order span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* ---------- hero: yellow ---------- */
+.field-gap{height:14px}
+.hero{padding:34px 20px 0;overflow:hidden}
+.hero h1{max-width:12ch;font-size:clamp(44px,12.4vw,64px)}
+.hero h1 em{display:block}
+.hero .lede{margin:14px 0 0;max-width:24ch;font-size:17px;color:#3A3A1E}
+.hero .acts{display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px;margin-top:20px}
+.art{position:relative;min-height:clamp(220px,62vw,300px);margin:6px -20px 0}
+.art img{position:absolute}
+.art .pack{width:46%;max-height:90%;object-fit:contain;bottom:12%;right:16%;filter:drop-shadow(10px 14px 11px #2e230e45);z-index:2}
+.art .sprig{width:56%;left:2%;bottom:14%}
+.art .grain{width:34%;left:10%;bottom:6%;z-index:1}
+.art .flour{width:30%;left:17%;bottom:7%;filter:drop-shadow(6px 10px 6px #39240e58);z-index:3}
+.art .roti{width:40%;right:-3%;bottom:0;filter:drop-shadow(5px 8px 8px #39240e55);z-index:3}
+
+/* ---------- why Atulyash: white ---------- */
+.facts h2{font-size:clamp(26px,7vw,34px);margin-bottom:8px}
+.facts ul{list-style:none;margin:0;padding:0}
+.facts li{display:grid;grid-template-columns:30px 1fr;gap:2px 14px;align-items:center;padding:13px 0;border-bottom:1px solid var(--rule)}
+.facts li:last-child{border-bottom:0}
+.facts svg{grid-row:span 2;width:27px;height:27px;color:var(--button)}
+.facts strong{color:var(--ink)}
+.facts p{margin:0;font-size:14.5px;color:#55553A}
+
+/* ---------- from the kitchen: yellow ---------- */
+.journal h2{margin-bottom:16px}
+.journal ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.journal li{display:grid;grid-template-columns:30% 1fr;gap:14px;align-items:center;padding:10px;border-radius:18px;background:var(--paper)}
+.journal li:first-child{grid-template-columns:1fr;padding:0;overflow:hidden;border-radius:22px}
+.journal li img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:12px}
+.journal li:first-child img{aspect-ratio:1.5;border-radius:0;object-position:center 57%}
+.journal li:first-child>div{padding:16px 18px 18px}
+.journal h3{font-size:19px;line-height:1.15;letter-spacing:-.02em}
+.journal li:first-child h3{font-size:26px}
+.journal .yt{display:inline-flex;align-items:center;gap:6px;min-height:40px;margin-top:4px;font-weight:700;font-size:14.5px;color:var(--ink);text-underline-offset:3px}
+.journal .yt svg{width:16px;height:16px}
+
+/* ---------- the everyday table + why we question atta: white ---------- */
+.meals h2{margin-bottom:16px}
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.gallery img{width:100%;height:140px;object-fit:cover;border-radius:16px}
+.gallery img.main{grid-column:1/-1;height:230px;border-radius:20px}
+.meals .q{margin:20px 0 0;padding:18px 18px 20px;border-radius:20px;background:#163A16;color:#EAF1E2}
+.meals .q strong{display:block;margin-bottom:8px;font:700 24px/1.08 Georgia,serif;letter-spacing:-.03em;color:var(--sun)}
+.meals .q p{margin:0;line-height:1.6}
+
+/* ---------- the Atulyash way: yellow ---------- */
+.way h2{margin-bottom:14px}
+.way ol{list-style:none;margin:0;padding:0}
+.way li{display:grid;grid-template-columns:76px 1fr;gap:14px;align-items:center;padding:10px 0;border-top:1px solid var(--rule)}
+.way li:first-child{border-top:0}
+.way img{width:76px;height:76px;border-radius:14px;object-fit:cover}
+.way .n{display:block;font:700 13px/1 system-ui,sans-serif;letter-spacing:.12em;color:var(--accent)}
+.way h3{margin-top:4px;font-size:21px;letter-spacing:-.02em}
+.way p{margin:3px 0 0;font-size:14.5px;line-height:1.4;color:#3A3A1E}
+
+/* ---------- packs: white ---------- */
+.packs-title p{margin:6px 0 0;color:#55553A}
+.packs ul{list-style:none;margin:16px 0 0;padding:0}
+.pack-card{display:grid;grid-template-columns:62px 1fr auto;gap:14px;align-items:center;padding:12px 0;border-top:1px solid var(--rule)}
+.pack-card img{width:62px;height:72px;object-fit:contain;filter:drop-shadow(3px 6px 5px #2e230e40)}
+.pack-card strong{display:block;font:700 22px/1 Georgia,serif;color:var(--ink);letter-spacing:-.02em}
+.pack-card span{display:block;margin-top:4px;font-weight:700;color:var(--accent)}
+.packs .note{margin:14px 0 0;font-size:14.5px;color:#55553A}
+
+/* ---------- close: yellow ---------- */
+.close h2 em{display:block}
+.close .lead{margin:10px 0 0;color:#3A3A1E}
+form{margin-top:20px}
+form label{display:block;font-weight:700;color:var(--ink)}
+.pinrow{display:grid;grid-template-columns:1fr auto;gap:6px;margin-top:8px}
+.pinrow input{height:54px;padding:0 16px;border:2px solid rgba(33,63,20,.2);border-radius:99px;background:#fff;color:var(--ink)}
+.pinrow button{height:54px;padding:0 22px;border:0;border-radius:99px;background:var(--button);color:#fff;font-weight:700}
+[data-pin] output{color:var(--ink)}
+.links{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+.links a{display:flex;align-items:center;justify-content:center;min-height:50px;border-radius:99px;border:2px solid var(--button);text-decoration:none;font-weight:700;color:var(--ink)}
+.foot{display:flex;justify-content:space-between;align-items:end;gap:16px;padding:34px calc(var(--g) + 20px) 44px;color:#fff}
+.foot img{width:120px;filter:brightness(0) invert(1);opacity:.95}
+.foot span{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-shadow:0 2px 10px rgba(0,0,0,.4)}
+
+@media (min-width:900px){
+  :root{--g:max(24px,calc(50% - 590px))}
+  .mast{padding:8px 10px 8px 14px}
+  .brand img{width:150px}
+  .mast-order{width:auto;padding:0 18px;border-radius:99px}
+  .mast-order span{position:static;width:auto;height:auto;clip:auto}
+  .panel{padding:48px}
+  .field-gap{height:28px}
+  .hero{display:grid;grid-template-columns:1fr 1fr;align-items:end;padding:56px 48px 0}
+  .hero h1{font-size:76px}
+  .hero>div:first-child{padding-bottom:56px}
+  .art{min-height:420px;margin:0 -48px 0 0}
+  .facts ul{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .facts li{border:0}
+  .journal ul{grid-template-columns:1.5fr 1fr;grid-template-rows:repeat(2,auto);gap:14px}
+  .journal li:first-child{grid-row:span 2}
+  .meals{display:grid;grid-template-columns:1.3fr 1fr;gap:20px 40px;align-items:center}
+  .meals h2{grid-column:1/-1}
+  .meals .q{margin:0}
+  .way ol{display:grid;grid-template-columns:1fr 1fr;column-gap:40px}
+  .way li:nth-child(2){border-top:0}
+  .packs ul{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .pack-card{grid-template-columns:62px 1fr;border:0;padding:18px;border-radius:20px;background:var(--panel)}
+  .pack-card .button{grid-column:1/-1}
+  .close form,.close .links{max-width:520px}
+}
+/* ---------- shape play: each panel gets its own silhouette ---------- */
+.hero{border-radius:28px 28px 50% 50%/28px 28px 38px 38px;padding-bottom:18px}
+.facts{border-radius:28px 28px 78% 28px/28px 28px 110px 28px;padding-bottom:64px}
+.journal li:first-child img{border-radius:0 0 50% 50%/0 0 26px 26px}
+.gallery img.main{border-radius:62% 38% 46% 54%/58% 44% 56% 42%;height:270px}
+.gallery img:not(.main){border-radius:16px 16px 16px 44px}
+.gallery img:nth-child(3){border-radius:16px 16px 44px 16px}
+.way{background:#FFCF39!important;margin-top:16px}
+.way{border-radius:28px 80% 28px 28px/28px 130px 28px 28px;padding-top:60px}
+.way img{border-radius:58% 42% 50% 50%/52% 58% 42% 48%}
+.way li:nth-child(even) img{border-radius:44% 56% 40% 60%/60% 42% 58% 40%}
+.pack-card img{width:62px;height:62px;padding:6px;border-radius:50%;background:radial-gradient(circle,#FFE48A,#FFCF39)}
+.close{margin-top:30px}
+.sticker{position:absolute;top:-26px;right:18px;display:grid;place-items:center;width:92px;height:92px;border-radius:50%;background:var(--button);color:#fff;text-align:center;font:700 13px/1.15 system-ui,sans-serif;transform:rotate(9deg);box-shadow:0 10px 22px rgba(0,0,0,.25)}
+.sticker b{display:block;font:700 22px/1 Georgia,serif;color:var(--sun)}
+.close h2{padding-right:78px}
+@media (min-width:900px){
+  .hero{border-radius:28px 28px 50% 50%/28px 28px 70px 70px;padding-bottom:30px}
+  .facts{border-radius:28px 28px 60% 28px/28px 28px 150px 28px;padding-bottom:96px}
+  .way{border-radius:28px 60% 28px 28px/28px 170px 28px 28px;padding-top:80px}
+  .gallery img.main{height:340px}
+  .sticker{width:120px;height:120px;right:48px;top:-34px;font-size:15px}
+  .sticker b{font-size:28px}
+  .close h2{padding-right:0}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="mast">
+  <details class="menu" data-menu>
+    <summary aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg></summary>
+    <nav aria-label="Main"><a href="#packs">Packs and prices</a><a href="#journal-h">From the kitchen</a><a href="#way-h">The Atulyash way</a><a href="#pin">Check delivery</a></nav>
+  </details>
+  <a class="brand" href="#top"><img src="../../img/gk/wordmark.png" alt="Atulyash" width="566" height="129"></a>
+  <a class="button mast-order" href="#packs"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7 3 21h18L19 7ZM8 8V6a4 4 0 0 1 8 0v2"/></svg><span>See packs</span></a>
+</header>
+
+<main id="main">
+<div class="field-gap" aria-hidden="true"></div>
+
+<section class="panel y hero" id="top" aria-labelledby="hero-h">
+  <div>
+    <h1 id="hero-h">Milled yesterday. <em>At your door today.</em></h1>
+    <p class="lede">Fresh chakki atta from MP Sharbati wheat, milled slowly on natural stone.</p>
+    <div class="acts"><a class="button" href="#packs">See packs and prices<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a><a class="text-link" href="#pin">Check delivery to my area</a></div>
+  </div>
+  <div class="art">
+    <img class="sprig" src="../../img/gk/sprig.webp" alt="">
+    <img class="pack" src="../../img/pack.webp" alt="Atulyash fresh chakki atta, 2 kg pouch" width="900" height="1334">
+    <img class="grain" src="../../img/gk/grain.webp" alt="">
+    <img class="flour" src="../../img/gk/flour.webp" alt="">
+    <img class="roti" src="../../img/gk/plate.webp" alt="">
+  </div>
+</section>
+
+<div class="gap" aria-hidden="true"></div>
+
+<section class="panel w facts" aria-labelledby="facts-h">
+  <h2 id="facts-h">Why Atulyash</h2>
+  <ul>
+    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22V7m0 4C7 11 5 8 5 5c4 0 7 2 7 6Zm0 6c-5 0-7-3-7-6 4 0 7 2 7 6Zm0-6c5 0 7-3 7-6-4 0-7 2-7 6Zm0 6c5 0 7-3 7-6-4 0-7 2-7 6ZM12 7c-2-2-2-4 0-6 2 2 2 4 0 6Z"/></svg><strong>100% whole wheat</strong><p>Made with single-origin MP Sharbati wheat.</p></li>
+    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="12" rx="9" ry="4"/><path d="M3 12v4c0 2 4 4 9 4s9-2 9-4v-4M10 12V6h4v6M9 6V3h6v3"/></svg><strong>Chakki fresh</strong><p>Ground slowly on natural stone chakkis.</p></li>
+    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21C6 14 10 9 16 6M6 16C4 7 10 4 21 3c-1 10-5 16-15 13Z"/></svg><strong>Chokar kept in</strong><p>The bran stays in the atta.</p></li>
+  </ul>
+</section>
+
+<div class="gap" aria-hidden="true"></div>
+
+<section class="panel y journal" aria-labelledby="journal-h">
+  <h2 id="journal-h">From the kitchen</h2>
+  <ul>
+    <li><img loading="lazy" src="../../img/gk/phulka.webp" alt="Puffed phulka on a steel thali" width="512" height="512"><div><h3>How fresh should your atta really be?</h3><a class="yt" href="https://www.youtube.com/watch?v=cua0_aQ-UY0">Watch on YouTube<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a></div></li>
+    <li><img loading="lazy" src="../../img/gk/chakki.webp" alt=""><div><h3>Does the way atta is ground really matter?</h3><a class="yt" href="https://www.youtube.com/watch?v=PzP9nVrr2Tk">Watch on YouTube<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a></div></li>
+    <li><img loading="lazy" src="../../img/gk/wheat-field.webp" alt=""><div><h3>From wheat to fresh atta</h3><a class="yt" href="https://www.youtube.com/watch?v=3mXae8undRI">Watch on YouTube<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a></div></li>
+  </ul>
+</section>
+
+<div class="gap" aria-hidden="true"></div>
+
+<section class="panel w meals" aria-labelledby="meals-h">
+  <h2 id="meals-h">At the everyday <em>table.</em></h2>
+  <div class="gallery">
+    <img class="main" loading="lazy" src="../../img/gk/home-thali.webp" alt="A steel thali with chapatis, dal and seasonal vegetables">
+    <img loading="lazy" src="../../img/gk/kneading.webp" alt="Hands kneading whole-wheat dough">
+    <img loading="lazy" src="../../img/gk/tawa.webp" alt="A phulka cooking on a cast-iron tawa">
+  </div>
+  <div class="q">
+    <strong>We question everything. Why not atta?</strong>
+    <p>We keep changing everything around us. Our skincare, our cooking oil, even our utensils, because we research what is best for our family. So why don't we stop and think about our atta? Its quality, where it comes from, how it is made. We just take their word for it.</p>
+  </div>
+</section>
+
+<div class="gap" aria-hidden="true"></div>
+
+<section class="panel y way" aria-labelledby="way-h">
+  <h2 id="way-h">The Atulyash <em>way.</em></h2>
+  <ol>
+    <li><img loading="lazy" src="../../img/field-day.webp" alt=""><div><span class="n">01</span><h3>The wheat</h3><p>Single-origin MP Sharbati. Never blended with other varieties.</p></div></li>
+    <li><img loading="lazy" src="../../img/cleaning.webp" alt=""><div><span class="n">02</span><h3>The cleaning</h3><p>In several stages.</p></div></li>
+    <li><img loading="lazy" src="../../img/chakki-flour.webp" alt=""><div><span class="n">03</span><h3>The stone</h3><p>Natural stone chakkis. No emery stone, no steel rollers.</p></div></li>
+    <li><img loading="lazy" src="../../img/packing.webp" alt=""><div><span class="n">04</span><h3>The packing</h3><p>Packed with minimal handling.</p></div></li>
+    <li><img loading="lazy" src="../../img/phulka-tawa.webp" alt=""><div><span class="n">05</span><h3>The milling day</h3><p>Milled in small batches the day before, delivered the next morning.</p></div></li>
+    <li><img loading="lazy" src="../../img/rider.webp" alt=""><div><span class="n">06</span><h3>The riders</h3><p>We deliver with our own riders.</p></div></li>
+  </ol>
+</section>
+
+<div class="gap" aria-hidden="true"></div>
+
+<section class="panel w packs" id="packs" aria-labelledby="packs-h">
+  <div class="packs-title"><h2 id="packs-h">Choose your pack</h2><p>₹120 a kg. Packed in 2 kg pouches.</p></div>
+  <ul>
+    <li class="pack-card"><img loading="lazy" src="../../img/pack.webp" alt="" width="900" height="1334"><div><strong>2 kg</strong><span>₹240</span></div><a class="button small" href="https://wa.me/919818588996?text=Hi%2C%20I%20would%20like%20to%20order%202%20kg%20of%20Atulyash%20atta.">Order 2 kg</a></li>
+    <li class="pack-card"><img loading="lazy" src="../../img/pack.webp" alt="" width="900" height="1334"><div><strong>4 kg</strong><span>₹480</span></div><a class="button small" href="https://wa.me/919818588996?text=Hi%2C%20I%20would%20like%20to%20order%204%20kg%20of%20Atulyash%20atta.">Order 4 kg</a></li>
+    <li class="pack-card"><img loading="lazy" src="../../img/pack.webp" alt="" width="900" height="1334"><div><strong>6 kg</strong><span>₹720</span></div><a class="button small" href="https://wa.me/919818588996?text=Hi%2C%20I%20would%20like%20to%20order%206%20kg%20of%20Atulyash%20atta.">Order 6 kg</a></li>
+  </ul>
+  <p class="note">About ₹3.60 a roti.</p>
+</section>
+
+<div class="gap" aria-hidden="true"></div>
+
+<section class="panel y close" id="pin" aria-labelledby="close-h">
+  <div class="sticker" aria-hidden="true"><span><b>₹120</b>a kg</span></div>
+  <h2 id="close-h">Freshly milled. <em>Delivered weekly.</em></h2>
+  <p class="lead">We deliver across Delhi NCR. Check your PIN code below.</p>
+  <form data-pin novalidate>
+    <label for="pin-in">Do we deliver to you?</label>
+    <div class="pinrow"><input id="pin-in" inputmode="numeric" autocomplete="postal-code" placeholder="6-digit PIN code" aria-describedby="pin-out"><button type="submit">Check</button></div>
+    <output id="pin-out" aria-live="polite"></output>
+  </form>
+  <div class="links"><a href="tel:+919818588996">Call us</a><a href="https://wa.me/919818588996">WhatsApp us</a></div>
+</section>
+</main>
+<footer class="foot"><img src="../../img/gk/wordmark.png" alt="Atulyash" width="566" height="129"><span>Delhi NCR</span></footer>
+<script src="../../core.js"></script>
+</body>
+</html>
