@@ -14,25 +14,23 @@
 .vrig .arm{transition:opacity .22s ease}
 .vshadow{position:absolute;left:12%;right:12%;bottom:-4px;height:8px;border-radius:50%;background:radial-gradient(closest-side,rgba(0,0,0,.35),transparent);transform-origin:50% 50%}
 
-/* speech bubble */
-/* Veer speaks in Baloo 2 (Ek Type, an Indian foundry): round and friendly, with Devanagari for later. Self-hosted. */
-@font-face{font-family:"Baloo 2";font-style:normal;font-weight:500 700;font-display:swap;src:url(../fonts/baloo2-latin.woff2) format("woff2");
-  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:"Baloo 2";font-style:normal;font-weight:500 700;font-display:swap;src:url(../fonts/baloo2-latin-ext.woff2) format("woff2");
-  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
-/* a deep green note with a soft yellow rim, his name on a yellow tag, in Baloo 2 */
-.vbub{position:absolute;bottom:52px;z-index:7;width:max-content;max-width:min(224px,56vw);padding:22px 16px 13px;border-radius:22px 22px 22px 6px;
-  background:linear-gradient(160deg,#24521F,#163A16 70%);color:#FFFAF0;border:1.5px solid rgba(255,207,57,.55);
-  font:500 16px/1.28 "Baloo 2",system-ui,-apple-system,"Segoe UI",sans-serif;letter-spacing:.005em;text-align:left;
-  box-shadow:inset 0 1px 0 rgba(255,236,170,.18),0 2px 4px rgba(0,0,0,.18),0 14px 30px rgba(0,0,0,.32),0 0 0 4px rgba(255,207,57,.08);
-  opacity:0;transform:translateY(10px) scale(.86);transform-origin:0 100%;transition:opacity .3s,transform .5s cubic-bezier(.3,1.6,.5,1);pointer-events:none}
-/* the bubble sits beside him, never over him, and keeps the page margin: --vx is how far his box sits from the screen edge */
-.vbub{--vx:calc(var(--g,18px) + 12px);max-width:min(224px,calc(100vw - var(--vx) - var(--vw,96px) - 8px - var(--g,18px)))}
-.veer.l .vbub{left:calc(100% + 8px)}
-.veer.r .vbub{right:calc(100% + 8px);border-radius:22px 22px 6px 22px;transform-origin:100% 100%}
-.vbub::before{content:"Veer";position:absolute;top:-11px;left:14px;padding:6px 10px;border-radius:99px;background:#FFCF39;color:#213F14;font:700 13px/1 "Baloo 2",system-ui,-apple-system,"Segoe UI",sans-serif;padding-top:6px;box-shadow:0 3px 8px rgba(0,0,0,.25)}
-.veer.r .vbub::before{left:auto;right:14px}
-.veer.say .vbub{opacity:1;transform:none}
+/* speech: a ribbon that slides out beside him, narrowing to a notch that points at him.
+   Colours alternate down the page: sun yellow, then cream, then yellow again. Figtree (OFL), self-hosted. */
+@font-face{font-family:"Figtree";font-style:normal;font-weight:300 900;font-display:swap;src:url(../fonts/figtree.woff2) format("woff2")}
+.vbub{position:absolute;bottom:52px;z-index:7;width:max-content;max-width:min(232px,56vw);padding:9px 20px 10px 22px;
+  color:#213F14;font:700 15.5px/1.28 "Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;letter-spacing:-.005em;text-align:left;text-wrap:pretty;
+  --rib:#FFCF39;filter:drop-shadow(0 1px 1px rgba(0,0,0,.22)) drop-shadow(0 8px 14px rgba(0,0,0,.3));
+  opacity:0;transform:translateX(-8px) rotate(-2deg);transform-origin:0 50%;transition:opacity .21s ease,transform .21s ease;pointer-events:none}
+.veer.alt .vbub{--rib:#FFFAF0}
+/* the ribbon shape lives on its own layer so the shadow can follow the notch */
+.vbub::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--rib);
+  clip-path:polygon(13px 0,100% 0,calc(100% - 14px) 100%,8px 100%,12px 52%,0 40%,13px 33%)}
+/* the ribbon sits beside him, never over him, and keeps the page margin: --vx is how far his box sits from the screen edge */
+.vbub{--vx:calc(var(--g,18px) + 12px);max-width:min(232px,calc(100vw - var(--vx) - var(--vw,96px) - 8px - var(--g,18px)))}
+.veer.l .vbub{left:calc(100% + 6px)}
+.veer.r .vbub{right:calc(100% + 6px);padding:9px 22px 10px 20px;transform:translateX(8px) rotate(2deg);transform-origin:100% 50%}
+.veer.r .vbub::before{clip-path:polygon(0 0,calc(100% - 13px) 0,calc(100% - 13px) 33%,100% 40%,calc(100% - 12px) 52%,calc(100% - 8px) 100%,14px 100%)}
+.veer.say .vbub{opacity:1;transform:none;transition:opacity .2s ease,transform .35s cubic-bezier(.2,.9,.3,1.15)}
 .vbub:empty{display:none}
 
 /* peek: he rises from behind the top edge of the panel below */

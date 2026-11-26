@@ -67,8 +67,9 @@ function act(v,pose){const now=performance.now();v.hopT=now;
   if(pose==='wave'||pose==='thumb'){v.armT=now;v.armUntil=now+(pose==='wave'?2600:2200);v.armPose=pose;}
   v.happyUntil=now+1800;}
 
-document.querySelectorAll('.veer').forEach(btn=>{
+document.querySelectorAll('.veer').forEach((btn,i)=>{
   const pose=btn.dataset.pose;
+  btn.classList.toggle('alt',i%2===1); /* ribbon colours alternate down the page */
   const v=pose==='peek'?single(btn,'peek'):pose==='lie'?single(btn,'lie'):stand(btn);
   v.pose=pose;v.tips=(btn.dataset.tips||'').split('|').filter(Boolean);v.tip=0;v.seen=false;
   all.set(btn,v);
