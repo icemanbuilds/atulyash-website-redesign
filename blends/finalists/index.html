@@ -7,28 +7,49 @@
 <link rel="icon" href="data:,">
 <title>Atulyash: finalists</title>
 <style>
-:root{--bg:#0F2318;--fg:#EEF4EA;--mute:#A9C2A6;--sun:#FFCF39}
+:root{--bg:#0F2318;--card:#163024;--fg:#EEF4EA;--mute:#A9C2A6;--sun:#FFCF39;--line:#2C4A38}
 *{box-sizing:border-box}
-body{margin:0;padding:24px 16px 48px;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,sans-serif}
-h1{margin:0 0 4px;font-size:22px}
-p{margin:0 0 20px;color:var(--mute);max-width:70ch}
-.row{display:flex;gap:22px;overflow-x:auto;padding-bottom:12px}
+body{margin:0;padding:28px 16px 56px;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,sans-serif}
+.intro h1{margin:0 0 4px;font-size:26px}
+.intro p{margin:0 0 28px;color:var(--mute);max-width:66ch}
+.designs{display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start}
+.design{flex:none;max-width:100%;padding:20px 20px 24px;border-radius:28px;background:var(--card);box-shadow:inset 0 0 0 1px var(--line)}
+.design>header{display:flex;align-items:baseline;gap:14px;margin-bottom:6px}
+.num{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--sun);color:#1B3410;font:800 22px/1 system-ui,sans-serif;flex:none;align-self:center}
+.design h2{margin:0;font-size:24px}
+.design>p{margin:0 0 18px;color:var(--mute)}
+.alts{display:flex;gap:18px;overflow-x:auto;padding-bottom:6px}
 figure{margin:0;flex:none}
-figcaption{display:flex;justify-content:space-between;gap:12px;margin-bottom:8px;font-weight:700;color:var(--sun)}
-figcaption span{display:block;color:var(--mute);font-weight:400;font-size:13px}
+figcaption{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;margin-bottom:8px}
+figcaption b{display:block;color:var(--sun);font-size:16px}
+figcaption span{display:block;color:var(--mute);font-size:13px}
 figcaption a{color:var(--fg);font-weight:600;white-space:nowrap}
 iframe{width:390px;height:844px;border:0;border-radius:24px;display:block;background:#0B2B16;box-shadow:0 0 0 6px #1E3A2A}
-@media (max-width:440px){iframe{width:calc(100vw - 44px);height:780px}}
+@media (max-width:480px){.design{padding:16px}iframe{width:calc(100vw - 76px);height:760px}}
 </style>
 </head>
 <body>
-<h1>Finalists</h1>
-<p>The two versions of 4 and the two versions of 6, side by side. Scroll inside each phone, or open one full screen.</p>
-<div class="row">
-<figure><figcaption><div>4 Clear<span>Reeded first screen, clear glass below</span></div><a href="../4-clear/index.html">Open</a></figcaption><iframe src="../4-clear/index.html" title="4 Clear" loading="lazy"></iframe></figure>
-<figure><figcaption><div>4 Yellow<span>4 Clear with yellow headlines</span></div><a href="../test/4-yellow/index.html">Open</a></figcaption><iframe src="../test/4-yellow/index.html" title="4 Yellow" loading="lazy"></iframe></figure>
-<figure><figcaption><div>6 Sunlit<span>Cream and yellow panels, wheat through windows</span></div><a href="../6-sunlit/index.html">Open</a></figcaption><iframe src="../6-sunlit/index.html" title="6 Sunlit" loading="lazy"></iframe></figure>
-<figure><figcaption><div>6 Alt<span>Yellow and white panels, abstract shapes</span></div><a href="../6-alt/index.html">Open</a></figcaption><iframe src="../6-alt/index.html" title="6 Alt" loading="lazy"></iframe></figure>
+<div class="intro">
+  <h1>Finalists</h1>
+  <p>Two main designs, each in two alternate versions. Scroll inside each phone, or open one full screen.</p>
+</div>
+<div class="designs">
+  <section class="design" aria-labelledby="d1">
+    <header><span class="num">1</span><h2 id="d1">Design 1: Clear glass</h2></header>
+    <p>Reeded glass on the first screen, clear glass panels over the wheat below.</p>
+    <div class="alts">
+      <figure><figcaption><div><b>Alt 1A</b><span>White headlines</span></div><a href="../4-clear/index.html">Open</a></figcaption><iframe src="../4-clear/index.html" title="Design 1, alt 1A" loading="lazy"></iframe></figure>
+      <figure><figcaption><div><b>Alt 1B</b><span>Yellow headlines</span></div><a href="../test/4-yellow/index.html">Open</a></figcaption><iframe src="../test/4-yellow/index.html" title="Design 1, alt 1B" loading="lazy"></iframe></figure>
+    </div>
+  </section>
+  <section class="design" aria-labelledby="d2">
+    <header><span class="num">2</span><h2 id="d2">Design 2: Sunlit panels</h2></header>
+    <p>Golden Kitchen's yellow and white panels floating over the wheat.</p>
+    <div class="alts">
+      <figure><figcaption><div><b>Alt 2A</b><span>Cream and yellow, wheat through windows</span></div><a href="../6-sunlit/index.html">Open</a></figcaption><iframe src="../6-sunlit/index.html" title="Design 2, alt 2A" loading="lazy"></iframe></figure>
+      <figure><figcaption><div><b>Alt 2B</b><span>Yellow and white, abstract shapes</span></div><a href="../6-alt/index.html">Open</a></figcaption><iframe src="../6-alt/index.html" title="Design 2, alt 2B" loading="lazy"></iframe></figure>
+    </div>
+  </section>
 </div>
 </body>
 </html>
