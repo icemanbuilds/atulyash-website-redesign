@@ -134,15 +134,15 @@ label { display: block; margin-bottom: 4px; font-size: 14px; font-weight: 650; }
 <header class="top">
   <nav class="shell" aria-label="Collection">
     <a class="action" href="#finalists">Finalists</a>
-    <a class="action" href="#other-designs">Other designs</a>
-    <a class="action" href="#sources">Sources</a>
-    <a class="action" href="#test-and-archive">Test and archive</a>
+    <a class="action" href="#design-1">Design 1</a>
+    <a class="action" href="#design-2">Design 2</a>
+    <a class="action" href="#frames">Section frames</a>
   </nav>
 </header>
 <main class="shell">
   <div class="intro">
-    <h1>Atulyash homepage designs</h1>
-    <p>Browse the finalists, earlier designs and source directions.</p>
+    <h1>Atulyash homepage finalists</h1>
+    <p>Two designs, two alternates each.</p>
   </div>
   <section id="finalists" aria-labelledby="finalists-heading">
     <div class="section-heading">
@@ -190,23 +190,6 @@ label { display: block; margin-bottom: 4px; font-size: 14px; font-weight: 650; }
       </article>
     </div>
   </section>
-  <section id="other-designs" aria-labelledby="other-heading">
-    <div class="section-heading"><h2 id="other-heading">Other designs</h2><a class="action" href="#frames">View section frames</a></div>
-    <div class="others">
-      <figure>
-        <div class="preview"><div class="phone"><img src="previews/1-sill-a-hero.png" alt="1 Sill first screen" loading="lazy"></div></div>
-        <figcaption class="caption"><div><h3>1 Sill</h3><p>Window sash, yellow sill</p></div><a class="action open" href="1-sill/index.html" aria-label="Open 1 Sill">Open</a></figcaption>
-      </figure>
-      <figure>
-        <div class="preview"><div class="phone"><img src="previews/2-arch-a-hero.png" alt="2 Arch first screen" loading="lazy"></div></div>
-        <figcaption class="caption"><div><h3>2 Arch</h3><p>Arched window, golden tawa</p></div><a class="action open" href="2-arch/index.html" aria-label="Open 2 Arch">Open</a></figcaption>
-      </figure>
-      <figure>
-        <div class="preview"><div class="phone"><img src="previews/5-lens-a-hero.png" alt="5 Lens first screen" loading="lazy"></div></div>
-        <figcaption class="caption"><div><h3>5 Lens</h3><p>Kitchen through a glass lens, yellow pillar</p></div><a class="action open" href="5-lens/index.html" aria-label="Open 5 Lens">Open</a></figcaption>
-      </figure>
-    </div>
-  </section>
   <section id="frames" aria-labelledby="frames-heading">
     <div class="section-heading"><h2 id="frames-heading">Section frames</h2></div>
     <div class="frame-browser">
@@ -216,11 +199,8 @@ label { display: block; margin-bottom: 4px; font-size: 14px; font-weight: 650; }
           <select id="frame-design">
             <option value="1a">1A Clear glass</option>
             <option value="1b">1B Clear glass</option>
-            <option value="6-sunlit">2A Sunlit panels</option>
+            <option value="6-sunlit" selected>2A Sunlit panels</option>
             <option value="6-alt">2B Sunlit panels</option>
-            <option value="1-sill" selected>1 Sill</option>
-            <option value="2-arch">2 Arch</option>
-            <option value="5-lens">5 Lens</option>
           </select>
         </div>
         <div>
@@ -233,27 +213,12 @@ label { display: block; margin-bottom: 4px; font-size: 14px; font-weight: 650; }
             <option value="live">Live phone</option>
           </select>
         </div>
-        <p><a class="action" id="frame-link" href="1-sill/index.html">Open full page</a></p>
+        <p><a class="action" id="frame-link" href="finalists/2a/">Open full page</a></p>
       </div>
       <div class="frame-display">
-        <div class="viewport" id="frame"><img src="previews/1-sill-a-hero.png" alt="1 Sill, first screen" loading="lazy"></div>
+        <div class="viewport" id="frame"><img src="previews/6-sunlit-a-hero.png" alt="2A Sunlit panels, first screen" loading="lazy"></div>
       </div>
     </div>
-  </section>
-  <section id="sources" aria-labelledby="sources-heading">
-    <div class="section-heading"><h2 id="sources-heading">Sources</h2></div>
-    <ul class="link-list">
-      <li><a href="../opening/14-golden-kitchen/index.html">2 Golden Kitchen<span aria-hidden="true">&#8599;</span></a></li>
-      <li><a href="../opening/9-glass-field/index.html">3 Glass Field<span aria-hidden="true">&#8599;</span></a></li>
-      <li><a href="test/six.html">Compare both sources with Design 2A<span aria-hidden="true">&#8599;</span></a></li>
-    </ul>
-  </section>
-  <section id="test-and-archive" aria-labelledby="test-heading">
-    <div class="section-heading"><h2 id="test-heading">Test and archive</h2></div>
-    <ul class="link-list">
-      <li><a href="test/">Test variations<span aria-hidden="true">&#8599;</span></a></li>
-      <li><a href="archive/5-reeded/">5 Reeded archive<span aria-hidden="true">&#8599;</span></a></li>
-    </ul>
   </section>
 </main>
 <script>
