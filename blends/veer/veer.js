@@ -78,10 +78,16 @@ document.querySelectorAll('.veer').forEach(btn=>{
 function whenGrounded(v,cb){
   const gap=v.btn.closest('.vgap'), panel=gap&&gap.nextElementSibling;
   if(reduce||!document.documentElement.classList.contains('mo')||!panel){cb();return;}
+  /* and never before the visitor has started scrolling and his panel's top edge is well into view (so the first Veer is not there on arrival) */
+  const reached=()=>scrollY>60&&gap.getBoundingClientRect().bottom<innerHeight*.85;
+  const whenReached=f=>{if(reached()){f();return;}
+    const on=()=>{if(reached()){removeEventListener('scroll',on);f();}};addEventListener('scroll',on,{passive:true});};
   const go=()=>setTimeout(cb,450);
-  if(panel.classList.contains('in')){go();return;}
-  const mo=new MutationObserver(()=>{if(panel.classList.contains('in')){mo.disconnect();go();}});
-  mo.observe(panel,{attributes:true,attributeFilter:['class']});
+  whenReached(()=>{
+    if(panel.classList.contains('in')){go();return;}
+    const mo=new MutationObserver(()=>{if(panel.classList.contains('in')){mo.disconnect();go();}});
+    mo.observe(panel,{attributes:true,attributeFilter:['class']});
+  });
 }
 /* arriving in view: rise in once his panel is there, do his pose, say his line */
 const io=new IntersectionObserver(entries=>{
