@@ -8,7 +8,7 @@
 <title>Atulyash: 2B Living</title>
 <link rel="stylesheet" href="../glass.css">
 <link rel="preload" href="../fonts/figtree.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../veer/veer.css?v=14">
+<link rel="stylesheet" href="../veer/veer.css?v=16">
 <style>
 /* 6 Alt. Golden Kitchen, laid over Glass Field: its masthead, bold serif with the italic second line, the
    kitchen still life, the fact list, the kitchen journal, the thali gallery and the pack rows, each on its own panel.
@@ -77,16 +77,6 @@ svg{flex:none}
 
 /* ---------- from the kitchen: yellow ---------- */
 .journal h2{margin-bottom:16px}
-.journal ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
-.journal li{display:grid;grid-template-columns:30% 1fr;gap:14px;align-items:center;padding:10px;border-radius:18px;background:var(--paper)}
-.journal li:first-child{grid-template-columns:1fr;padding:0;overflow:hidden;border-radius:22px}
-.journal li img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:12px}
-.journal li:first-child img{aspect-ratio:1.5;border-radius:0;object-position:center 57%}
-.journal li:first-child>div{padding:16px 18px 18px}
-.journal h3{font-size:19px;line-height:1.15;letter-spacing:-.02em}
-.journal li:first-child h3{font-size:26px}
-.journal .yt{display:inline-flex;align-items:center;gap:6px;min-height:46px;margin-top:4px;font-weight:700;font-size:14.5px;color:var(--ink);text-underline-offset:3px}
-.journal .yt svg{width:16px;height:16px}
 
 /* ---------- the everyday table + why we question atta: white ---------- */
 .meals h2{margin-bottom:16px}
@@ -155,8 +145,6 @@ main{padding-bottom:46px}
   .art{min-height:420px;margin:0 -48px 0 0}
   .facts ul{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
   .facts li{border:0}
-  .journal ul{grid-template-columns:1.5fr 1fr;grid-template-rows:repeat(2,auto);gap:14px}
-  .journal li:first-child{grid-row:span 2}
   .meals{display:grid;grid-template-columns:1.3fr 1fr;gap:16px 40px;align-items:center}
   .meals h2{grid-column:1/-1;margin-bottom:0}
   .meals .q{margin:0;padding:32px 30px}.meals .q h3{font-size:34px}
@@ -170,7 +158,6 @@ main{padding-bottom:46px}
 /* ---------- shape play: each panel gets its own silhouette ---------- */
 .hero{border-radius:28px 28px 50% 50%/28px 28px 38px 38px;padding-bottom:18px}
 .facts{border-radius:28px 28px 78% 28px/28px 28px 110px 28px;padding-bottom:64px}
-.journal li:first-child img{border-radius:0 0 50% 50%/0 0 26px 26px}
 .gallery img.main{border-radius:62% 38% 46% 54%/58% 44% 56% 42%;height:270px}
 .gallery img:not(.main){border-radius:16px 16px 16px 44px}
 .gallery img:nth-child(3){border-radius:16px 16px 44px 16px}
@@ -210,14 +197,14 @@ main{padding-bottom:46px}
 @keyframes bob2{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-5px) rotate(2deg)}}
 .mo .hero h1,.mo .hero .lede,.mo .hero .acts{animation:up .9s cubic-bezier(.2,.8,.2,1) both}
 .mo .hero h1 em{display:block;animation:up .9s .18s cubic-bezier(.2,.8,.2,1) both}
-.mo .hero .lede{animation-delay:.32s}
-.mo .hero .acts{animation-delay:.44s}
-.mo .art img{animation:up 1s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(.35s + var(--i,0)*.1s)}
+.mo .hero .lede{animation-delay:.18s}
+.mo .hero .acts{animation-delay:.26s}
+.mo .art img{animation:up 1s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(.2s + var(--i,0)*.08s)}
 .mo.ready .art .pack{animation:bob 6s ease-in-out infinite}
 .mo.ready .art .roti{animation:bob2 7s ease-in-out infinite}
 .mo.ready .art .sprig{animation:bob2 8s ease-in-out infinite;transform-origin:bottom left}
 .mo .art img{translate:0 calc(var(--hy,0) * var(--d,0) * 1px)}
-.art .pack{--d:-.22}.art .roti{--d:.18}.art .flour{--d:.1}.art .sprig{--d:-.1}.art .grain{--d:.06}
+.art .pack{--d:-.07}.art .roti{--d:.05}.art .flour{--d:.04}.art .sprig{--d:-.04}.art .grain{--d:.03}
 
 /* line icons draw themselves */
 .mo .facts li svg *{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.4s cubic-bezier(.4,0,.2,1);transition-delay:calc(var(--i,0)*160ms + 400ms)}
@@ -273,7 +260,7 @@ main{padding-bottom:46px}
 .jfill{height:var(--len,0px);transform:scaleY(var(--progress,0));transform-origin:top;background:linear-gradient(#213F14,#365E12);box-shadow:0 0 10px rgba(255,255,255,.6)}
 html:not(.mo) .jfill{transform:none}
 .way .jpath li{position:relative;display:grid;grid-template-columns:72px 1fr;gap:12px;align-items:center;margin:0 0 10px;padding:10px 8px;border:0;border-radius:22px;
-  transition:background-color .5s,box-shadow .5s,transform .6s cubic-bezier(.3,1.4,.5,1)}
+  transition:background-color .22s,box-shadow .22s,transform .5s cubic-bezier(.3,1.4,.5,1)}
 .way .jpath li:last-child{margin-bottom:0}
 .jdot{position:absolute;left:-37px;top:50%;width:18px;height:18px;margin-top:-9px;border-radius:50%;background:#FFE58A;box-shadow:inset 0 0 0 3px #213F1455;transition:background-color .4s,box-shadow .4s,transform .5s cubic-bezier(.3,1.8,.5,1)}
 .jpath li.lit .jdot{background:#213F14;box-shadow:0 0 0 4px #FFFAF0}
@@ -316,8 +303,8 @@ main{position:relative}
 html:not(.mo) .thread{display:none}
 
 /* cards squash a little when pressed, like dough, and spring back */
-.mo .in .pack-card,.mo .in .journal li{transition:transform .6s cubic-bezier(.3,1.8,.5,1),opacity .7s}
-.mo .in .pack-card:active,.mo .in .journal li:active{transform:scale(.965,.94);transition-duration:.12s}
+.mo .in .pack-card{transition:transform .6s cubic-bezier(.3,1.8,.5,1),opacity .7s}
+.mo .in .pack-card:has(.button:active){transform:scale(.965,.94);transition-duration:.12s}
 
 /* morning to evening: a warm layer fades in as you go down (opacity only, no repaint) */
 .dusk{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:var(--tod,0);will-change:opacity;
@@ -329,7 +316,8 @@ html:not(.mo) .dusk{display:none}
 .mo .hero h1,.mo .hero h1 em{animation:none}
 
 /* the rider comes by when we deliver to your PIN */
-.ride{display:block;width:min(100%,320px);height:64px;margin:6px auto 0;overflow:hidden}
+.ride{display:block;width:min(100%,320px);height:0;margin:0 auto;overflow:hidden;transition:height .35s cubic-bezier(.3,0,.2,1),margin .35s,opacity .35s}
+.ride.open{height:64px;margin-top:6px}
 .ride .road{stroke:#21401433;stroke-width:2;stroke-dasharray:6 7}
 
 /* Site footer */
@@ -397,8 +385,8 @@ html:not(.mo) .dusk{display:none}
 .footer-store small {
   display: block;
   margin-bottom: 2px;
-  font-size: 8px;
-  letter-spacing: .08em;
+  font-size: 10px;
+  letter-spacing: .06em;
   text-transform: uppercase;
 }
 .footer-details { padding: 18px 4px 0; }
@@ -437,7 +425,7 @@ html:not(.mo) .dusk{display:none}
   line-height: 1.3;
 }
 .footer-policies :is(a, span) { display: flex; align-items: center; padding: 13.5px 0; }
-.footer-policies span { color: rgba(255,250,240,.45); }
+.footer-policies span { color: rgba(255,250,240,.62); }
 .footer-phone, .footer-policies a { text-decoration: none; text-underline-offset: 3px; }
 .footer-phone:is(:hover, :focus-visible), .footer-policies a:is(:hover, :focus-visible) {
   text-decoration: underline;
@@ -486,8 +474,8 @@ html:not(.mo) .dusk{display:none}
 
 /* ================= Motion: each section enters its own way (nothing rises from below) ================= */
 /* panels unroll from the top, like dough rolled out; the negative inset keeps the shadow once open */
-html.mo .panel:not(.hero){opacity:0;transform:none;clip-path:inset(-90px -90px 100% -90px round 28px);
-  transition:opacity .5s ease,clip-path 1.1s cubic-bezier(.65,0,.3,1)}
+html.mo .panel:not(.hero){opacity:0;transform:none;clip-path:inset(-90px -90px calc(100% - 110px) -90px round 28px);
+  transition:opacity .35s ease,clip-path .8s cubic-bezier(.5,0,.25,1)}
 html.mo .panel.in{opacity:1;transform:none;clip-path:inset(-90px round 28px)}
 html.mo .panel:focus-within{clip-path:none;opacity:1}
 /* default child reveal: a quiet fade, no movement */
@@ -498,26 +486,23 @@ html.mo .in h2 .w{filter:none}
 html.mo h2 em .w{opacity:1;filter:none;clip-path:inset(-30% 100% -30% 0);transition:clip-path .8s cubic-bezier(.6,0,.3,1);transition-delay:calc(var(--w,0)*110ms + 380ms)}
 html.mo .in h2 em .w{clip-path:inset(-30% -12% -30% 0)}
 /* hero */
-@keyframes focus-in{from{opacity:0;filter:blur(8px)}to{opacity:1;filter:none}}
+@keyframes focus-in{from{opacity:.3;filter:blur(4px)}to{opacity:1;filter:none}}
 @keyframes ink{from{clip-path:inset(-30% 100% -30% 0)}to{clip-path:inset(-30% -12% -30% 0)}}
 @keyframes fade{from{opacity:0}to{opacity:1}}
 @keyframes settle{from{opacity:0;transform:scale(1.09) rotate(-4deg)}to{opacity:1;transform:none}}
-html.mo .hero h1{animation:focus-in 1s ease both}
-html.mo .hero h1 em{animation:ink 1s .45s cubic-bezier(.6,0,.3,1) both}
-html.mo .hero h1 .w{animation:focus-in .9s ease both;animation-delay:calc(var(--w,0)*80ms + 100ms)}
-html.mo .hero h1 em .w{animation:ink .8s cubic-bezier(.6,0,.3,1) both;animation-delay:calc(var(--w,0)*110ms + 250ms)}
+html.mo .hero h1{animation:focus-in .7s ease both}
+html.mo .hero h1 em{animation:ink .7s .2s cubic-bezier(.6,0,.3,1) both}
+html.mo .hero h1 .w{animation:focus-in .65s ease both;animation-delay:calc(var(--w,0)*55ms)}
+html.mo .hero h1 em .w{animation:ink .55s cubic-bezier(.6,0,.3,1) both;animation-delay:calc(var(--w,0)*70ms + 140ms)}
 html.mo .hero h1:has(.w),html.mo .hero h1:has(.w) em{animation:none}
-html.mo .hero .lede,html.mo .hero .acts{animation-name:fade;animation-duration:.8s}
+html.mo .hero .lede,html.mo .hero .acts{animation-name:fade;animation-duration:.6s}
 html.mo .art img{animation-name:settle;animation-duration:1.1s;animation-timing-function:cubic-bezier(.2,.9,.3,1.15)}
 /* Why Atulyash: rows slide in from the left while the icons draw */
 html.mo .facts li.rise{transform:translateX(-18px);transition:opacity .6s ease,transform .8s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--i,0)*130ms + 250ms)}
 html.mo .facts.in li.rise{transform:none}
 /* kitchen: photos develop like prints */
-html.mo .journal li img{filter:saturate(.1) brightness(1.12) contrast(.9);transition:filter 1.6s ease,transform 1.8s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--i,0)*160ms + 300ms)}
-html.mo .journal li:first-child img{transform:scale(1.12)}
-html.mo .journal.in li img{filter:none;transform:none}
 /* meals: the plate is set down in a growing circle, the small photos develop */
-html.mo .gallery img.main{clip-path:circle(0% at 50% 55%);transition:clip-path 1.3s cubic-bezier(.6,0,.25,1) .2s,opacity .4s}
+html.mo .gallery img.main{clip-path:circle(24% at 50% 55%);transition:clip-path .95s cubic-bezier(.5,0,.25,1) .1s,opacity .4s}
 html.mo .meals.in .gallery img.main{clip-path:circle(75% at 50% 55%)}
 html.mo .gallery img:not(.main){filter:saturate(.1) brightness(1.12);transition:filter 1.4s ease,opacity .6s;transition-delay:calc(var(--i,0)*150ms + 500ms)}
 html.mo .meals.in .gallery img:not(.main){filter:none}
@@ -532,7 +517,7 @@ html.mo .meals.in .q-list li.atta{animation:wob .75s 1.3s both}
 /* packs: dealt onto the table like cards */
 html.mo .pack-card.rise{transform:translateX(-44px) rotate(-6deg);transform-origin:0 100%}
 html.mo .packs.in .pack-card.rise{transform:none;transition:opacity .45s ease,transform .9s cubic-bezier(.25,1.35,.45,1);transition-delay:calc(var(--i,0)*140ms + 250ms)}
-html.mo .packs.in .pack-card.rise:active{transform:scale(.97,.95);transition-duration:.12s;transition-delay:0s}
+html.mo .packs.in .pack-card.rise:has(.button:active){transform:scale(.97,.95);transition-duration:.12s;transition-delay:0s}
 
 /* ================= Depth: layered shadows, light edges, pressable buttons ================= */
 .panel{box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 1px 2px rgba(30,20,0,.18),0 10px 22px rgba(20,25,5,.18),0 30px 60px rgba(10,20,5,.26)}
@@ -542,8 +527,8 @@ html.mo .packs.in .pack-card.rise:active{transform:scale(.97,.95);transition-dur
 .button{box-shadow:inset 0 1px 0 rgba(255,255,255,.22),inset 0 -2px 0 rgba(0,0,0,.22),0 2px 3px rgba(0,0,0,.16),0 8px 18px rgba(54,94,18,.32)}
 .button:hover{box-shadow:inset 0 1px 0 rgba(255,255,255,.22),inset 0 -2px 0 rgba(0,0,0,.22),0 4px 6px rgba(0,0,0,.16),0 14px 26px rgba(54,94,18,.36)}
 .button:active{transform:translateY(1px) scale(.98);box-shadow:inset 0 2px 5px rgba(0,0,0,.3),0 1px 2px rgba(0,0,0,.2);transition-duration:.08s}
-.pack-card,.journal li,.jpath li.on{box-shadow:inset 0 1px 0 rgba(255,255,255,.75),0 0 0 1px rgba(150,110,20,.10),0 1px 2px rgba(90,60,0,.14),0 10px 22px rgba(90,60,0,.14)}
-.journal li img,.gallery img,.way li img{box-shadow:0 2px 4px rgba(30,20,0,.16),0 10px 22px rgba(30,20,0,.22)}
+.pack-card,.jpath li.on{box-shadow:inset 0 1px 0 rgba(255,255,255,.75),0 0 0 1px rgba(150,110,20,.10),0 1px 2px rgba(90,60,0,.14),0 10px 22px rgba(90,60,0,.14)}
+.gallery img,.way li img{box-shadow:0 2px 4px rgba(30,20,0,.16),0 10px 22px rgba(30,20,0,.22)}
 .pinrow input{box-shadow:inset 0 2px 5px rgba(33,63,20,.10)}
 .meals .q{box-shadow:inset 0 1px 0 rgba(255,236,170,.12),0 2px 4px rgba(0,0,0,.18),0 16px 32px rgba(10,30,5,.32)}
 .sticker{box-shadow:inset 0 1px 0 rgba(255,255,255,.2),inset 0 -3px 0 rgba(0,0,0,.18),0 4px 8px rgba(0,0,0,.2),0 14px 28px rgba(0,0,0,.26)}
@@ -579,11 +564,12 @@ html.mo .packs.in .pack-card.rise:active{transform:scale(.97,.95);transition-dur
 .film a{display:flex;flex-direction:column;width:100%;padding:6px 6px 10px;border-radius:18px 18px 18px 6px;background:var(--paper);color:var(--ink);text-decoration:none;
   box-shadow:inset 0 1px 0 rgba(255,255,255,.75),0 0 0 1px rgba(150,110,20,.10),0 1px 2px rgba(90,60,0,.14),0 8px 18px rgba(90,60,0,.15);transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s ease}
 .film a:focus-visible{outline:3px solid var(--button);outline-offset:3px}
+.film a:active{transform:scale(.97);transition-duration:.1s}
 .fth{position:relative;display:block;aspect-ratio:16/9;overflow:hidden;border-radius:13px;background:#EFE4C8}
 .fth img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
 .fplay{position:absolute;left:7px;top:7px;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--sun);color:var(--ink);box-shadow:0 0 0 2.5px rgba(255,250,240,.7),0 3px 8px rgba(0,0,0,.3);transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
 .fplay svg{width:12px;height:12px;margin-left:2px}
-.fn{margin:9px 5px 0;font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.fn{margin:9px 5px 0;font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
 .ft{margin:3px 5px 0;font:700 15.5px/1.22 Georgia,"Times New Roman",serif;letter-spacing:-.015em}
 @media (hover:hover){
   .film a:hover{transform:translateY(-3px);box-shadow:inset 0 1px 0 rgba(255,255,255,.75),0 0 0 1px rgba(150,110,20,.12),0 2px 4px rgba(90,60,0,.14),0 16px 28px rgba(90,60,0,.2)}
@@ -598,6 +584,33 @@ html.mo .packs.in .pack-card.rise:active{transform:scale(.97,.95);transition-dur
 /* motion: the films slide along the row one after another */
 html.mo .film{opacity:0;transform:translateX(40px);transition:opacity .5s ease,transform .9s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--i,0)*80ms + 350ms)}
 html.mo .journal.in .film{opacity:1;transform:none}
+
+/* ================= Phone QA pass ================= */
+/* no blue tap flash: every control already has its own pressed state */
+a,button,summary,input{-webkit-tap-highlight-color:transparent}
+/* the hero copy stays above the drifting still life */
+.hero .acts{position:relative;z-index:4}
+/* a passed panel opens with no transition */
+html.mo .panel.now,html.mo .panel.now *{transition-duration:0s!important;transition-delay:0s!important}
+/* prices are right from the start; they give one small pop as the cards land */
+@keyframes price-pop{0%,100%{transform:none}45%{transform:scale(1.16)}}
+.pack-card span{transform-origin:0 60%}
+html.mo .packs.in .pack-card span{animation:price-pop .55s cubic-bezier(.3,1.5,.5,1) both;animation-delay:calc(var(--i,0)*140ms + 750ms)}
+/* Dr. Asha's name never splits */
+.asha strong .keep{white-space:nowrap}
+@media (max-width:899px){
+  .mast.small,.mo .mast.small{transform:none}
+  .footer-stores{display:grid;grid-template-columns:1fr 1fr}
+  .footer-store{padding:6px 8px;font-size:13.5px}
+  /* the price sticker sits higher and a touch smaller so it clears the headline */
+  .sticker{top:-46px;right:12px;width:84px;height:84px;font-size:12px}
+  .sticker b{font-size:20px}
+}
+/* masthead lockup: the wordmark without its old tagline, and the pack line under it */
+.brand{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;text-decoration:none}
+.mast .brand img{width:128px;height:17px;object-fit:cover;object-position:top}
+.brand-line{font:600 10.5px/1 "Figtree",system-ui,sans-serif;letter-spacing:.015em;color:#2B5410;white-space:nowrap}
+@media (min-width:900px){.mast .brand img{width:150px;height:20px}.brand-line{font-size:12px}}
 </style>
 </head>
 <body>
@@ -607,7 +620,7 @@ html.mo .journal.in .film{opacity:1;transform:none}
     <summary aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg></summary>
     <nav aria-label="Main"><a href="#packs">Packs and prices</a><a href="#journal-h">From the kitchen</a><a href="#way-h">The Atulyash way</a><a href="#pin">Check delivery</a></nav>
   </details>
-  <a class="brand" href="#top"><img src="../img/gk/wordmark-308.webp" alt="Atulyash" width="308" height="70"></a>
+  <a class="brand" href="#top" aria-label="Atulyash, atta in its purest form"><img src="../img/gk/wordmark-308.webp" alt="" width="308" height="70"><span class="brand-line" aria-hidden="true">Atta in its purest form</span></a>
   <a class="button mast-order" href="#packs"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7 3 21h18L19 7ZM8 8V6a4 4 0 0 1 8 0v2"/></svg><span>See packs</span></a>
 </header>
 
@@ -718,7 +731,7 @@ html.mo .journal.in .film{opacity:1;transform:none}
   </div>
   <div class="asha">
     <img class="asha-pic" loading="lazy" decoding="async" src="../img/films/asha-176.webp" alt="Dr. Asha Kawatra" width="88" height="88">
-    <p><strong>Films with Dr. Asha Kawatra</strong>35 years in foods and nutrition. Formerly Head of Foods and Nutrition, CCS HAU, Hisar.</p>
+    <p><strong>Films with <span class="keep">Dr. Asha Kawatra</span></strong>35 years in foods and nutrition. Formerly Head of Foods and Nutrition, CCS HAU, Hisar.</p>
   </div>
   <div class="films" role="list" aria-label="Films with Dr. Asha Kawatra">
     <div class="film" role="listitem"><a href="https://www.youtube.com/watch?v=cua0_aQ-UY0"><span class="fth"><img loading="lazy" decoding="async" src="../img/films/cua0_aQ-UY0.webp" alt="" width="560" height="315"><span class="fplay" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5Z"/></svg></span></span><span class="fn">Short film 1 of 6</span><span class="ft">How fresh should your atta really be?</span></a></div>
@@ -818,7 +831,7 @@ const H=document.documentElement, reduce=matchMedia('(prefers-reduced-motion: re
 if(reduce)return;
 H.classList.add('mo');
 /* stagger children inside each panel */
-['.facts li','.journal li','.gallery img','.meals .q','.pack-card','.packs .note','.close form','.close .links'].forEach(sel=>
+['.facts li','.gallery img','.meals .q','.pack-card','.packs .note','.close form','.close .links'].forEach(sel=>
   document.querySelectorAll(sel).forEach(el=>{el.classList.add('rise');el.style.setProperty('--i',[...el.parentNode.children].indexOf(el));}));
 document.querySelectorAll('.art img').forEach((el,i)=>el.style.setProperty('--i',i));
 document.querySelectorAll('.facts li svg *').forEach(p=>p.setAttribute('pathLength','1'));
@@ -837,7 +850,7 @@ const hero=document.querySelector('.hero'), mast=document.querySelector('.mast')
 let frame=0, drift=-1, small;
 function onScroll(){
   frame=0;
-  const y=scrollY, offset=Math.round(Math.max(0,Math.min(1400,y))), compact=y>40;
+  const y=scrollY, offset=Math.round(Math.max(0,Math.min(900,y))), compact=y>40;
   if(offset!==drift){hero.style.setProperty('--hy',offset);drift=offset;}
   if(compact!==small){mast.classList.toggle('small',compact);small=compact;}
 }
@@ -861,12 +874,7 @@ document.querySelectorAll('main h2').forEach(h=>{let n=0;
 document.querySelectorAll('.pack-card,.pinrow').forEach(e=>e.classList.add('run'));
 /* prices count up the first time the packs arrive */
 const packs=document.querySelector('.packs');
-if(packs&&!reduce){const prices=[...packs.querySelectorAll('.pack-card span')];
-  const tgt=prices.map(p=>+p.textContent.replace(/\D/g,''));prices.forEach(p=>p.textContent='₹0');
-  new IntersectionObserver((es,o)=>{if(!es[0].isIntersecting)return;o.disconnect();const t0=performance.now();
-    const step=now=>{const k=Math.min(1,(now-t0)/1300),e=1-Math.pow(1-k,3);
-      prices.forEach((p,i)=>{p.textContent='₹'+Math.round(tgt[i]*Math.min(1,e*(1+i*.04)))});if(k<1)requestAnimationFrame(step);};
-    setTimeout(()=>requestAnimationFrame(step),350);},{threshold:.3}).observe(packs);}
+
 /* PIN answer: tick in, and tell the page (Veer and the rider listen) */
 const form=document.querySelector('[data-pin]');
 if(form){new MutationObserver(()=>{
@@ -1045,10 +1053,10 @@ document.addEventListener('pin',e=>{
   const s=mk('svg',{class:'ride',viewBox:'0 0 320 64','aria-hidden':'true'});
   mk('path',{class:'road',d:'M0 60H320'},s);
   const g=mk('use',{href:'#riderSym'},s);
-  out.after(s);
-  const t0=performance.now();
-  const go=now=>{const k=Math.min(1,(now-t0)/2600),e=k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2,x=-40+e*400,b=-Math.abs(Math.sin(k*40))*1.2;
-    g.setAttribute('transform',`translate(${x.toFixed(1)} ${(60+b).toFixed(1)}) scale(.62)`);if(k<1)requestAnimationFrame(go);};
+  out.after(s);s.getBoundingClientRect();s.classList.add('open');
+  const t0=performance.now()+300;
+  const go=now=>{const k=Math.max(0,Math.min(1,(now-t0)/2600)),e=k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2,x=-40+e*400,b=-Math.abs(Math.sin(k*40))*1.2;
+    g.setAttribute('transform',`translate(${x.toFixed(1)} ${(60+b).toFixed(1)}) scale(.62)`);if(k<1)requestAnimationFrame(go);else{s.classList.remove('open');setTimeout(()=>s.remove(),400);}};
   requestAnimationFrame(go);
 });
 })();
@@ -1057,12 +1065,18 @@ document.addEventListener('pin',e=>{
 /* panels unroll from the top, so a closed panel is fully clipped and cannot be watched itself:
    watch the gap just above each panel and open the panel when that gap comes into view (or is already passed) */
 (()=>{if(!document.documentElement.classList.contains('mo'))return;
-const open=p=>p&&p.classList.add('in');
+/* a panel the visitor has already passed (fast flick, reload part way down) opens at once instead of unrolling */
+const now=p=>{p.classList.add('now','in');requestAnimationFrame(()=>requestAnimationFrame(()=>p.classList.remove('now')));};
+const open=(p,instant)=>{if(!p)return;if(instant)now(p);else p.classList.add('in');};
+const gaps=[];
 const io=new IntersectionObserver(es=>es.forEach(e=>{
-  if(e.isIntersecting||e.boundingClientRect.bottom<0){open(e.target._panel);io.unobserve(e.target);}
+  const passed=e.boundingClientRect.bottom<0;
+  if(e.isIntersecting||passed){open(e.target._panel,passed);io.unobserve(e.target);}
 }),{rootMargin:'0px 0px -8% 0px'});
 document.querySelectorAll('.panel:not(.hero)').forEach(p=>{const g=p.previousElementSibling;
-  if(g){g._panel=p;io.observe(g);}else open(p);});
+  if(g){g._panel=p;io.observe(g);gaps.push(g);}else open(p);});
+addEventListener('load',()=>setTimeout(()=>{if(scrollY<80)return;
+  gaps.forEach(g=>{if(g.getBoundingClientRect().top<innerHeight*.92){open(g._panel,true);io.unobserve(g);}});},0));
 })();
 </script>
 <script>
@@ -1073,11 +1087,11 @@ document.querySelectorAll('.films').forEach(row=>{
   cards.forEach((c,i)=>c.style.setProperty('--i',i));
   const step=()=>cards[0].offsetWidth+(parseFloat(getComputedStyle(row).columnGap)||12);
   const update=()=>{prev.disabled=row.scrollLeft<4;next.disabled=row.scrollLeft+row.clientWidth>=row.scrollWidth-4;};
-  prev.addEventListener('click',()=>row.scrollBy({left:-step(),behavior:'smooth'}));
-  next.addEventListener('click',()=>row.scrollBy({left:step(),behavior:'smooth'}));
+  prev.addEventListener('click',()=>row.scrollBy({left:-step(),behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'}));
+  next.addEventListener('click',()=>row.scrollBy({left:step(),behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'}));
   row.addEventListener('scroll',update,{passive:true});addEventListener('resize',update);update();
 });
 </script>
-<script src="../veer/veer.js?v=12"></script>
+<script src="../veer/veer.js?v=14"></script>
 </body>
 </html>

@@ -60,7 +60,19 @@
    The clip line is that edge (--edge above his box bottom); once he is up it opens so his feet and focus ring show. */
 html.mo .veer{clip-path:inset(-600px -600px var(--edge,0px) -600px);transition:clip-path .3s ease .7s}
 html.mo .veer.up{clip-path:inset(-600px -600px -24px -600px)}
-html.mo .veer:not([data-pose=peek]) .vfig{translate:0 calc(100% + 8px);transition:translate .85s cubic-bezier(.22,1,.36,1)}
-html.mo .veer.up .vfig{translate:0 0}
+html.mo .veer:not([data-pose=peek]) .vfig{translate:0 calc(100% + 8px);opacity:0;transition:translate .6s cubic-bezier(.22,1,.36,1),opacity .3s ease}
+html.mo .veer.up .vfig{translate:0 0;opacity:1}
 .vlie .veer{--edge:10px}
 .vpeek .veer{clip-path:none}
+
+/* peek: the body (with a longer torso) stands behind the panel, the hands grip its edge in front */
+.vgap.s:has(.vpeek){z-index:auto}
+.vgap.s .vpeek{z-index:4}
+.vgap.s:has(.vpeek)+.panel{z-index:6}
+.vpeek .vclip{bottom:-90px}
+.vpeek .vclip img.vbody{margin-bottom:calc(90px - 51.8%)}
+.vhands{position:absolute;right:calc(var(--g,18px) + 26px);bottom:0;z-index:7;width:112px;height:100px;overflow:hidden;pointer-events:none}
+.vhands img{position:absolute;left:0;bottom:-3px;width:100%;height:auto;transform:translateY(105%);transition:transform .55s cubic-bezier(.2,.9,.3,1) .18s}
+.vgap:has(.veer.up) .vhands img{transform:none}
+@media (min-width:900px){.vhands{width:146px;height:130px}}
+@media (prefers-reduced-motion:reduce){.vhands img{transform:none}}

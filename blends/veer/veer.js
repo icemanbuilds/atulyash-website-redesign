@@ -7,7 +7,7 @@ const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const dimensions={
   'arm-left':[39,121],'arm-right':[41,127],'arm-thumb':[93,109],'arm-wave':[88,113],
   body:[122,294],head:[117,134],'head-blink':[117,134],'head-happy':[117,134],
-  lie:[440,274],peek:[361,333],tail:[44,90]
+  lie:[440,274],peek:[361,333],'peek-body':[361,520],'peek-hands':[361,333],tail:[44,90]
 };
 const img=(name,cls)=>{
   const i=new Image(...dimensions[name]);
@@ -52,8 +52,12 @@ function stand(btn){
 }
 function single(btn,file){
   const fig=document.createElement('span');fig.className='vfig';
-  const sprite=img(file);
-  if(btn.dataset.pose==='peek'){const c=document.createElement('span');c.className='vclip';c.appendChild(sprite);fig.appendChild(c);}
+  const peek=btn.dataset.pose==='peek';
+  const sprite=img(peek?'peek-body':file,peek?'vbody':'');
+  if(peek){const c=document.createElement('span');c.className='vclip';c.appendChild(sprite);fig.appendChild(c);
+    /* his hands sit in front of the panel, gripping its edge; his body hides behind it */
+    const box=btn.closest('.vpeek'),h=document.createElement('span');h.className='vhands';h.setAttribute('aria-hidden','true');h.appendChild(img('peek-hands'));
+    box&&box.after(h);}
   else fig.appendChild(sprite);
   btn.prepend(fig);
   return {btn,fig,sprite,kind:btn.dataset.pose,ph:Math.random()*6,hopT:-9};
@@ -112,10 +116,10 @@ const io=new IntersectionObserver(entries=>{
 all.forEach(v=>io.observe(v.btn));
 if(!reduce)document.addEventListener('visibilitychange',syncAnimation);
 /* PIN check */
-document.addEventListener('pin',e=>{const v=all.get(document.querySelector('.veer[data-pin-react]'));if(!v)return;
+document.addEventListener('pin',e=>setTimeout(()=>{const v=all.get(document.querySelector('.veer[data-pin-react]'));if(!v)return;
   if(e.detail==='ok'){say(v,'Yes! We deliver to you.',6500);act(v,'thumb');v.happyUntil=performance.now()+4000;}
   else if(e.detail==='no'){say(v,'Not there yet. WhatsApp us and we will tell you when.',6500);act(v,'wave');}
-  else say(v,'Six digits, please. Like 110017.',4500);});
+  else say(v,'Six digits, please. Like 110017.',4500);},650));
 
 if(reduce)return;
 /* the loop: springs, breathing, blinking */
@@ -165,7 +169,7 @@ function frame(now){
     }else if(v.kind==='peek'){
       const i=v.sprite;
       if(v.btn.classList.contains('up')&&now-v.hopT>1100){i.style.transition='none';
-        i.style.transform=`translateY(${(Math.sin(T*1.4+v.ph)*2.5+hop*-6).toFixed(2)}px) rotate(${(Math.sin(T*.8+v.ph)*2).toFixed(2)}deg)`;i.style.transformOrigin='50% 100%';}
+        i.style.transform=`translateY(${(Math.sin(T*1.4+v.ph)*2.5+hop*-6).toFixed(2)}px) rotate(${(Math.sin(T*.8+v.ph)*1.2).toFixed(2)}deg)`;i.style.transformOrigin='50% 100%';}
     }else{
       const i=v.sprite;i.style.transformOrigin='30% 100%';
       i.style.transform=`translateY(${(-hop*8).toFixed(2)}px) scale(${(1+br*.004).toFixed(4)},${(1+br*.012).toFixed(4)})`;
