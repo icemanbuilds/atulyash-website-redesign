@@ -584,6 +584,11 @@ html.mo .packs.in .pack-card span{animation:price-pop .55s cubic-bezier(.3,1.5,.
   .sticker{top:-46px;right:12px;width:84px;height:84px;font-size:12px}
   .sticker b{font-size:20px}
 }
+/* masthead lockup: the wordmark without its old tagline, and the pack line under it */
+.brand{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;text-decoration:none}
+.mast .brand img{width:128px;height:17px;object-fit:cover;object-position:top}
+.brand-line{font:600 10.5px/1 "Figtree",system-ui,sans-serif;letter-spacing:.015em;color:#2B5410;white-space:nowrap}
+@media (min-width:900px){.mast .brand img{width:150px;height:20px}.brand-line{font-size:12px}}
 </style>
 </head>
 <body>
@@ -593,7 +598,7 @@ html.mo .packs.in .pack-card span{animation:price-pop .55s cubic-bezier(.3,1.5,.
     <summary aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg></summary>
     <nav aria-label="Main"><a href="#packs">Packs and prices</a><a href="#journal-h">From the kitchen</a><a href="#way-h">The Atulyash way</a><a href="#pin">Check delivery</a></nav>
   </details>
-  <a class="brand" href="#top"><img src="../img/gk/wordmark-308.webp" alt="Atulyash" width="308" height="70"></a>
+  <a class="brand" href="#top" aria-label="Atulyash, atta in its purest form"><img src="../img/gk/wordmark-308.webp" alt="" width="308" height="70"><span class="brand-line" aria-hidden="true">Atta in its purest form</span></a>
   <a class="button mast-order" href="#packs"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7 3 21h18L19 7ZM8 8V6a4 4 0 0 1 8 0v2"/></svg><span>See packs</span></a>
 </header>
 
