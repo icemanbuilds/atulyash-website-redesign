@@ -14,23 +14,25 @@
 .vrig .arm{transition:opacity .22s ease}
 .vshadow{position:absolute;left:12%;right:12%;bottom:-4px;height:8px;border-radius:50%;background:radial-gradient(closest-side,rgba(0,0,0,.35),transparent);transform-origin:50% 50%}
 
-/* speech: a soft rounded balloon with a long pointed tail that sweeps toward him.
-   Colours alternate down the page: sun yellow, then cream, then yellow again. Figtree (OFL), self-hosted. */
+/* speech: the Speech Ribbon the owner picked. A slanted, rounded yellow tag with a short wedge
+   tail at mid height pointing straight at Veer. Colours alternate down the page: sun yellow, then cream. Figtree (OFL), self-hosted. */
 @font-face{font-family:"Figtree";font-style:normal;font-weight:300 900;font-display:swap;src:url(../fonts/figtree.woff2) format("woff2")}
-.vbub{position:absolute;bottom:64px;z-index:7;width:max-content;max-width:min(200px,56vw);padding:8px 13px 9px;border-radius:15px;
-  --rib:#FFCF39;background:var(--rib);color:#213F14;font:700 14px/1.24 "Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;letter-spacing:-.005em;text-align:left;
-  filter:drop-shadow(0 1px 1px rgba(0,0,0,.18)) drop-shadow(0 6px 10px rgba(0,0,0,.22));
-  opacity:0;transform:translateX(-8px) rotate(-2deg);transform-origin:0 100%;transition:opacity .21s ease,transform .21s ease;pointer-events:none}
+.vbub{position:absolute;bottom:64px;z-index:7;width:max-content;max-width:min(210px,58vw);padding:9px 18px 10px;
+  --rib:#FFCF39;background:none;color:#213F14;font:650 16px/1.22 "Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;letter-spacing:-.01em;text-align:center;text-wrap:balance;
+  filter:drop-shadow(0 1px 1px rgba(0,0,0,.16)) drop-shadow(0 5px 9px rgba(0,0,0,.2));
+  opacity:0;transform:translateX(-8px) rotate(-2deg);transform-origin:0 50%;transition:opacity .21s ease,transform .21s ease;pointer-events:none}
 .veer.alt .vbub{--rib:#FFFAF0}
-/* the tail: one long point, filled with the same colour through a mask */
-.vbub::after{content:"";position:absolute;bottom:7px;width:34px;height:19px;background:var(--rib);
-  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 22'%3E%3Cpath d='M0 1C12 4 26 9 40 16C27 15 13 17 0 21Z'/%3E%3C/svg%3E") center/100% 100% no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 22'%3E%3Cpath d='M0 1C12 4 26 9 40 16C27 15 13 17 0 21Z'/%3E%3C/svg%3E") center/100% 100% no-repeat}
-.veer.r .vbub::after{right:-29px}
-.veer.l .vbub::after{left:-29px;transform:scaleX(-1)}
-/* the balloon sits beside him, never over him, and keeps the page margin: --vx is how far his box sits from the screen edge */
-.vbub{--vx:calc(var(--g,18px) + 12px);max-width:min(200px,calc(100vw - var(--vx) - var(--vw,96px) - 30px - var(--g,18px)))}
-.veer.l .vbub{left:calc(100% + 26px)}
-.veer.r .vbub{right:calc(100% + 26px);transform:translateX(8px) rotate(2deg);transform-origin:100% 100%}
+/* the slanted tag body sits behind the words */
+.vbub::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--rib);border-radius:13px 16px 13px 11px;transform:skewX(-7deg)}
+/* the tail: a short wedge out of the side, aimed at him */
+.vbub::after{content:"";position:absolute;top:34%;width:22px;height:18px;background:var(--rib)}
+.veer.l .vbub::after{left:-19px;clip-path:polygon(0 38%,100% 0,100% 100%)}
+.veer.r .vbub{text-align:left}
+.veer.r .vbub::after{top:auto;bottom:24%;right:-19px;clip-path:polygon(0 0,100% 72%,0 100%)}
+/* the tag sits beside him, never over him, and keeps the page margin: --vx is how far his box sits from the screen edge */
+.vbub{--vx:calc(var(--g,18px) + 12px);max-width:min(210px,calc(100vw - var(--vx) - var(--vw,96px) - 26px - var(--g,18px)))}
+.veer.l .vbub{left:calc(100% + 18px)}
+.veer.r .vbub{right:calc(100% + 18px);transform:translateX(8px) rotate(2deg);transform-origin:100% 50%}
 .veer.say .vbub{opacity:1;transform:none;transition:opacity .2s ease,transform .35s cubic-bezier(.2,.9,.3,1.15)}
 .vbub:empty{display:none}
 
@@ -41,11 +43,15 @@
 .vclip img{position:absolute;left:0;bottom:-3px;width:100%;transform:translateY(105%);transition:transform 1s cubic-bezier(.3,1.45,.5,1)}
 .veer.up .vclip img{transform:none}
 .vpeek .vbub{bottom:22px;--vx:calc(var(--g,18px) + 26px);--vw:112px}
+/* his head sits right of centre in the peek art, so the tag can come in close and keep three lines */
+.vpeek .veer.r .vbub{right:calc(100% + 2px);bottom:26px;max-width:min(210px,calc(100vw - var(--vx) - var(--vw) - 8px - var(--g,18px)))}
 /* lie: on the top edge of the panel below */
 .vlie{position:absolute;right:calc(var(--g,18px) + 18px);bottom:-10px;width:156px;height:96px}
 .vlie .veer{left:0;right:0;width:100%;height:100%}
 .vlie .vfig img{position:absolute;left:0;bottom:0;width:100%}
 .vlie .vbub{bottom:36px;--vx:calc(var(--g,18px) + 18px);--vw:156px}
+/* lying, he takes up most of the row: the tag comes in close and a size smaller so lines stay whole */
+.vlie .veer.r .vbub{right:calc(100% + 8px);font-size:15px;padding-inline:15px;max-width:min(210px,calc(100vw - var(--vx) - var(--vw) - 12px - var(--g,18px)))}
 
 @media (min-width:900px){
   .vgap{height:200px}.vgap.s{height:130px}.vgap.m{height:110px}
